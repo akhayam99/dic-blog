@@ -1,0 +1,32 @@
+<div class="post-owner">
+  <dicf-user
+    [userName]="post.user.full_name"
+    [userMail]="post.user.email"
+    [userAvatar]="post.user.avatar">
+  </dicf-user>
+</div>
+<div class="post-item">
+  <div class="title">
+    {{ post.title }}
+  </div>
+  <div class="date">
+    {{ post.created_at | formatDate:'YYYY/MM/DD, HH:mm' }}
+  </div>
+  <div class="body">
+    <ng-container *ngIf="summary; else full">
+      {{ post.text | summarize }}
+    </ng-container>
+    <ng-template #full>
+      {{ post.text }}
+    </ng-template>
+
+  </div>
+
+  <div class="comment-block">
+    <div class="title no-selection">
+      {{ post.comments_count }} COMMENTI
+    </div>
+    <div class="body">
+    </div>
+  </div>
+</div>

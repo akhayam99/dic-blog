@@ -1,0 +1,11 @@
+<div class="comment-block">
+  <dicf-user
+  [userName]="comment.user.full_name"
+  [userMail]="comment.user.email"
+  [userAvatar]="comment.user.avatar"
+  >
+
+  </dicf-user>
+  {{ comment.text }}
+  {{ comment.created_at }}
+</div>

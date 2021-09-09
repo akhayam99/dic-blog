@@ -1,0 +1,8 @@
+@import '../../../assets/css/variables';
+
+:host {
+  transform-origin: center;
+  &.fa-green {
+    color: $green;
+  }
+}

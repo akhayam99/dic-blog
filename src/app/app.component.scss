@@ -1,0 +1,36 @@
+$green: #1d9e84;
+
+.header {
+  background: $green;
+  color: white;
+  font-size: 30px;
+  padding: 20px;
+  text-align: center;
+
+  .title {
+    font-weight: 600;
+    font-size: 40px;
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 25px;
+    font-style: italic;
+  }
+}
+
+.fa-green {
+  color: $green;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer {
+  background-color: $green;
+  bottom: 0;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}

@@ -1,0 +1,52 @@
+
+@import '../../../assets/css/variables';
+
+:host {
+  display:block;
+
+    width: 500px;
+
+    .title {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .date {
+      font-weight: 300;
+      font-size: 12px;
+      text-align: right;
+      font-style: italic;
+    }
+
+    .body {
+      padding-top: 4px;
+      font-size: 15px;
+    }
+  }
+
+  .post-owner {
+    text-align: center;
+  }
+
+  .comment-block {
+    margin-top: 20px;
+
+    .title {
+      background-color: $green;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      max-width: 120px;
+      padding: 2px 6px;
+      text-align: center;
+      width: 90px;
+    }
+
+    .body {
+      padding: 5px 20px;
+    }
+
+
+}
