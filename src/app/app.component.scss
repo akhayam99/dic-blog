@@ -1,36 +1,46 @@
 $green: #1d9e84;
 
-.header {
-  background: $green;
-  color: white;
-  font-size: 30px;
-  padding: 20px;
-  text-align: center;
+:host {
+  display: block;
+  height: 100%;
 
-  .title {
-    font-weight: 600;
-    font-size: 40px;
+  .blog-header {
+    background: $green;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+    height: 120px;
+
+    .title {
+      font-weight: 600;
+      font-size: 40px;
+    }
+
+    .subtitle {
+      font-weight: 300;
+      font-size: 25px;
+      font-style: italic;
+    }
   }
 
-  .subtitle {
-    font-weight: 300;
-    font-size: 25px;
-    font-style: italic;
+  .blog-main {
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: calc(100% - 160px - 80px);
+
+    .blog-user {
+      background: #EEE;
+    }
+
+    .blog-user, .blog-post {
+      height: 100%;
+      overflow: auto
+    }
   }
-}
 
-.fa-green {
-  color: $green;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.footer {
-  background-color: $green;
-  bottom: 0;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  text-align: center;
-  width: 100%;
+  .blog-footer {
+    height: 80px;
+    background: $green;
+  }
 }
