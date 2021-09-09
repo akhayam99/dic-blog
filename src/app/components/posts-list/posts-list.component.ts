@@ -14,6 +14,7 @@ import { PostComponent } from '../post/post.component';
 
 export class PostsListComponent implements OnInit {
 
+loading$: Observable<boolean>
 posts$: Observable<IPost[]>;
 postsCount$: Observable<number>;
 differentUser$: Observable<number>;
@@ -21,6 +22,7 @@ differentUser$: Observable<number>;
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
+    this.loading$ = this.blogService.loading$;
     this.posts$ = this.blogService.posts$;
     this.postsCount$ = this.posts$.pipe(
       map(posts => posts.length)

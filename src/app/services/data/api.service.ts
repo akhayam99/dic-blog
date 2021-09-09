@@ -7,7 +7,6 @@ export type ApiParams = { [key: string]: any };
   providedIn: 'root'
 })
 export abstract class ApiService<T> {
-
   abstract getList$(params?: ApiParams): Observable<T[]>;
   abstract getItem$(id: number): Observable<T>;
   abstract deleteItem$(id: any): Observable<void>;

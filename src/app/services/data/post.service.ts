@@ -94,6 +94,8 @@ const DATA: IPost[] = [
 
 export class PostService extends ApiService<IPost> {
   getList$(params?: { [key: string]: any; }): Observable<IPost[]> {
+    if (params && params.user_id)
+      return of(DATA.filter(d => d.user.id === params.user_id)).pipe(delay(1000));
     return of(DATA).pipe(delay(1000));
   }
   getItem$(id: number): Observable<IPost> {

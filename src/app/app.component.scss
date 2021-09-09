@@ -5,12 +5,15 @@ $green: #1d9e84;
   height: 100%;
 
   .blog-header {
+    align-items: center;
     background: $green;
     color: white;
+    display: flex;
+    flex-direction: column;
     font-size: 30px;
-    padding: 20px;
+    height: 160px;
+    justify-content: center;
     text-align: center;
-    height: 120px;
 
     .title {
       font-weight: 600;
@@ -26,11 +29,17 @@ $green: #1d9e84;
 
   .blog-main {
     display: grid;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 300px auto;
     height: calc(100% - 160px - 80px);
 
     .blog-user {
-      background: #EEE;
+      display: flex;
+      color: white;
+      justify-content: center;
+      background: $green;
+      box-sizing: border-box;
+      border: 5px solid white;
+      cursor: pointer;
     }
 
     .blog-user, .blog-post {

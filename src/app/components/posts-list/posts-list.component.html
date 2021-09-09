@@ -3,24 +3,26 @@
     <dicf-loader
     [big]="true"
     [green]="true"
-    *ngIf="!data.post"
+    *ngIf="loading$ | async"
   ></dicf-loader>
   </div>
 
-  <div class="post-list">
-    <dicf-post
-      *ngFor="let post of data.post; let i = index"
-      [post]='post'
-      [summary]='true'
-    ></dicf-post>
-  </div>
+  <ng-container *ngIf="!(loading$ | async)">
+    <div class="post-list">
+      <dicf-post
+        *ngFor="let post of data.post; let i = index"
+        [post]='post'
+        [summary]='true'
+      ></dicf-post>
+    </div>
 
-  <div class="post-info">
-    <ng-container *ngIf="{ posts: postsCount$ | async, users: differentUser$ | async } as postInfo">
-      <ng-container *ngIf="postInfo.posts > 0">
-        Sono presenti {{ postInfo.posts }} post di {{ postInfo.users }} utenti unici
+    <div class="post-info">
+      <ng-container *ngIf="{ posts: postsCount$ | async, users: differentUser$ | async } as postInfo">
+        <ng-container *ngIf="postInfo.posts > 0">
+          Sono presenti {{ postInfo.posts }} post di {{ postInfo.users }} utenti unici
+        </ng-container>
       </ng-container>
+    </div>
   </ng-container>
-  </div>
 
 </div>

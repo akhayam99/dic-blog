@@ -9,7 +9,9 @@
 
 <div class="blog-main">
   <div class="blog-user">
-    ciao giorgio :)
+    <dicf-users-list
+      (onUserClick)="onUserClick($event)">
+    </dicf-users-list>
   </div>
   <div class="blog-post">
     <dicf-posts-list>
