@@ -1,7 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { IUser } from 'src/app/interfaces/IUser';
-import { BlogService } from 'src/app/services/controller/blog.service';
+import { IUser } from '../../interfaces/IUser';
+import * as fromStore from '../../store';
+
 
 @Component({
   selector: 'dicf-users-list',
@@ -15,10 +17,10 @@ export class UsersListComponent implements OnInit {
 
   @Output() onUserClick = new EventEmitter<IUser>();
 
-  constructor(private blogService: BlogService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.users$ = this.blogService.users$;
+    this.users$ = this.store.select(fromStore.getUsers);
   }
 
   userClicked(user: IUser): void {

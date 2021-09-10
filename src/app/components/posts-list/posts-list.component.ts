@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { IPost } from 'src/app/interfaces/IPost';
-import { BlogService } from 'src/app/services/controller/blog.service';
+import * as fromStore from 'src/app/store';
 
 @Component({
   selector: 'dicf-posts-list',
@@ -13,32 +13,17 @@ import { BlogService } from 'src/app/services/controller/blog.service';
 
 export class PostsListComponent implements OnInit {
 
-loading$: Observable<boolean>
-posts$: Observable<IPost[]>;
-postsCount$: Observable<number>;
-differentUser$: Observable<number>;
+  loading$: Observable<boolean>
+  posts$: Observable<IPost[]>;
+  postsCount$: Observable<number>;
+  differentUser$: Observable<number>;
 
-  constructor(private blogService: BlogService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
-    console.log('nInit')
-    this.loading$ = this.blogService.loading$;
-    this.posts$ = this.blogService.posts$;
-    this.postsCount$ = this.posts$.pipe(
-      map(posts => posts.length)
-    );
-    this.differentUser$ = this.posts$.pipe(
-      map(posts => {
-        let uniqueUser = [];
-        posts.forEach(post => {
-          if (!uniqueUser.includes(post.user.id))
-            uniqueUser.push(post.user.id)
-        });
-        return uniqueUser.length;
-      })
-    )
-
-    this.posts$.subscribe((val) => {console.log(val)})
-    console.log('ipo')
+    this.loading$ = this.store.select(fromStore.getLoadingPosts);
+    this.posts$ = this.store.select(fromStore.getPosts);
+    this.postsCount$ = this.store.select(fromStore.getPostsNumber);
+    this.differentUser$ = this.store.select(fromStore.getPostsUniqueUsers);
   }
 }
