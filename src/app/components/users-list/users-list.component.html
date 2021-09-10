@@ -1,7 +1,18 @@
-<ng-container *ngIf="users$ | async as users">
-  <dicf-user *ngFor="let user of users" (click)="userClicked(user)"
+<div *ngIf="{ user: users$ | async } as data">
+  <div class="loader">
+    <dicf-loader
+      [big]="true"
+      [white]="true"
+      *ngIf="loading$ | async"
+    ></dicf-loader>
+  </div>
+
+  <dicf-user
+    *ngFor="let user of data.user"
+    (click)="userClicked(user)"
     [userName]="user.full_name"
     [userMail]="user.email"
     [userAvatar]="user.avatar"
   ></dicf-user>
-</ng-container>
+
+</div>

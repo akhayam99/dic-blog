@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersListComponent } from './users-list.component';
+import { NgModule } from '@angular/core';
+import { LoaderModule } from '../loader/loader.module';
 import { UserModule } from '../user/user.module';
+import { UsersListComponent } from './users-list.component';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { UserModule } from '../user/user.module';
   ],
   imports: [
     CommonModule,
-    UserModule
+    LoaderModule,
+    UserModule,
   ],
   exports: [
     UsersListComponent

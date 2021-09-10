@@ -11,13 +11,16 @@ export default createReducer(
   initialState,
   on(fromActions.LoadUsers, state => ({
     ...state,
+    loading: true,
   })),
   on(fromActions.LoadUsersSuccess, (state, {users}) => ({
     ...state,
     users,
+    loading: false,
   })),
   on(fromActions.LoadUsersFailed, state => ({
     ...state,
     users: [],
+    loading: false,
   })),
 )

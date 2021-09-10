@@ -13,14 +13,15 @@ import * as fromStore from '../../store';
 })
 export class UsersListComponent implements OnInit {
 
+  loading$: Observable<boolean>;
   users$: Observable<IUser[]>;
-
   @Output() onUserClick = new EventEmitter<IUser>();
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.users$ = this.store.select(fromStore.getUsers);
+    this.loading$ = this.store.select(fromStore.getLoadingUsers);
   }
 
   userClicked(user: IUser): void {

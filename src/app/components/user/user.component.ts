@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'dicf-user',
@@ -7,15 +7,8 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class UserComponent implements OnInit {
-
+export class UserComponent {
   @Input() userAvatar: string;
   @Input() userMail: string;
   @Input() userName: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -6,13 +6,34 @@ $green: #1d9e84;
   height: calc(100% - 160px - 80px);
 
   .blog-user {
-    display: flex;
-    color: white;
-    justify-content: center;
     background: $green;
-    box-sizing: border-box;
-    border: 7px solid white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 5px solid white;
+    box-sizing: content-box;
+    color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px auto;
+    padding: 0;
+  }
+
+  .blog-user::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  .blog-user::-webkit-scrollbar-track {
+    background-color: $green;
+    border-radius: 20px;
+    margin: 5px 0px;
+  }
+
+  .blog-user::-webkit-scrollbar-thumb {
+    background: white;
+    border: 3px solid $green;
+    border-radius: 20px;
   }
 
   .blog-user, .blog-post {
