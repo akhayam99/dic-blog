@@ -27,27 +27,6 @@ $green: #1d9e84;
     }
   }
 
-  .blog-main {
-    display: grid;
-    grid-template-columns: 300px auto;
-    height: calc(100% - 160px - 80px);
-
-    .blog-user {
-      display: flex;
-      color: white;
-      justify-content: center;
-      background: $green;
-      box-sizing: border-box;
-      border: 5px solid white;
-      cursor: pointer;
-    }
-
-    .blog-user, .blog-post {
-      height: 100%;
-      overflow: auto
-    }
-  }
-
   .blog-footer {
     height: 80px;
     background: $green;

@@ -69,8 +69,4 @@ export class CommentService extends ApiService<IComment> {
   save$(item: any): Observable<IComment> {
     throw new Error('Method not implemented.');
   }
-
-  getComments$(post_id: number): Observable<IComment[]> {
-    return of(DATA.filter(d => d.post_id === post_id)).pipe(delay(1000));
-  }
 }

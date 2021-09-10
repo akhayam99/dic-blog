@@ -91,19 +91,21 @@ const DATA: IPost[] = [
 @Injectable({
   providedIn: 'root'
 })
-
 export class PostService extends ApiService<IPost> {
   getList$(params?: { [key: string]: any; }): Observable<IPost[]> {
     if (params && params.user_id)
       return of(DATA.filter(d => d.user.id === params.user_id)).pipe(delay(1000));
     return of(DATA).pipe(delay(1000));
   }
+
   getItem$(id: number): Observable<IPost> {
-    throw new Error('Method not implemented.');
+    return of(DATA.find(d => d.id === id)).pipe(delay(1000));
   }
+
   deleteItem$(id: any): Observable<void> {
     throw new Error('Method not implemented.');
   }
+
   save$(item: any): Observable<IPost> {
     throw new Error('Method not implemented.');
   }

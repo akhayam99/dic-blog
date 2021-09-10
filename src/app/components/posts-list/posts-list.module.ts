@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PostsListComponent } from './posts-list.component';
 import { PostModule } from '../post/post.module';
 import { LoaderModule } from '../loader/loader.module';
+import { RouterModule } from '@angular/router';
 
 const module = [
   CommonModule,
@@ -16,6 +17,7 @@ const module = [
   ],
   imports: [
     ...module,
+    RouterModule,
   ],
   exports: [
     PostsListComponent

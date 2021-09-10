@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { IPost } from 'src/app/interfaces/IPost';
 import { BlogService } from 'src/app/services/controller/blog.service';
-import { PostComponent } from '../post/post.component';
 
 @Component({
   selector: 'dicf-posts-list',
@@ -22,6 +21,7 @@ differentUser$: Observable<number>;
   constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
+    console.log('nInit')
     this.loading$ = this.blogService.loading$;
     this.posts$ = this.blogService.posts$;
     this.postsCount$ = this.posts$.pipe(
@@ -37,5 +37,8 @@ differentUser$: Observable<number>;
         return uniqueUser.length;
       })
     )
+
+    this.posts$.subscribe((val) => {console.log(val)})
+    console.log('ipo')
   }
 }

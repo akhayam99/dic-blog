@@ -10,9 +10,4 @@ import { BlogService } from './services/controller/blog.service';
 
 export class AppComponent {
 
-  constructor(private blogService: BlogService) { }
-
-  onUserClick(user: IUser): void {
-    this.blogService.loadPosts(user);
-  }
 }
