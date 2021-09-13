@@ -5,18 +5,18 @@ import { PostsListModule } from '../posts-list/posts-list.module';
 import { UsersListModule } from '../users-list/users-list.module';
 import { MainComponent } from './main.component';
 
+const module = [
+  PostsListModule,
+  UsersListModule,
+  RouterModule.forChild([{ path: '', component: MainComponent }]),
+]
 @NgModule({
   declarations: [
     MainComponent
   ],
   imports: [
+    ...module,
     CommonModule,
-    PostsListModule,
-    UsersListModule,
-    RouterModule.forChild([{
-      path: '',
-      component: MainComponent,
-    }]),
   ],
   exports: [
     MainComponent

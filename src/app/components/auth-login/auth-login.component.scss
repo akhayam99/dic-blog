@@ -1,0 +1,47 @@
+@import "../../../assets/css/variables";
+
+:host {
+  color: white;
+
+  .form {
+    font-size: 14px;
+    font-weight: 800px;
+    margin: 5px;
+    text-align: center;
+
+    .label {
+      margin: 5px;
+    }
+
+    .btn-password {
+      background-color: white;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      border: 0px;
+      cursor: pointer;
+      height: 22px;
+      margin-left: -5px;
+    }
+  }
+
+  .submit {
+    text-align: center;
+    padding: 10px;
+
+    input[type="submit"] {
+      background-color: white;
+      border: 0px;
+      border-radius: 5px;
+      color: black;
+      font-size: 12px;
+      font-weight: 600;
+      height: 20px;
+      width: 30%;
+    }
+
+    input[type="submit"]:hover {
+      outline-color: $green;
+      outline: auto;
+    }
+  }
+}

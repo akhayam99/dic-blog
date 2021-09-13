@@ -1,30 +1,10 @@
-<div class="info-1"> ACCEDI PER CONTINUARE :) </div>
+<div class="content info"> ACCEDI PER CONTINUARE :) </div>
 
-<div class="login">
-  <div class="form">
-    <div class="label">
-      Username <i class="fa fa-user" aria-hidden="true"></i>
-    </div>
-    <dicf-custom-input [(ngModel)]="username" #usernameValidation="ngModel"></dicf-custom-input>
-  </div>
-
-  <div class="form">
-    <div class="label">
-      Password <i class="fa fa-lock" aria-hidden="true"></i>
-    </div>
-    <dicf-custom-input [(ngModel)]="password" #passwordValidation="ngModel" [type]="showPassword ? 'text' : 'password'">
-    </dicf-custom-input>
-    <button class="btn-password" (click)="showPassword = !showPassword">
-      <i class="fa fa-eye" aria-hidden="true"></i>
-    </button>
-  </div>
-
-  <div class="submit">
-    <input type="submit" [routerLink]="'/posts'">
-  </div>
+<div class="content login">
+  <dicf-auth-login></dicf-auth-login>
 </div>
 
-<div class="info-2">
+<div class="content info">
   Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il
   testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li
   assemblò per preparare un testo campione. È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla

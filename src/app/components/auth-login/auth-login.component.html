@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="form">
+    <div class="label">
+      Username <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+    <dicf-custom-input [(ngModel)]="username" #usernameValidation="ngModel"></dicf-custom-input>
+  </div>
+
+  <div class="form">
+    <div class="label">
+      Password <i class="fa fa-lock" aria-hidden="true"></i>
+    </div>
+    <dicf-custom-input [(ngModel)]="password" #passwordValidation="ngModel" [type]="showPassword ? 'text' : 'password'">
+    </dicf-custom-input>
+    <button class="btn-password" (click)="showPassword = !showPassword">
+      <i class="fa fa-eye" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="submit">
+    <input type="submit" [routerLink]="'/posts'">
+  </div>
+</div>

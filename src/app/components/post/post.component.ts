@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IPost } from 'src/app/interfaces/IPost';
 
 @Component({
@@ -11,4 +11,5 @@ export class PostComponent {
 
   @Input() post: IPost;
   @Input() summary: boolean;
+  @Input() comments: boolean = true;
 }

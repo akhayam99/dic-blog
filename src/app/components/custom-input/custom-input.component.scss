@@ -1,18 +1,17 @@
 :host {
-  width: 100%;
-
   input {
     height: 20px;
     border-radius: 5px;
     border: 0px;
   }
 
-  input:focus{
+  input:focus {
     outline: none;
-}
+  }
 
   .ng-dirty,
   .ng-invalid {
     border-left: 3px solid red;
+    border-right: 3px solid red;
   }
 }

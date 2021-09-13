@@ -1,26 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LoaderModule } from '../loader/loader.module';
 import { UserModule } from '../user/user.module';
-import { UsersListComponent } from './users-list.component';
+import { UserPostsComponent } from './user-posts.component';
 
-const module = [
-  LoaderModule,
-  UserModule,
-]
+
+
 @NgModule({
   declarations: [
-    UsersListComponent
+    UserPostsComponent,
   ],
   imports: [
-    ...module,
     CommonModule,
+    UserModule,
     RouterModule
   ],
   exports: [
-    UsersListComponent
+    UserPostsComponent
   ]
 })
-
-export class UsersListModule { }
+export class UserPostsModule { }

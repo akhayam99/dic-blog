@@ -23,5 +23,20 @@ export default createReducer(
     posts: [],
     loading: false
   })),
+
+  on(fromActions.LoadPostsFromUser, state => ({
+    ...state,
+    loading: true
+  })),
+  on(fromActions.LoadPostsFromUserSuccess, (state, { posts }) => ({
+    ...state,
+    posts,
+    loading: false
+  })),
+  on(fromActions.LoadPostsFromUserFailed, (state) => ({
+    ...state,
+    posts: [],
+    loading: false
+  })),
 )
 

@@ -1,12 +1,21 @@
-<a [routerLink]="['../']">casdasdasdas</a>
-
 <ng-container *ngIf="(loading$ | async)">
   <div class="loader">
     <dicf-loader [big]="true" [green]="true" *ngIf="loading$ | async"></dicf-loader>
   </div>
 </ng-container>
 
+
 <ng-container *ngIf="post$ | async as post">
-  <dicf-post [post]="post" [summary]="false"></dicf-post>
-  <dicf-comment *ngFor="let comment of comments$|async" [comment]="comment"></dicf-comment>
+
+    <div class="post">
+      <a [routerLink]="['../']">back</a>
+      <dicf-post [post]="post" [summary]="false" [comments]="false"></dicf-post>
+    </div>
+    <div class="comments">
+      <div class="title">
+        COMMENTI
+      </div>
+      <dicf-comment *ngFor="let comment of comments$|async" [comment]="comment"></dicf-comment>
+    </div>
+
 </ng-container>

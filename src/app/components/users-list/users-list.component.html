@@ -9,7 +9,7 @@
 
   <dicf-user
     *ngFor="let user of data.user"
-    (click)="userClicked(user)"
+    [routerLink]="['user/' + user.id]"
     [userName]="user.full_name"
     [userMail]="user.email"
     [userAvatar]="user.avatar"

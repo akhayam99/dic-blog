@@ -1,5 +1,16 @@
-:host {
-  .comment-block {
-    border: 1px solid black;
+@import "../../../assets/css/variables";
+
+:host  {
+  border: 1px solid black;
+  .date {
+    font-weight: 300;
+    font-size: 12px;
+    font-style: italic;
+    text-align: right;
+  }
+
+  .body {
+    font-size: 15px;
+    padding-top: 4px;
   }
 }

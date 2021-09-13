@@ -42,6 +42,16 @@ export class BlogListEffects {
     })
   ));
 
+  loadPostsFromUser$ = createEffect(() => this.actions$.pipe(
+    ofType(fromActions.LoadPostsFromUser),
+    switchMap(() => {
+      return this.postService.getList$().pipe(
+        map(posts => fromActions.LoadPostsFromUserSuccess({ posts })),
+        catchError(error => of(fromActions.LoadPostsFromUserFailed(error)))
+      )
+    })
+  ));
+
   LoadUsers$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoadUsers),
     switchMap(() => {
