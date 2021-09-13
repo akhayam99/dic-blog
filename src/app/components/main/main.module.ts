@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainComponent } from './main.component';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { PostsListModule } from '../posts-list/posts-list.module';
 import { UsersListModule } from '../users-list/users-list.module';
-import { RouterModule } from '@angular/router';
+import { MainComponent } from './main.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +16,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forChild([{
       path: '',
       component: MainComponent,
-    }]
-    ),
+    }]),
   ],
   exports: [
     MainComponent

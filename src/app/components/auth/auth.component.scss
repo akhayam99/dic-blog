@@ -1,0 +1,87 @@
+@import "../../../assets/css/variables";
+
+:host {
+  display: grid;
+  grid-template-columns: 1fr 400px 1fr;
+  height: calc(100% - 160px - 80px);
+
+  .login {
+    background: $green;
+    border: 5px solid white;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+
+    .form {
+      font-size: 14px;
+      font-weight: 800px;
+      margin: 5px;
+      text-align: center;
+
+      .label {
+        margin: 5px;
+      }
+
+      .btn-password {
+        background-color: white;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        border: 0px;
+        cursor: pointer;
+        height: 22px;
+        margin-left: -3px;
+      }
+
+    }
+
+    .submit {
+      text-align: center;
+      padding: 10px;
+      input[type="submit"] {
+        background-color: white;
+        border: 0px;
+        width: 30%;
+        color: black;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .info-1 {
+    border-bottom-left-radius: 0px !important;
+    border-right : 3px solid $green;
+    border-top-right-radius: 0px !important;
+    text-align: center;
+  }
+
+  .info-2 {
+    border-bottom-right-radius: 0px !important;
+    border-left: 3px solid $green;
+    border-top-left-radius: 0px !important;
+    text-align: justify;
+  }
+
+  .info-1,
+  .info-2 {
+    border-bottom: 3px solid $green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    overflow: auto;
+    padding: 20px;
+  }
+
+  .info-1,
+  .info-2,
+  .login {
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: auto;
+  }
+}

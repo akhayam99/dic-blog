@@ -16,7 +16,7 @@ export class PostsListComponent implements OnInit {
   loading$: Observable<boolean>
   posts$: Observable<IPost[]>;
   postsCount$: Observable<number>;
-  differentUser$: Observable<number>;
+  usersCount$: Observable<number>;
 
   constructor(private store: Store) { }
 
@@ -24,6 +24,6 @@ export class PostsListComponent implements OnInit {
     this.loading$ = this.store.select(fromStore.getLoadingPosts);
     this.posts$ = this.store.select(fromStore.getPosts);
     this.postsCount$ = this.store.select(fromStore.getPostsNumber);
-    this.differentUser$ = this.store.select(fromStore.getPostsUniqueUsers);
+    this.usersCount$ = this.store.select(fromStore.getPostsUniqueUsers);
   }
 }

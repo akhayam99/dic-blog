@@ -1,20 +1,19 @@
+@import '../../../assets/css/variables';
+
  :host {
+  display: inline-flex;
+  padding: 5px;
 
-  .user-form {
-    display: inline-flex;
-    padding: 5px;
-  }
-
-  .user-avatar {
+  .avatar {
     img {
       border-radius: 50%;
-      border: 1px solid black;
+      border: 3px solid $green;
       height: 50px;
       width: 50px;
     }
   }
 
-  .user-infos {
+  .infos {
     margin: 20px 5px;
   }
 }

@@ -1,6 +1,4 @@
-import { Component, Injectable } from '@angular/core';
-import { IUser } from './interfaces/IUser';
-import { BlogService } from './services/controller/blog.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

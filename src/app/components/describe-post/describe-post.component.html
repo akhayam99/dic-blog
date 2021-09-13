@@ -8,9 +8,5 @@
 
 <ng-container *ngIf="post$ | async as post">
   <dicf-post [post]="post" [summary]="false"></dicf-post>
-
-
-     <dicf-comment *ngFor="let comment of comments$|async" [comment]="comment">
-    </dicf-comment>
-
+  <dicf-comment *ngFor="let comment of comments$|async" [comment]="comment"></dicf-comment>
 </ng-container>

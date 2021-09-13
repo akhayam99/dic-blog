@@ -18,8 +18,8 @@ const module = [
   BrowserModule,
   CommonModule,
   ComponentsModule,
-  EffectsModule.forRoot([]),
   EffectsModule.forFeature(effects),
+  EffectsModule.forRoot([]),
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),
   StoreModule.forFeature('data', dataReducer),
   StoreModule.forRoot(reducer, {

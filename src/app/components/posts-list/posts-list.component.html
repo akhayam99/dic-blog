@@ -1,16 +1,16 @@
-<div *ngIf="{ post: posts$ | async } as data">
+<div *ngIf="posts$ | async as posts">
   <div class="loader">
     <dicf-loader [big]="true" [green]="true" *ngIf="loading$ | async"></dicf-loader>
   </div>
 
   <ng-container *ngIf="!(loading$ | async)">
-    <div class="post-list">
-      <dicf-post *ngFor="let post of data.post; let i = index" [post]='post' [summary]='true' [routerLink]="[post.id]">
+    <div class="list">
+      <dicf-post *ngFor="let post of posts; let i = index" [post]='post' [summary]='true' [routerLink]="[post.id]">
       </dicf-post>
     </div>
 
-    <div class="post-info">
-      <ng-container *ngIf="{ posts: postsCount$ | async, users: differentUser$ | async } as postInfo">
+    <div class="info">
+      <ng-container *ngIf="{ posts: postsCount$ | async, users: usersCount$ | async } as postInfo">
         <ng-container *ngIf="postInfo.posts > 0">
           Sono presenti {{ postInfo.posts }} post di {{ postInfo.users }} utenti unici
         </ng-container>
