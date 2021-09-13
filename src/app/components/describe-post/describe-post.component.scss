@@ -7,7 +7,7 @@
   justify-content: center;
 
   .post {
-    background-color: red;
+    margin: 0 50px;
   }
 
   .comments {
@@ -18,11 +18,39 @@
     height: calc(100% + 40px);
     margin-top: -25px;
     width: calc(100% - 50%);
-    width: calc(100% - 50%);
+
+    .title {
+      font-size: 20px;
+      font-weight: 700;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .comment {
+      padding: 10px;
+      border-bottom: 3px solid white;
+      margin: auto 50px;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: $green;
+    border-radius: 20px;
+    margin: 6px 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border: 3px solid $green;
+    border-radius: 20px;
   }
 
   .comments,
   .post {
+    padding: 10px;
     justify-self: center;
+    overflow: auto;
   }
 }

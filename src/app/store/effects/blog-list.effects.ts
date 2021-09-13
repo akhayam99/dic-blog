@@ -26,7 +26,6 @@ export class BlogListEffects {
   navigationList2$ = createEffect(() => this.actions$.pipe(
     ofType(ROUTER_NAVIGATION),
     filter((routerInfo: RouterNavigationAction) => {
-      console.log(routerInfo);
       return routerInfo.payload.routerState.url === '/posts'
     }),
     map(() => { return fromActions.LoadUsers()})
