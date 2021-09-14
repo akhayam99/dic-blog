@@ -7,20 +7,24 @@ import { LoaderModule } from '../loader/loader.module';
 import { PostModule } from '../post/post.module';
 import { DescribePostComponent } from './describe-post.component';
 
+const module = [
+  CommentModule,
+  LoaderModule,
+  PostModule,
+  CommentsListModule,
+  RouterModule.forChild([{
+    path: '',
+    component: DescribePostComponent,
+  }]),
+]
+
 @NgModule({
   declarations: [
     DescribePostComponent
   ],
   imports: [
-    CommentModule,
+    ...module,
     CommonModule,
-    LoaderModule,
-    PostModule,
-    CommentsListModule,
-    RouterModule.forChild([{
-      path: '',
-      component: DescribePostComponent,
-    }]),
   ],
   exports: [
     DescribePostComponent

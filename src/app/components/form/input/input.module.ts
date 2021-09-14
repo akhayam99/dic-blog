@@ -1,20 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CustomInputComponent } from './custom-input.component';
-
-
+import { InputComponent } from './input.component';
 
 @NgModule({
   declarations: [
-    CustomInputComponent
+    InputComponent
   ],
   imports: [
     CommonModule,
     FormsModule
   ],
   exports: [
-    CustomInputComponent
+    InputComponent
   ]
 })
-export class CustomInputModule { }
+export class InputModule { }

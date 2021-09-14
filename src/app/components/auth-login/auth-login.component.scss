@@ -3,7 +3,7 @@
 :host {
   color: white;
 
-  .form {
+  .input {
     font-size: 14px;
     font-weight: 800px;
     margin: 5px;
@@ -11,16 +11,6 @@
 
     .label {
       margin: 5px;
-    }
-
-    .btn-password {
-      background-color: white;
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px;
-      border: 0px;
-      cursor: pointer;
-      height: 22px;
-      margin-left: -5px;
     }
   }
 

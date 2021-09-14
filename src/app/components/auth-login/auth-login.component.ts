@@ -6,8 +6,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./auth-login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class AuthLoginComponent {
-  username: string;
-  password: string;
+  username: string = 'uiu';
+  password: string = null;
   showPassword: boolean = false;
+
+  onUsernameChanged(value: string): void{
+    console.log(value)
+    this.username = value
+  }
 }
