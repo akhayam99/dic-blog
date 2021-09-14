@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostComponent } from './post.component';
-import { UserModule } from '../user/user.module';
+import { NgModule } from '@angular/core';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { CommentModule } from '../comment/comment.module';
+import { UserModule } from '../user/user.module';
+import { PostComponent } from './post.component';
 
 const module = [
   CommentModule,

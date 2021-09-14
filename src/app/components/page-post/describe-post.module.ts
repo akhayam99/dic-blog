@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommentModule } from '../comment/comment.module';
 import { CommentsListModule } from '../comments-list/comments-list.module';
-import { LoaderModule } from '../loader/loader.module';
-import { PostModule } from '../post/post.module';
+import { CommentModule } from '../_utils/component/comment/comment.module';
+import { LoaderModule } from '../_utils/component/loader/loader.module';
+import { PostModule } from '../_utils/component/post/post.module';
 import { DescribePostComponent } from './describe-post.component';
 
 const module = [

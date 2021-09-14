@@ -1,21 +1,13 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
-  selector: 'dicf-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputComponent),
-      multi: true
-    }
-  ]
+  selector: 'dicf-base',
+  template: '',
+  styleUrls: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-
-export class InputComponent implements ControlValueAccessor {
+export class BaseComponent implements ControlValueAccessor {
 
   @Input() disabled: boolean = false
   @Input() errors: { [key: string]: any };
@@ -49,5 +41,4 @@ export class InputComponent implements ControlValueAccessor {
   onChangeInput(event: Event) {
     this.setValue(event.target['value'])
   }
-
 }
