@@ -8,10 +8,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentsModule } from './components/components.module';
-import { PostService } from './services/data/post.service';
-import { effects } from './store/effects';
-import { dataReducer, reducer } from './store/reducers';
+import { ComponentsModule } from './_utils/components/components.module';
+import { PostService } from './_utils/services/data/post.service';
+import { effects } from './_utils/store/effects';
+import { dataReducer, reducer } from './_utils/store/reducers';
 
 const module = [
   AppRoutingModule,
