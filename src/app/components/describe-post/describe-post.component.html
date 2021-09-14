@@ -11,14 +11,9 @@
     <a [routerLink]="['../']">back</a>
     <dicf-post [post]="post" [summary]="false" [comments]="false"></dicf-post>
   </div>
-  <div class="comments">
-    <div class="title">
-      COMMENTI
-    </div>
-    <div class="comment" *ngFor="let comment of comments$|async">
-      <dicf-comment [comment]="comment"></dicf-comment>
-    </div>
 
+  <div class="comments" *ngIf="comments$ | async as comments">
+    <dicf-comments-list [comments]="comments"></dicf-comments-list>
   </div>
 
 </ng-container>

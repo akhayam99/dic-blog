@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DescribePostComponent } from './describe-post.component';
-import { LoaderModule } from '../loader/loader.module';
-import { PostModule } from '../post/post.module';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommentModule } from '../comment/comment.module';
+import { CommentsListModule } from '../comments-list/comments-list.module';
+import { LoaderModule } from '../loader/loader.module';
+import { PostModule } from '../post/post.module';
+import { DescribePostComponent } from './describe-post.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CommentModule } from '../comment/comment.module';
     CommonModule,
     LoaderModule,
     PostModule,
+    CommentsListModule,
     RouterModule.forChild([{
       path: '',
       component: DescribePostComponent,
