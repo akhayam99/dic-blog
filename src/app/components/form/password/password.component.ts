@@ -1,17 +1,25 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'dicf-password',
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PasswordComponent),
+      multi: true
+    }
+  ]
 })
 export class PasswordComponent implements ControlValueAccessor {
 
+  @Input() disabled: boolean = false;
+  @Input() errors: { [key: string]: any };
   @Input() value: string;
   @Output() onChange = new EventEmitter();
-  @Input() disabled: boolean = false;
 
   type: 'text' | 'password' = 'password';
 
@@ -37,8 +45,8 @@ export class PasswordComponent implements ControlValueAccessor {
   onChangeInternal(value: string): void { }
   onTouchedInternal(): void { }
 
-  onChangeInput(event: Event) {
-    this.setValue(event.target['value'])
+  onChangeInput(value: string) {
+    this.setValue(value)
   }
 
   changeType(): void {

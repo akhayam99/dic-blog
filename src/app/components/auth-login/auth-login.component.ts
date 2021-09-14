@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { getLoginForm } from './auth-login.form.config';
 
 @Component({
   selector: 'dicf-auth-login',
@@ -7,13 +9,20 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class AuthLoginComponent {
+export class AuthLoginComponent implements OnInit {
+
+  form: FormGroup;
   username: string = 'uiu';
   password: string = null;
   showPassword: boolean = false;
 
-  onUsernameChanged(value: string): void{
-    console.log(value)
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.form = getLoginForm(this.fb);
+  }
+
+  onUsernameChanged(value: string): void {
     this.username = value
   }
 }

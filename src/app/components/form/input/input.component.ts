@@ -17,10 +17,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export class InputComponent implements ControlValueAccessor {
 
+  @Input() disabled: boolean = false
+  @Input() errors: { [key: string]: any };
   @Input() type: string;
   @Input() value: string;
   @Output() onChange = new EventEmitter()
-  @Input() disabled: boolean = false
 
   writeValue(value: string): void {
     this.value = value;
@@ -39,6 +40,7 @@ export class InputComponent implements ControlValueAccessor {
     this.value = value;
     this.onChange.emit(value);
     this.onChangeInternal(value);
+    this.onTouchedInternal();
   }
 
   onChangeInternal(value: string): void { }
