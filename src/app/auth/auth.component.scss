@@ -5,36 +5,29 @@
   grid-template-columns: 1fr 350px 1fr;
   height: calc(100% - 160px - 80px);
 
-  .info-1 {
-    text-align: center;
-  }
-
-  .info-2 {
-    text-align: justify;
-  }
-
-  .info-1,
-  .info-2 {
-    flex-direction: column;
-    justify-content: center;
-    margin: 0px 40px;
-    padding: 20px 0px;
-  }
-
-  .login {
+  .form {
     background-color: $green;
     border-radius: 20px;
     border: 5px solid white;
+    color: white;
     height: calc(100% + 40px) !important;
     margin-top: -25px;
   }
 
-  .login,
-  .info-1,
-  .info-2 {
+  .center {
+    text-align: center;
+  }
+
+  .justify {
+    text-align: justify;
+  }
+
+  .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0px 40px;
     overflow: auto;
+    padding: 20px 0px;
   }
 }

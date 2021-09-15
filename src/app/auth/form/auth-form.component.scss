@@ -1,0 +1,43 @@
+@import "../../../assets/css/variables";
+
+:host {
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+  height: 100%;
+
+  .body {
+    flex-direction: column;
+  }
+
+  .switch {
+    border-top: 5px solid white;
+    button {
+      background-color: unset;
+      border: 0px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .title {
+    border-bottom: 5px solid white;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  .switch,
+  .title {
+    align-items: center;
+  }
+
+  .body,
+  .switch,
+  .title {
+    display: flex;
+    justify-content: center;
+  }
+}

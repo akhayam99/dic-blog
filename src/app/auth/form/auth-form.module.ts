@@ -1,27 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { UtilsFormModule } from 'src/app/_utils/components/form/utils.form.module';
-import { LoginComponent } from './login.component';
+import { LoginModule } from '../login/login.module';
+import { RegistrationModule } from '../registration/registration.module';
+import { AuthFormComponent } from './auth-form.component';
 
 const module = [
-  FormsModule,
-  ReactiveFormsModule,
-  RouterModule,
   UtilsFormModule,
+  LoginModule,
+  RegistrationModule,
 ]
 
 @NgModule({
   declarations: [
-    LoginComponent
+    AuthFormComponent
   ],
   imports: [
     ...module,
     CommonModule,
   ],
   exports: [
-    LoginComponent
+    AuthFormComponent
   ]
 })
-export class LoginModule { }
+export class AuthFormModule { }

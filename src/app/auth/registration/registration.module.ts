@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UtilsFormModule } from 'src/app/_utils/components/form/utils.form.module';
-import { LoginComponent } from './login.component';
+import { RegistrationComponent } from './registration.component';
 
 const module = [
   FormsModule,
@@ -14,14 +14,14 @@ const module = [
 
 @NgModule({
   declarations: [
-    LoginComponent
+    RegistrationComponent
   ],
   imports: [
     ...module,
-    CommonModule,
+    CommonModule
   ],
   exports: [
-    LoginComponent
+    RegistrationComponent
   ]
 })
-export class LoginModule { }
+export class RegistrationModule { }

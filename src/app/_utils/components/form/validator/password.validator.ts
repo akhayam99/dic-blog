@@ -1,13 +1,13 @@
 import { AbstractControl, ValidatorFn } from "@angular/forms";
 
 const messages = {
-  CheckMaius: 'La password deve contenere un carattere maiuscolo',
-  CheckMinus: 'La password deve contenere un carattere minuscolo',
-  CheckNumber: 'La password deve contenere un numero',
-  CheckSymbol: 'La password deve contenere un carattere speciale',
-  CheckSpace: 'La password non può contenere spazi',
-  CheckTick: 'La password non può contenere apici',
-  MinLength(length: number) { return `La password deve essere lunga almeno ${length} caratteri` },
+  CheckMaius: 'Password deve contenere un carattere maiuscolo',
+  CheckMinus: 'Password deve contenere un carattere minuscolo',
+  CheckNumber: 'Password deve contenere un numero',
+  CheckSymbol: 'Password deve contenere un carattere speciale',
+  CheckSpace: 'Password non può contenere spazi',
+  CheckTick: 'Password non può contenere apici',
+  MinLength(length: number) { return `Password deve essere lunga almeno ${length} caratteri` },
 }
 
 export const CheckMaius: ValidatorFn = (ctrl: AbstractControl) => {

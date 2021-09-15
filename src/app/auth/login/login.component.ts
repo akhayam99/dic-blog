@@ -13,18 +13,11 @@ import { getLoginForm } from './login.form.config';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  username: string = 'uiu';
-  password: string = null;
-  showPassword: boolean = false;
 
   constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.form = getLoginForm(this.fb);
-  }
-
-  onUsernameChanged(value: string): void {
-    this.username = value
   }
 
   onSubmit(): void {
