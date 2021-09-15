@@ -1,4 +1,5 @@
 import { FormBuilder, FormGroup } from "@angular/forms";
+import * as MailValidator from "src/app/_utils/components/form/validator/mail.validator";
 import * as PasswordValidator from "src/app/_utils/components/form/validator/password.validator";
 import * as UsernameValidator from "src/app/_utils/components/form/validator/username.validator";
 
@@ -14,7 +15,7 @@ export const getRegistrationForm: (fb: FormBuilder) => FormGroup = fb => fb.grou
   email: [
     "", [
       // sync validators
-      UsernameValidator.MinLength(8),
+      MailValidator.CheckMail,
     ], [
       // async validators
     ],
@@ -31,10 +32,10 @@ export const getRegistrationForm: (fb: FormBuilder) => FormGroup = fb => fb.grou
     ],
   ],
   passwordCheck: [
-    "", [
-
-    ],
+    "", [],
   ],
 }, {
-  validators: []
+  validators: [
+    PasswordValidator.CheckSamePassword,
+  ]
 });

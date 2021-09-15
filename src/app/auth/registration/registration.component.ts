@@ -19,10 +19,10 @@ export class RegistrationComponent {
     this.form = getRegistrationForm(this.fb);
   }
 
-  // onSubmit(): void {
-  //   this.form.markAllAsTouched;
-  //   if (this.form.valid)
-  //     this.router.navigate['posts'];
-  // }
+  onSubmit(): void {
+    this.form.markAllAsTouched;
+    if (this.form.valid)
+      this.router.navigate['posts'];
+  }
 
 }
