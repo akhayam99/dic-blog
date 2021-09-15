@@ -1,2 +1,4 @@
 <input (keyup)="onChangeInput($event)" [value]="value" [type]="type" [disabled]="disabled" />
-<dicf-errors [errors]="errors"></dicf-errors>
+<ng-container *ngIf="errors">
+  <dicf-errors [errors]="errors"></dicf-errors>
+</ng-container>

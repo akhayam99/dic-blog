@@ -1,4 +1,4 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (submit)="onSubmit()">
   <div class="input">
     <div class="label">
       Username <i class="fa fa-user" aria-hidden="true"></i>
@@ -15,7 +15,7 @@
   </div>
 
   <div class="submit">
-    <input type="submit" [routerLink]="'/posts'">
+    <input type="submit">
   </div>
 
   <dicf-errors [errors]="form.touched ? form.errors : null"></dicf-errors>

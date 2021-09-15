@@ -12,21 +12,28 @@ const customMaxLengthWithValue: (length: number) => ValidatorFn = length => (ctr
   return null;
 }
 
+const passwordMinusChar: ValidatorFn = (ctrl: AbstractControl) => {
+  if (ctrl.value.match(/[a-z]/))
+    return null;
+  return { customMinLength: 'La password deve contenere un carattere minuscolo' }
+}
+
 export const getLoginForm: (fb: FormBuilder) => FormGroup = fb => fb.group({
   username: [
     "",
     [
       customMinLength,
       customMaxLengthWithValue(16),
+      Validators.required,
     ],
     [],
   ],
   password: [
     "",
     [
-      Validators.minLength(8),
-      Validators.maxLength(16),
-      Validators.required
+      passwordMinusChar,
+      // Validators.minLength(8),
+      // Validators.required,
     ],
     [],
   ],

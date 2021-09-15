@@ -2,11 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IComment } from 'src/app/_utils/interfaces/IComment';
 
 @Component({
-  selector: 'dicf-comments-list',
-  templateUrl: './comments-list.component.html',
-  styleUrls: ['./comments-list.component.scss'],
+  selector: 'dicf-comment-list',
+  templateUrl: './comment-list.component.html',
+  styleUrls: ['./comment-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CommentsListComponent {
+export class CommentListComponent {
   @Input() comments: IComment[];
 }

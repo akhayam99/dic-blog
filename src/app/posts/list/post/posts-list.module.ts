@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LoaderModule } from '../../_utils/loader/loader.module';
-import { PostModule } from '../../_utils/post/post.module';
+import { LoaderModule } from 'src/app/_utils/components/loader/loader.module';
+import { PostModule } from 'src/app/_utils/components/post/post.module';
 import { PostsListComponent } from './posts-list.component';
 
 const module = [
