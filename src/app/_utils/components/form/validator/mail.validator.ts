@@ -5,7 +5,7 @@ const messages = {
 }
 
 export const CheckMail: ValidatorFn = (ctrl: AbstractControl) => {
-  if (ctrl.value.match(/^[a-zA-A\._]+(|\.[a-zA-Z\._]+)@[a-zA-Z]+(|\.[a-zA-Z])+\.[a-zA-Z]{2,5}$/))
+  if (ctrl.value.match(/^[a-zA-A\d_]+(|\.[a-zA-Z\d_]+)@[a-zA-Z]+(|\.[a-zA-Z])+\.[a-zA-Z]{2,5}$/))
     return null;
   return { mail_error: messages.CheckMail }
 }

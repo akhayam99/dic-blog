@@ -6,9 +6,9 @@ import { RegistrationModule } from '../registration/registration.module';
 import { AuthFormComponent } from './auth-form.component';
 
 const module = [
-  UtilsFormModule,
   LoginModule,
   RegistrationModule,
+  UtilsFormModule,
 ]
 
 @NgModule({

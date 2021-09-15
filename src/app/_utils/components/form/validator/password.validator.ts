@@ -30,7 +30,6 @@ export const CheckNumber: ValidatorFn = (ctrl: AbstractControl) => {
 }
 
 export const CheckSamePassword: ValidatorFn = (ctrl: AbstractControl) => {
-  console.log(ctrl);
   if (ctrl.value['password'] === ctrl.value['passwordCheck'])
     return null
   return { password_error: messages.CheckSamePassword }
