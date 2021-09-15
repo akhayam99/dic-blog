@@ -7,13 +7,11 @@ import { BaseComponent } from '../_base/base.component';
   templateUrl: './password.component.html',
   styleUrls: ['./password.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PasswordComponent),
-      multi: true
-    }
-  ]
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => PasswordComponent),
+    multi: true
+  }]
 })
 export class PasswordComponent extends BaseComponent {
 

@@ -1,4 +1,5 @@
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from "@angular/forms";
+import * as PasswordValidator from "src/app/_utils/components/form/validator/password.validator";
 
 const customMinLength: ValidatorFn = (ctrl: AbstractControl) => {
   if (ctrl.value.length < 8)
@@ -12,28 +13,24 @@ const customMaxLengthWithValue: (length: number) => ValidatorFn = length => (ctr
   return null;
 }
 
-const passwordMinusChar: ValidatorFn = (ctrl: AbstractControl) => {
-  if (ctrl.value.match(/[a-z]/))
-    return null;
-  return { customMinLength: 'La password deve contenere un carattere minuscolo' }
-}
-
 export const getLoginForm: (fb: FormBuilder) => FormGroup = fb => fb.group({
   username: [
     "",
     [
-      customMinLength,
-      customMaxLengthWithValue(16),
-      Validators.required,
+      Validators.minLength(8)
     ],
     [],
   ],
   password: [
     "",
     [
-      passwordMinusChar,
-      // Validators.minLength(8),
-      // Validators.required,
+      PasswordValidator.CheckMaius,
+      PasswordValidator.CheckMinus,
+      PasswordValidator.CheckNumber,
+      PasswordValidator.CheckSpace,
+      PasswordValidator.CheckSymbol,
+      PasswordValidator.CheckTick,
+      PasswordValidator.MinLength(8),
     ],
     [],
   ],

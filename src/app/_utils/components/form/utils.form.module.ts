@@ -7,7 +7,7 @@ import { PasswordModule } from './password/password.module';
   exports: [
     ErrorsModule,
     InputModule,
-    PasswordModule
+    PasswordModule,
   ]
 })
 export class UtilsFormModule { }
