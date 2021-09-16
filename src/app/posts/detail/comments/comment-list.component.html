@@ -4,9 +4,13 @@
 
 <div class="list">
   <div class="item" *ngFor="let comment of comments">
-    <dicf-comment
-      [comment]="comment"
-    ></dicf-comment>
+    <dicf-comment>
+      <div commentUser>
+        <dicf-user [userName]="comment.user.full_name" [userMail]="comment.user.email" [userAvatar]="comment.user.avatar"></dicf-user>
+      </div>
+      <div commentText> {{ comment.text }} </div>
+      <div commentDate> {{ comment.created_at | formatDate:'YYYY/MM/DD, HH:mm' }} </div>
+    </dicf-comment>
   </div>
 </div>
 

@@ -1,19 +1,13 @@
 
-
 <div class="user">
-  <dicf-user
-    [userName]="comment.user.full_name"
-    [userMail]="comment.user.email"
-    [userAvatar]="comment.user.avatar"
-  ></dicf-user>
+  <ng-content select="'[commentUser]'"></ng-content>
 </div>
-
 <div class="comment">
   <div class="body">
-    {{ comment.text }}
+    <ng-content select="'[commentText]'"></ng-content>
   </div>
   <div class="date">
-    {{ comment.created_at }}
+    <ng-content select="'[commentDate]'"></ng-content>
   </div>
 </div>
 
