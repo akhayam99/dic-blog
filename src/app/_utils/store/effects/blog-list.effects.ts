@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { RouterNavigationAction, ROUTER_NAVIGATION } from "@ngrx/router-store";
 import { of } from "rxjs";
@@ -13,6 +14,7 @@ export class BlogListEffects {
     private actions$: Actions,
     private postService: PostService,
     private userService: UserService,
+    private router: Router,
   ) { }
 
   navigationList1$ = createEffect(() => this.actions$.pipe(
@@ -20,7 +22,7 @@ export class BlogListEffects {
     filter((routerInfo: RouterNavigationAction) => {
       return routerInfo.payload.routerState.url === '/posts'
     }),
-    map(() => { return fromActions.LoadPosts()})
+    map(() => { return fromActions.LoadPosts() })
   ));
 
   navigationList2$ = createEffect(() => this.actions$.pipe(
@@ -28,8 +30,15 @@ export class BlogListEffects {
     filter((routerInfo: RouterNavigationAction) => {
       return routerInfo.payload.routerState.url === '/posts'
     }),
-    map(() => { return fromActions.LoadUsers()})
+    map(() => { return fromActions.LoadUsers() })
   ));
+
+  goToPost$ = createEffect(() => this.actions$.pipe(
+    ofType(fromActions.GoToPostDetail),
+    map(({id}) => {
+      this.router.navigate([`/posts/${id}`])
+    }),
+  ), { dispatch: false });
 
   loadPosts$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoadPosts),

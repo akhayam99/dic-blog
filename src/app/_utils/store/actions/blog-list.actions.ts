@@ -10,3 +10,5 @@ export const LoadPostsSuccess = createAction(prefix + 'LoadPostsSuccess', props<
 export const LoadPostsFromUser = createAction(prefix + 'LoadPostsFromUser');
 export const LoadPostsFromUserFailed = createAction(prefix + 'LoadPostsFromUserFailed', props<{error: any}>());
 export const LoadPostsFromUserSuccess = createAction(prefix + 'LoadPostsFromUserSuccess', props<{posts: IPost[]}>());
+
+export const GoToPostDetail = createAction(prefix + 'GoToPostDetail', props<{id: number}>());

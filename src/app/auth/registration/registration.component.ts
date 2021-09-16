@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { getRegistrationForm } from './registration.form.config';
@@ -9,7 +9,7 @@ import { getRegistrationForm } from './registration.form.config';
   styleUrls: ['./registration.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
 
@@ -20,9 +20,9 @@ export class RegistrationComponent {
   }
 
   onSubmit(): void {
-    this.form.markAllAsTouched;
+    this.form.markAllAsTouched();
     if (this.form.valid)
-      this.router.navigate['posts'];
+      this.router.navigate(['posts']);
   }
 
 }

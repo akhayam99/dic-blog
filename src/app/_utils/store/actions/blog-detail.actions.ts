@@ -4,10 +4,13 @@ import { IPost } from 'src/app/_utils/interfaces/IPost';
 
 const prefix = '[blog-detail] - ';
 
-export const LoadComments = createAction(prefix + 'LoadComments');
-export const LoadCommentsFailed = createAction(prefix + 'LoadCommentsFailed', props<{error: any}>());
-export const LoadCommentsSuccess = createAction(prefix + 'LoadCommentsSuccess', props<{comments: IComment[]}>());
+export const LoadComments = createAction(prefix + 'LoadComments', props<{ id: number }>());
+export const LoadCommentsFailed = createAction(prefix + 'LoadCommentsFailed', props<{ error: any }>());
+export const LoadCommentsSuccess = createAction(prefix + 'LoadCommentsSuccess', props<{ comments: IComment[] }>());
 
-export const LoadPost = createAction(prefix + 'LoadPost');
-export const LoadPostFailed = createAction(prefix + 'LoadPostFailed', props<{error: any}>());
-export const LoadPostSuccess = createAction(prefix + 'LoadPostSuccess', props<{post: IPost}>());
+export const LoadPost = createAction(prefix + 'LoadPost', props<{ id: number }>());
+export const LoadPostFailed = createAction(prefix + 'LoadPostFailed', props<{ error: any }>());
+export const LoadPostSuccess = createAction(prefix + 'LoadPostSuccess', props<{ post: IPost }>());
+
+export const LoadPostId = createAction(prefix + 'LoadPost', props<{ post_id: number }>());
+

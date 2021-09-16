@@ -4,7 +4,6 @@ const messages = {
   CheckMaius: 'Password deve contenere un carattere maiuscolo',
   CheckMinus: 'Password deve contenere un carattere minuscolo',
   CheckNumber: 'Password deve contenere un numero',
-  CheckSamePassword: 'Le Password inserite devono essere uguali',
   CheckSpace: 'Password non può contenere spazi',
   CheckSymbol: 'Password deve contenere un carattere speciale',
   CheckTick: 'Password non può contenere apici',
@@ -27,12 +26,6 @@ export const CheckNumber: ValidatorFn = (ctrl: AbstractControl) => {
   if (ctrl.value.match(/[\d]/))
     return null;
   return { password_error: messages.CheckNumber }
-}
-
-export const CheckSamePassword: ValidatorFn = (ctrl: AbstractControl) => {
-  if (ctrl.value['password'] === ctrl.value['passwordCheck'])
-    return null
-  return { password_error: messages.CheckSamePassword }
 }
 
 export const CheckSymbol: ValidatorFn = (ctrl: AbstractControl) => {

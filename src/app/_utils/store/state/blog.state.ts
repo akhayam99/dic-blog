@@ -18,6 +18,7 @@ export interface IBlogStateDataList {
 export interface IBlogStateDataDetail {
   comments: IComment[],
   loading: boolean,
+  post_id: number,
   post: IPost,
 }
 

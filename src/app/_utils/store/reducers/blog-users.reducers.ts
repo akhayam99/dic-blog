@@ -11,6 +11,7 @@ export default createReducer(
   initialState,
   on(fromActions.LoadUsers, state => ({
     ...state,
+    users: [],
     loading: true,
   })),
   on(fromActions.LoadUsersSuccess, (state, {users}) => ({

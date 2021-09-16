@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.form.markAllAsTouched;
+    this.form.markAllAsTouched();
     if (this.form.valid)
-      this.router.navigate['posts'];
+      this.router.navigate(['posts']);
   }
 }

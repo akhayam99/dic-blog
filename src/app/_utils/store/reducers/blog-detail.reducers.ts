@@ -5,6 +5,7 @@ import { IBlogStateDataDetail } from '../state/blog.state';
 const initialState: IBlogStateDataDetail = {
   comments: [],
   loading: false,
+  post_id: null,
   post: null,
 }
 
@@ -12,21 +13,24 @@ export default createReducer(
   initialState,
   on(fromActions.LoadPost, state => ({
     ...state,
-    loading: true
+    loading: true,
+    post_id: null,
+    post: null,
   })),
   on(fromActions.LoadPostSuccess, (state, {post}) => ({
     ...state,
+    loading: false,
     post,
-    loading: false
   })),
   on(fromActions.LoadPostFailed, (state) => ({
     ...state,
+    loading: false,
     posts: [],
-    loading: false
   })),
 
   on(fromActions.LoadComments, state => ({
-    ...state
+    ...state,
+    comments: [],
   })),
   on(fromActions.LoadCommentsSuccess, (state, {comments}) => ({
     ...state,
@@ -35,7 +39,14 @@ export default createReducer(
   on(fromActions.LoadCommentsFailed, (state) => ({
     ...state,
     comments: [],
-    loadingPosts: false
+    loadingPosts: false,
+  })),
+
+  on(fromActions.LoadPostId, (state, {post_id}) => ({
+    ...state,
+    comments: [],
+    loadingPosts: false,
+    post_id,
   })),
 )
 

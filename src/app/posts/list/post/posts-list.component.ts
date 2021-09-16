@@ -26,4 +26,8 @@ export class PostsListComponent implements OnInit {
     this.postsCount$ = this.store.select(fromStore.getPostsNumber);
     this.usersCount$ = this.store.select(fromStore.getPostsUniqueUsers);
   }
+
+  goToPost(id: number): void {
+    this.store.dispatch(fromStore.GoToPostDetail({ id }));
+  }
 }
