@@ -1,4 +1,4 @@
-<div *ngIf="{ user: users$ | async } as data">
+<div *ngIf="{ users: users$ | async, active: active_user$ | async } as data">
   <div class="loader">
     <dicf-loader
       [big]="true"
@@ -8,11 +8,12 @@
   </div>
 
   <dicf-user
-    *ngFor="let user of data.user"
-    [routerLink]="['user/' + user.id]"
+    *ngFor="let user of data.users"
+    [ngClass]="user.id === data.active?.id ? 'active' : ''"
     [userName]="user.full_name"
     [userMail]="user.email"
     [userAvatar]="user.avatar"
+    (click)="userClicked(user, data.active)"
   ></dicf-user>
 
 </div>

@@ -5,6 +5,7 @@ import { IBlogStateDataList } from '../state/blog.state';
 const initialState: IBlogStateDataList = {
   loading: false,
   posts: [],
+  user: null,
 }
 
 export default createReducer(
@@ -24,19 +25,24 @@ export default createReducer(
     loading: false
   })),
 
-  on(fromActions.LoadPostsFromUser, state => ({
+  on(fromActions.LoadPostsFromUser, (state, { user }) => ({
     ...state,
-    loading: true
+    user,
   })),
   on(fromActions.LoadPostsFromUserSuccess, (state, { posts }) => ({
     ...state,
     posts,
-    loading: false
+    loading: false,
   })),
   on(fromActions.LoadPostsFromUserFailed, (state) => ({
     ...state,
     posts: [],
-    loading: false
+    loading: false,
+  })),
+
+  on(fromActions.UnsetPostsFromUser, (state) => ({
+    ...state,
+    user: null,
   })),
 )
 

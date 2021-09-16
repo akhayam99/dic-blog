@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { BlogService } from 'src/app/_utils/services/controller/blog.service';
+import { LoadPostsFromUser, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-main',
@@ -10,9 +12,15 @@ import { BlogService } from 'src/app/_utils/services/controller/blog.service';
 })
 export class MainComponent {
 
-  constructor(private blogService: BlogService) { }
+  activeUser$: Observable<IUser>
 
-  onUserClick(user: IUser): void {
-    this.blogService.loadPosts(user);
+  constructor(private store: Store) { }
+
+  onUserClick(user: IUser): void {
+    this.store.dispatch(LoadPostsFromUser({ user }));
+  }
+
+  onUserRemove(): void {
+    this.store.dispatch(UnsetPostsFromUser());
   }
 }

@@ -13,19 +13,25 @@ import * as fromStore from '../../../_utils/store';
 })
 export class UsersListComponent implements OnInit {
 
+  active_user$: Observable<IUser>;
   loading$: Observable<boolean>;
   users$: Observable<IUser[]>;
   @Output() onUserClick = new EventEmitter<IUser>();
+  @Output() onUserRemove = new EventEmitter();
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.users$ = this.store.select(fromStore.getUsers);
     this.loading$ = this.store.select(fromStore.getLoadingUsers);
+    this.active_user$ = this.store.select(fromStore.getUser);
   }
 
-  userClicked(user: IUser): void {
-    this.onUserClick.emit(user)
+  userClicked(user: IUser, activeUser: IUser): void {
+    if (activeUser && activeUser.id === user.id)
+      this.onUserRemove.emit();
+    else
+      this.onUserClick.emit(user);
   }
 
 }

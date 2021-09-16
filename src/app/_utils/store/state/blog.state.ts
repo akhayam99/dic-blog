@@ -13,6 +13,7 @@ export interface IBlogStateData {
 export interface IBlogStateDataList {
   loading: boolean,
   posts: IPost[],
+  user: IUser,
 }
 
 export interface IBlogStateDataDetail {
