@@ -1,18 +1,19 @@
-<ng-container *ngIf="(loading$ | async)">
-  <div class="loader">
+<ng-container *ngIf="{post: post$ | async, comments: comments$ | async, loader: loading$ | async  } as data">
+  <div *ngIf="data.loader" class="loader">
     <dicf-loader [big]="true" [green]="true" *ngIf="loading$ | async"></dicf-loader>
   </div>
-</ng-container>
 
-<ng-container *ngIf="post$ | async as post">
-
-  <div class="post">
-    <a [routerLink]="['../']">back</a>
-    <dicf-post [post]="post" [summary]="false" [comments]="false"></dicf-post>
+  <div *ngIf="data.post" class="post">
+    <div class="item">
+      <dicf-post [post]="data.post" [summary]="false" [comments]="false"></dicf-post>
+    </div>
+    <div class="back" [routerLink]="['../']">
+      <i class="fa fa-long-arrow-left fa-2x"></i>
+    </div>
   </div>
 
-  <div class="comments" *ngIf="comments$ | async as comments">
-    <dicf-comment-list [comments]="comments"></dicf-comment-list>
+  <div *ngIf="data.post && data.comments" class="comments">
+    <dicf-comment-list [comments]="data.comments"></dicf-comment-list>
   </div>
 
 </ng-container>

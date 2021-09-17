@@ -3,11 +3,28 @@
 :host {
   display: grid;
   height: calc(100% - 160px - 80px);
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
+  grid-template-columns: 1fr 500px;
 
   .post {
-    margin: 0 50px;
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr 40px;
+    justify-content: center;
+    text-align: justify;
+
+    .back {
+      background-color: $theme;
+      border: 5px solid white;
+      color: white;
+      cursor: pointer;
+    }
+
+    .back,
+    .item {
+      display: flex;
+      justify-content: center;
+      text-align: justify;
+    }
   }
 
   .comments {
@@ -17,13 +34,10 @@
     color: white;
     height: calc(100% + 40px);
     margin-top: -25px;
-    width: calc(100% - 50%);
   }
 
   .comments,
   .post {
-    padding: 10px;
-    justify-self: center;
     overflow: auto;
   }
 }

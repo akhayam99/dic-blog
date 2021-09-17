@@ -1,6 +1,6 @@
-<ng-container *ngIf="{ users: users$ | async, active: active_user$ | async } as data">
+<ng-container *ngIf="{ users: users$ | async, active: active_user$ | async, loader: loading$ | async } as data">
 
-  <div *ngIf="loading$ | async">
+  <div class="loader" *ngIf="data.loader">
     <dicf-loader [big]="true" [white]="true"></dicf-loader>
   </div>
 
@@ -13,4 +13,5 @@
       [userName]="user.full_name" [userMail]="user.email" [userAvatar]="user.avatar"
       (click)="userClicked(user, data.active)"></dicf-user>
   </div>
+
 </ng-container>

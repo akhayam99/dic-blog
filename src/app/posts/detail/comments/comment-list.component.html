@@ -6,7 +6,8 @@
   <div class="item" *ngFor="let comment of comments">
     <dicf-comment>
       <div commentUser>
-        <dicf-user [userName]="comment.user.full_name" [userMail]="comment.user.email" [userAvatar]="comment.user.avatar"></dicf-user>
+        <dicf-user [userName]="comment.user.full_name" [userMail]="comment.user.email"
+          [userAvatar]="comment.user.avatar"></dicf-user>
       </div>
       <div commentText> {{ comment.text }} </div>
       <div commentDate> {{ comment.created_at | formatDate:'YYYY/MM/DD, HH:mm' }} </div>
@@ -16,5 +17,10 @@
 
 
 <div class="insert">
-  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <div class="input">
+    <dicf-textarea></dicf-textarea>
+  </div>
+  <div class="button">
+    <i class="fa fa-paper-plane fa-1x"></i>
+  </div>
 </div>

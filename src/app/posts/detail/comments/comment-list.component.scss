@@ -1,13 +1,12 @@
 @import "../../../../assets/css/variables";
 
-$title: 50px;
-$insert: 150px;
+$title: 80px;
+$insert: 120px;
 
 :host {
   display: grid;
   grid-template-rows: $title 1fr $insert;
   height: 100%;
-  margin: 0;
 
   .title {
     display: flex;
@@ -16,6 +15,7 @@ $insert: 150px;
     font-weight: 700;
     justify-content: center;
     text-align: center;
+    border-bottom: 5px solid white;
   }
 
   .list {
@@ -28,25 +28,22 @@ $insert: 150px;
   }
 
   .insert {
-    height: $insert;
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    border-top: 5px solid white;
+
+    .input {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+      justify-self: center;
+    }
+
+    .input,
+    .button {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
   }
-
-
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  // ::-webkit-scrollbar {
-  //   width: 15px;
-  // }
-  // ::-webkit-scrollbar-track {
-  //   background-color: $theme;
-  //   border-radius: 20px;
-  //   margin: 6px 0px;
-  // }
-  // ::-webkit-scrollbar-thumb {
-  //   background: white;
-  //   border: 3px solid $theme;
-  //   border-radius: 20px;
-  // }
 }
