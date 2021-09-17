@@ -8,9 +8,6 @@ export const LoadComments = createAction(prefix + 'LoadComments', props<{ id: nu
 export const LoadCommentsFailed = createAction(prefix + 'LoadCommentsFailed', props<{ error: any }>());
 export const LoadCommentsSuccess = createAction(prefix + 'LoadCommentsSuccess', props<{ comments: IComment[] }>());
 
-export const LoadPost = createAction(prefix + 'LoadPost', props<{ id: number }>());
+export const LoadPost = createAction(prefix + 'LoadPost', props<{ post_id: number }>());
 export const LoadPostFailed = createAction(prefix + 'LoadPostFailed', props<{ error: any }>());
 export const LoadPostSuccess = createAction(prefix + 'LoadPostSuccess', props<{ post: IPost }>());
-
-export const LoadPostId = createAction(prefix + 'LoadPost', props<{ post_id: number }>());
-

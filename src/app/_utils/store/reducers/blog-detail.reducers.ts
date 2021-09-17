@@ -11,10 +11,11 @@ const initialState: IBlogStateDataDetail = {
 
 export default createReducer(
   initialState,
-  on(fromActions.LoadPost, state => ({
+  on(fromActions.LoadPost, (state, {post_id}) => ({
     ...state,
+    comments: [],
     loading: true,
-    post_id: null,
+    post_id,
     post: null,
   })),
   on(fromActions.LoadPostSuccess, (state, {post}) => ({
@@ -39,14 +40,6 @@ export default createReducer(
   on(fromActions.LoadCommentsFailed, (state) => ({
     ...state,
     comments: [],
-    loadingPosts: false,
-  })),
-
-  on(fromActions.LoadPostId, (state, {post_id}) => ({
-    ...state,
-    comments: [],
-    loadingPosts: false,
-    post_id,
   })),
 )
 

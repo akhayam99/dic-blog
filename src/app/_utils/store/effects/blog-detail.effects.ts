@@ -21,12 +21,12 @@ export class BlogDetailEffects {
       return routerInfo.payload.routerState.url.match(/\/posts\/[\d]+$/) ? true : false;
     }),
     map((routerInfo: RouterNavigationAction) => {
-      return fromActions.LoadPostId({ post_id: +routerInfo.payload.routerState.url.match(/[\d]+$/)[0] })
+      return fromActions.LoadPost({ post_id: +routerInfo.payload.routerState.url.match(/[\d]+$/)[0] })
     })
   ));
 
   loadPost$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LoadPostId),
+    ofType(fromActions.LoadPost),
     switchMap(({ post_id }) => {
       return this.postService.getItem$(post_id).pipe(
         map(post => fromActions.LoadPostSuccess({ post })),
@@ -36,7 +36,7 @@ export class BlogDetailEffects {
   ));
 
   loadComments$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LoadPostId),
+    ofType(fromActions.LoadPost),
     switchMap(({ post_id }) => {
       return this.commentService.getList$({ post_id }).pipe(
         map(comments => fromActions.LoadCommentsSuccess({ comments })),
