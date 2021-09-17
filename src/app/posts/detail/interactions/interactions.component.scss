@@ -1,0 +1,35 @@
+@import "../../../../assets/css/variables";
+
+$title: 80px;
+$count: 80px;
+
+:host {
+  display: grid;
+  grid-template-rows: $title 1fr $count;
+  height: 100%;
+
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 5px solid white;
+  }
+
+  .list {
+    overflow: auto;
+  }
+
+  .count {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    border-top: 5px solid white;
+  }
+
+  .title,
+  .list,
+  .count {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,11 @@
+<div class="title">
+  ITERAZIONI
+</div>
+
+<div class="list">
+  <dicf-user *ngFor="let user of interactions" [userAvatar]="user.avatar"></dicf-user>
+</div>
+
+<div class="count">
+  TOTALE: {{ interactions.length }}
+</div>

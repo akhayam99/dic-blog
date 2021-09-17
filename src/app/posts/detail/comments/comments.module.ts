@@ -4,11 +4,11 @@ import { CommentModule } from 'src/app/_utils/components/comment/comment.module'
 import { UtilsFormModule } from 'src/app/_utils/components/form/utils.form.module';
 import { UserModule } from 'src/app/_utils/components/user/user.module';
 import { PipesModule } from 'src/app/_utils/pipes/pipes.module';
-import { CommentListComponent } from './comment-list.component';
+import { CommentsComponent } from './comments.component';
 
 @NgModule({
   declarations: [
-    CommentListComponent,
+    CommentsComponent,
   ],
   imports: [
     CommentModule,
@@ -18,7 +18,7 @@ import { CommentListComponent } from './comment-list.component';
     UtilsFormModule,
   ],
   exports: [
-    CommentListComponent
+    CommentsComponent
   ]
 })
-export class CommentListModule { }
+export class CommentsModule { }

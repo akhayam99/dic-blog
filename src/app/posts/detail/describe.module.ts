@@ -1,33 +1,30 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommentModule } from 'src/app/_utils/components/comment/comment.module';
 import { LoaderModule } from 'src/app/_utils/components/loader/loader.module';
 import { PostModule } from 'src/app/_utils/components/post/post.module';
-import { CommentListModule } from './comments/comment-list.module';
-import { DescribePostComponent } from './describe-post.component';
+import { CommentsModule } from './comments/comments.module';
+import { DescribeComponent } from './describe.component';
+import { InteractionsModule } from './interactions/interactions.module';
 
 const module = [
-  CommentModule,
+  CommentsModule,
   LoaderModule,
+  InteractionsModule,
   PostModule,
-  CommentListModule,
-  RouterModule.forChild([{
-    path: '',
-    component: DescribePostComponent,
-  }]),
+  RouterModule.forChild([{ path: '', component: DescribeComponent }]),
 ]
 
 @NgModule({
   declarations: [
-    DescribePostComponent
+    DescribeComponent
   ],
   imports: [
     ...module,
     CommonModule,
   ],
   exports: [
-    DescribePostComponent
+    DescribeComponent
   ]
 })
-export class DescribePostModule { }
+export class DescribeModule { }

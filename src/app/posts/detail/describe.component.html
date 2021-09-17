@@ -1,10 +1,16 @@
-<ng-container *ngIf="{post: post$ | async, comments: comments$ | async, loader: loading$ | async  } as data">
+<ng-container
+  *ngIf="{post: post$ | async, comments: comments$ | async, interactions: interactions$ | async, loader: loading$ | async  } as data">
+
   <div *ngIf="data.loader" class="loader">
     <dicf-loader [big]="true" [green]="true" *ngIf="loading$ | async"></dicf-loader>
   </div>
 
+  <div *ngIf="data.post && data.interactions" class="interactions">
+    <dicf-interactions [interactions]="data.interactions"></dicf-interactions>
+  </div>
+
   <div *ngIf="data.post" class="post">
-    <div class="item">
+    <div class="body">
       <dicf-post [post]="data.post" [summary]="false" [comments]="false"></dicf-post>
     </div>
     <div class="back" [routerLink]="['../']">
@@ -13,7 +19,8 @@
   </div>
 
   <div *ngIf="data.post && data.comments" class="comments">
-    <dicf-comment-list [comments]="data.comments"></dicf-comment-list>
+    <dicf-comments [comments]="data.comments"></dicf-comments>
   </div>
+
 
 </ng-container>

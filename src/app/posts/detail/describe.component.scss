@@ -2,32 +2,15 @@
 
 :host {
   display: grid;
+  grid-template-columns: 400px 1fr 400px;
   height: calc(100% - 160px - 80px);
-  grid-template-columns: 1fr 500px;
 
-  .post {
-    display: grid;
-    height: 100%;
-    grid-template-rows: 1fr 40px;
-    justify-content: center;
-    text-align: justify;
-
-    .back {
-      background-color: $theme;
-      border: 5px solid white;
-      color: white;
-      cursor: pointer;
-    }
-
-    .back,
-    .item {
-      display: flex;
-      justify-content: center;
-      text-align: justify;
-    }
+  .loader {
+    text-align: center;
   }
 
-  .comments {
+  .comments,
+  .interactions {
     background-color: $theme;
     border-radius: 20px;
     border: 5px solid white;
@@ -36,7 +19,31 @@
     margin-top: -25px;
   }
 
+  .post {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 1fr 40px;
+    justify-content: center;
+    text-align: justify;
+    margin: 20px;
+
+    .back {
+      background-color: $red;
+      border: 5px solid white;
+      color: white;
+      cursor: pointer;
+    }
+
+    .back,
+    .body {
+      display: flex;
+      justify-content: center;
+      text-align: justify;
+    }
+  }
+
   .comments,
+  .interactions,
   .post {
     overflow: auto;
   }
