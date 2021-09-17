@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { LoadPostsFromUser, UnsetPostsFromUser, UpdateUserList } from 'src/app/_utils/store';
+import { LoadPostsFromUser, LoadUsersWithFilter, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-main',
@@ -26,6 +26,6 @@ export class MainComponent {
   }
 
   onSearchChange(value: string): void {
-    this.store.dispatch(UpdateUserList({ full_name: value }))
+    this.store.dispatch(LoadUsersWithFilter({filtro: value}))
   }
 }

@@ -6,3 +6,5 @@ const prefix = '[blog] - ';
 export const LoadUsers = createAction(prefix + 'LoadUsers');
 export const LoadUsersFailed = createAction(prefix + 'LoadUsersFailed', props<{error: any}>());
 export const LoadUsersSuccess = createAction(prefix + 'LoadUsersSuccess', props<{users: IUser[]}>());
+
+export const LoadUsersWithFilter = createAction(prefix + 'LoadUsers', props<{filtro: string}>());

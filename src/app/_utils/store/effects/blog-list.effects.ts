@@ -6,7 +6,6 @@ import { Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { catchError, filter, map, switchMap, withLatestFrom } from "rxjs/operators";
 import { PostService } from "src/app/_utils/services/data/post.service";
-import { UserService } from "src/app/_utils/services/data/user.service";
 import { getUser } from "..";
 import * as fromActions from "../actions";
 
@@ -15,7 +14,6 @@ export class BlogListEffects {
   constructor(
     private actions$: Actions,
     private postService: PostService,
-    private userService: UserService,
     private router: Router,
     private store: Store,
   ) { }
@@ -59,16 +57,6 @@ export class BlogListEffects {
     ofType(fromActions.LoadPostsFromUser, fromActions.UnsetPostsFromUser),
     map(() => {
       return fromActions.LoadPosts();
-    })
-  ));
-
-  LoadUsers$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LoadUsers),
-    switchMap(() => {
-      return this.userService.getList$().pipe(
-        map(users => fromActions.LoadUsersSuccess({ users })),
-        catchError(error => of(fromActions.LoadUsersFailed(error)))
-      )
     })
   ));
 
