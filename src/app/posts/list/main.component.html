@@ -7,12 +7,11 @@
     <dicf-users-list (onUserClick)="onUserClick($event)" (onUserRemove)="onUserRemove()"></dicf-users-list>
   </div>
   <div class="search">
-    <dicf-input (onChange)="onSearchChange($event)" [value]="''"></dicf-input>
+    <dicf-search (onSearch)="onSearch($event)" [value]="''" [type]="'text'"></dicf-search>
   </div>
 </div>
 
 
 <div class="posts">
-  <dicf-posts-list>
-  </dicf-posts-list>
+  <dicf-posts-list></dicf-posts-list>
 </div>

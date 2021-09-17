@@ -1,27 +1,39 @@
 @import "../../../../assets/css/variables";
 
 :host {
-  display: grid;
-  height: 100%;
+
+  .grid-btn {
+    grid-template-rows: 40px 1fr;
+  }
+
+  .grid-no-btn {
+    grid-template-rows: 1fr;
+  }
+
+  .grid-btn,
+  .grid-no-btn {
+    height: 100%;
+    display: grid;
+  }
 
   .clear {
     background-color: $red;
     border-bottom: 5px solid white;
     box-sizing: border-box;
     cursor: pointer;
-    height: 40px;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
   }
 
   .clear,
   .loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
   }
 
   .list {
     overflow: auto;
+
     .active {
       border-left: 5px solid white;
       margin-left: 5px;
