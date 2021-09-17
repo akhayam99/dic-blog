@@ -1,14 +1,14 @@
-@import '../../../../assets/css/variables';
+@import "../../../../assets/css/variables";
 
- :host {
-  display: inline-flex;
+:host {
+  display: flex;
   padding: 5px;
-  width: 100%;
+  box-sizing: content-box;
 
   .avatar {
     img {
       border-radius: 50%;
-      border: 3px solid $green;
+      border: 3px solid $theme;
       height: 50px;
       width: 50px;
     }

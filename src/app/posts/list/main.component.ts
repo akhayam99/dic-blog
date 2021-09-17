@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { LoadPostsFromUser, UnsetPostsFromUser } from 'src/app/_utils/store';
+import { LoadPostsFromUser, UnsetPostsFromUser, UpdateUserList } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-main',
@@ -12,6 +12,7 @@ import { LoadPostsFromUser, UnsetPostsFromUser } from 'src/app/_utils/store';
 })
 export class MainComponent {
 
+  searchInput = "";
   activeUser$: Observable<IUser>
 
   constructor(private store: Store) { }
@@ -22,5 +23,9 @@ export class MainComponent {
 
   onUserRemove(): void {
     this.store.dispatch(UnsetPostsFromUser());
+  }
+
+  onSearchChange(value: string): void {
+    this.store.dispatch(UpdateUserList({ full_name: value }))
   }
 }

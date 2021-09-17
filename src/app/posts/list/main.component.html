@@ -1,16 +1,18 @@
-<div class="user-list">
+<div class="users">
   <div class="title">
     UTENTI
   </div>
+
   <div class="body">
     <dicf-users-list (onUserClick)="onUserClick($event)" (onUserRemove)="onUserRemove()"></dicf-users-list>
   </div>
   <div class="search">
-    input search
+    <dicf-input (onChange)="onSearchChange($event)" [value]="''"></dicf-input>
   </div>
 </div>
 
-<div class="post-list">
+
+<div class="posts">
   <dicf-posts-list>
   </dicf-posts-list>
 </div>

@@ -28,7 +28,7 @@ export class UsersListComponent implements OnInit {
   }
 
   userClicked(user: IUser, activeUser: IUser): void {
-    if (activeUser && activeUser.id === user.id)
+    if (activeUser && activeUser.id === user?.id)
       this.onUserRemove.emit();
     else
       this.onUserClick.emit(user);
