@@ -1,9 +1,7 @@
-@import "../../../assets/css/variables";
+@import "../../../assets/css/mixins/commons.scss";
 
 :host {
-  display: grid;
-  grid-template-columns: 400px 1fr 400px;
-  height: calc(100% - 160px - 80px);
+  @include grid-columns(400px 1fr 400px, calc(100% - 160px - 80px));
 
   .loader {
     text-align: center;
@@ -11,34 +9,24 @@
 
   .comments,
   .interactions {
-    background-color: $theme_color;
-    border-radius: 20px;
-    border: 5px solid white;
-    color: white;
-    height: calc(100% + 40px);
-    margin-top: -25px;
+    @include box-on-header(calc(100% + 40px));
+    @include box-radius;
+    @include theme-background;
   }
 
   .post {
-    display: grid;
-    height: 100%;
-    grid-template-rows: 1fr 40px;
+    @include box-on-footer;
+    @include grid-rows(1fr 40px);
+
     justify-content: center;
-    text-align: justify;
-    margin: 20px;
 
     .back {
-      background-color: $delete_button;
-      border: 5px solid white;
-      color: white;
-      cursor: pointer;
+      @include danger-button;
     }
 
     .back,
     .body {
-      display: flex;
-      justify-content: center;
-      text-align: justify;
+      @include content-justify;
     }
   }
 

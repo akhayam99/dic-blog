@@ -1,0 +1,74 @@
+@import "../variables";
+
+@mixin grid-columns($template, $height: 100%) {
+  display: grid;
+  grid-template-columns: $template;
+  height: $height;
+}
+
+@mixin grid-rows($template, $height: 100%) {
+  display: grid;
+  grid-template-rows: $template;
+  height: $height;
+}
+
+@mixin box-on-header($height: 0) {
+  margin-top: -25px;
+
+  @if ($height != 0) {
+    height: $height;
+  }
+}
+
+@mixin box-on-footer($height: 0) {
+  margin-top: 25px;
+
+  @if ($height != 0) {
+    height: $height;
+  }
+}
+
+@mixin danger-button {
+  background-color: $delete_button;
+  border: 5px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+@mixin box-header {
+  border-bottom: 5px solid white;
+  @include title(20px, 600);
+}
+
+@mixin box-footer {
+  border-top: 5px solid white;
+}
+
+@mixin content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+@mixin content-justify {
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+}
+
+@mixin theme-background {
+  background: $theme_color;
+  color: white;
+}
+
+@mixin box-radius {
+  border-radius: 20px;
+  border: 5px solid white;
+}
+
+@mixin title($size: 40px, $weight: 600, $style: "normal") {
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+}

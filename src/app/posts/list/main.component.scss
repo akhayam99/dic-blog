@@ -1,19 +1,13 @@
-@import "../../../assets/css/variables";
+@import "../../../assets/css/mixins/commons";
 
 :host {
-  display: grid;
-  grid-template-columns: 350px auto;
-  height: calc(100% - 160px - 80px);
+  @include grid-columns(350px 1fr, calc(100% - 160px - 80px));
 
   .users {
-    background: $theme_color;
-    border-radius: 20px;
-    border: 5px solid white;
-    color: white;
-    display: grid;
-    grid-template-rows: 80px 1fr 80px;
-    height: calc(100% + 40px);
-    margin-top: -25px;
+    @include box-on-header;
+    @include box-radius;
+    @include grid-rows(80px 1fr 80px, calc(100% + 40px));
+    @include theme-background;
 
     .body {
       cursor: pointer;
@@ -21,21 +15,16 @@
     }
 
     .title {
-      border-bottom: 5px solid white;
-      font-size: 20px;
-      font-weight: 600;
+      @include box-header;
     }
 
     .search {
-      border-top: 5px solid white;
+      @include box-footer;
     }
 
     .search,
     .title {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
+      @include content-center;
     }
   }
 

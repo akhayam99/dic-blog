@@ -1,10 +1,5 @@
 @import "../variables";
-
-@mixin blog-template($template) {
-  display: grid;
-  grid-template-columns: $template;
-  height: calc(100% - 160px - 80px);
-}
+@import "../mixins/commons.scss";
 
 @mixin auth-button-switch {
   background-color: unset;
