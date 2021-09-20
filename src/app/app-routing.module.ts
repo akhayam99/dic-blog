@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', loadChildren: () => import('./auth/auth.module').then(c => c.LoginPageModule) },
+  { path: '', loadChildren: () => import('./auth/auth.module').then(c => c.RegistrationPageModule) },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', loadChildren: () => import('./auth/login-page/login-page.module').then(c => c.LoginPageModule) },
   { path: 'posts', loadChildren: () => import('./posts/list/main.module').then(c => c.MainModule) },
   { path: 'posts/:id', loadChildren: () => import('./posts/detail/describe.module').then(c => c.DescribeModule) },
-  { path: 'registration', loadChildren: () => import('./auth/registration-page/registration-page.module').then(c => c.RegistrationPageModule) },
 ];
 
 @NgModule({

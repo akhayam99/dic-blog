@@ -5,14 +5,18 @@ import * as fromStore from 'src/app/_utils/store';
 @Component({
   selector: 'dicf-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.scss'],
+  styleUrls: ['../auth.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginPageComponent  {
-
   constructor(private store: Store) { }
 
+  goToLogin(): void {
+    this.store.dispatch(fromStore.GoToAuthLogin());
+  }
+
   goToRegistration(): void {
+    console.log("pippo");
     this.store.dispatch(fromStore.GoToAuthRegistration());
   }
 }

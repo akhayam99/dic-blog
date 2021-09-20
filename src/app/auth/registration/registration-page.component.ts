@@ -6,14 +6,18 @@ import * as fromStore from 'src/app/_utils/store';
 @Component({
   selector: 'dicf-registration-page',
   templateUrl: './registration-page.component.html',
-  styleUrls: ['./registration-page.component.scss'],
+  styleUrls: ['../auth.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class RegistrationPageComponent {
   constructor(private store: Store) { }
 
   goToLogin(): void {
-    console.log("gotologin")
     this.store.dispatch(fromStore.GoToAuthLogin());
+  }
+
+  goToRegistration(): void {
+    this.store.dispatch(fromStore.GoToAuthRegistration());
   }
 }
