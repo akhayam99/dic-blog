@@ -1,4 +1,4 @@
-@import "../../assets/css/variables";
+@import "../../../assets/css/variables";
 
 :host {
   display: grid;
@@ -12,6 +12,17 @@
     color: white;
     height: calc(100% + 40px) !important;
     margin-top: -25px;
+
+    button {
+      background-color: unset;
+      border: 0px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .center {

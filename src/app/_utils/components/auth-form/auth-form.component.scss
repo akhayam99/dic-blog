@@ -1,4 +1,4 @@
-@import "../../../assets/css/variables";
+@import "../../../../assets/css/variables";
 
 :host {
   display: grid;
@@ -11,16 +11,6 @@
 
   .switch {
     border-top: 5px solid white;
-    button {
-      background-color: unset;
-      border: 0px;
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 
   .title {

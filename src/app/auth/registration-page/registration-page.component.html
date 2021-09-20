@@ -1,9 +1,21 @@
 <div class="info center">
-  ACCEDI PER CONTINUARE :)
+  REGISTRATI PER CONTINUARE :)
 </div>
 
 <div class="form">
-  <dicf-auth-form></dicf-auth-form>
+  <dicf-auth-form>
+    <div authTitle>
+      REGISTRATI
+    </div>
+    <div authBody>
+      <dicf-registration></dicf-registration>
+    </div>
+    <div authSwitch>
+      <button (click)="goToLogin()">
+          Clicca qui per accedere
+      </button>
+    </div>
+  </dicf-auth-form>
 </div>
 
 <div class="info justify">
