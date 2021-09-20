@@ -23,9 +23,7 @@ export class DescribeComponent implements OnInit {
   ngOnInit(): void {
     this.loading$ = this.store.select(fromStore.getLoadingPost);
     this.post$ = this.store.select(fromStore.getPost);
-
     this.comments$ = this.store.select(fromStore.getComments);
-
     this.interactions$ = this.store.select(fromStore.getInteractions)
   }
 }

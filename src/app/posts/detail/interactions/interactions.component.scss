@@ -16,6 +16,9 @@ $count: 80px;
 
   .list {
     overflow: auto;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(5, 77px);
   }
 
   .count {
@@ -25,7 +28,6 @@ $count: 80px;
   }
 
   .title,
-  .list,
   .count {
     display: flex;
     justify-content: center;
