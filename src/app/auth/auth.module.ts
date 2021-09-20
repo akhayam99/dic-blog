@@ -7,27 +7,24 @@ import { LoginPageComponent } from './login/login-page.component';
 import { RegistrationModule } from './registration/form/registration.module';
 import { RegistrationPageComponent } from './registration/registration-page.component';
 
-const module = [
-  AuthFormModule,
-  CommonModule,
-  LoginModule,
-  RegistrationModule,
-  RouterModule.forChild([
-    { path: 'login', component: LoginPageComponent },
-    { path: 'registration', component: RegistrationPageComponent },
-  ]),
-];
-
 @NgModule({
   declarations: [
-    LoginPageComponent,
     RegistrationPageComponent,
+    LoginPageComponent,
   ],
   imports: [
-    ...module,
-    CommonModule
+    AuthFormModule,
+    CommonModule,
+    LoginModule,
+    RegistrationModule,
+    RouterModule.forChild([
+      { path: 'login', component: LoginPageComponent },
+      { path: 'registration', component: RegistrationPageComponent },
+    ]),
+    CommonModule,
   ]
 })
 
 export class LoginPageModule { }
+
 export class RegistrationPageModule { }
