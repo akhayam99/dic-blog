@@ -11,7 +11,7 @@
 
   .comments,
   .interactions {
-    background-color: $theme;
+    background-color: $theme_color;
     border-radius: 20px;
     border: 5px solid white;
     color: white;
@@ -28,7 +28,7 @@
     margin: 20px;
 
     .back {
-      background-color: $red;
+      background-color: $delete_button;
       border: 5px solid white;
       color: white;
       cursor: pointer;
