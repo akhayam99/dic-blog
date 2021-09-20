@@ -1,0 +1,19 @@
+@import "../../assets/css/mixins/auth";
+
+:host {
+  @include blog-template(1fr 350px 1fr);
+
+  .auth-form {
+    @include auth-form;
+  }
+
+  .info-center {
+    @include auth-info;
+    text-align: center;
+  }
+
+  .info-justify {
+    @include auth-info;
+    text-align: justify;
+  }
+}

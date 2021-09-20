@@ -3,19 +3,28 @@
     <div class="label">
       Username <i class="fa fa-user" aria-hidden="true"></i>
     </div>
-    <dicf-input [formControlName]="'username'" [errors]="form.get('username').touched ? form.get('username').errors : null "></dicf-input>
+    <dicf-input
+      [formControlName]="'username'"
+      [errors]="form.get('username').touched ? form.get('username').errors : null "
+    ></dicf-input>
   </div>
 
   <div class="input">
     <div class="label">
       Password <i class="fa fa-lock" aria-hidden="true"></i>
     </div>
-    <dicf-password [formControlName]="'password'" [errors]="form.get('password').touched ? form.get('password').errors : null "></dicf-password>
+    <dicf-password
+      [formControlName]="'password'"
+      [errors]="form.get('password').touched ? form.get('password').errors : null "
+    ></dicf-password>
   </div>
 
   <div class="submit">
-    <dicf-submit [value]="'Accedi'"></dicf-submit>
+    <dicf-submit
+      [value]="'Accedi'"
+    ></dicf-submit>
   </div>
-
-  <dicf-errors [errors]="form.touched ? form.errors : null"></dicf-errors>
+  <dicf-errors
+    [errors]="form.touched ? form.errors : null"
+  ></dicf-errors>
 </form>

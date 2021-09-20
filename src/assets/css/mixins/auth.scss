@@ -1,0 +1,56 @@
+@import "../variables";
+
+@mixin blog-template($template) {
+  display: grid;
+  grid-template-columns: $template;
+  height: calc(100% - 160px - 80px);
+}
+
+@mixin auth-button-switch {
+  background-color: unset;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin auth-form {
+  background-color: $theme_color;
+  border-radius: 20px;
+  border: 5px solid white;
+  color: white;
+  height: calc(100% + 40px) !important;
+  margin-top: -25px;
+
+  button {
+    @include auth-button-switch;
+  }
+}
+
+@mixin auth-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px 40px;
+  overflow: auto;
+  padding: 20px 0px;
+}
+
+@mixin auth-form-input {
+  font-size: 14px;
+  font-weight: 800px;
+  margin: 5px;
+  text-align: center;
+
+  .label {
+    margin: 5px;
+  }
+}
+
+@mixin auth-form-submit {
+  text-align: center;
+  padding: 10px;
+}

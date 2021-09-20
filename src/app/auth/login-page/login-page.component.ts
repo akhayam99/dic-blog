@@ -15,6 +15,4 @@ export class LoginPageComponent  {
   goToRegistration(): void {
     this.store.dispatch(fromStore.GoToAuthRegistration());
   }
-
-
 }

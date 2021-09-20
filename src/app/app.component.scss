@@ -1,40 +1,22 @@
-@import '../assets/css/variables';
+@import "../assets/css/mixins/blog";
 
 :host {
-  display: block;
-  height: 100%;
-  align-items: center;
+  @include blog-layout;
 
   .header {
-    height: 160px;
-
+    @include blog-header;
     .title {
-      font-weight: 600;
-      font-size: 40px;
+      @include blog-title-1;
     }
-
     .subtitle {
-      font-weight: 300;
-      font-size: 25px;
-      font-style: italic;
+      @include blog-subtitle;
     }
   }
 
   .footer {
-    height: 80px;
-
+    @include blog-footer;
     .title {
-      font-weight: 400;
-      font-size: 20px;
+      @include blog-title-2;
     }
-  }
-
-  .header, .footer {
-    background: $theme_color;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
   }
 }

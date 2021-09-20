@@ -1,21 +1,12 @@
-@import "../../../../assets/css/variables.scss";
+@import "../../../../assets/css/mixins/auth";
 
 :host {
-  color: white;
 
   .input {
-    font-size: 14px;
-    font-weight: 800px;
-    margin: 5px;
-    text-align: center;
-
-    .label {
-      margin: 5px;
-    }
+    @include auth-form-input;
   }
 
   .submit {
-    text-align: center;
-    padding: 10px;
+    @include auth-form-submit;
   }
 }
