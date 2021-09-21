@@ -3,7 +3,7 @@ import * as PasswordValidator from "src/app/_utils/components/form/validator/pas
 import * as UsernameValidator from "src/app/_utils/components/form/validator/username.validator";
 
 export const getLoginForm: (fb: FormBuilder) => FormGroup = fb => fb.group({
-  username: [
+  email: [
     "", [
       // sync validators
       UsernameValidator.MinLength(8),

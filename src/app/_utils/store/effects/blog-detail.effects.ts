@@ -3,8 +3,8 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { RouterNavigationAction, ROUTER_NAVIGATION } from "@ngrx/router-store";
 import { of } from "rxjs";
 import { catchError, filter, map, switchMap } from "rxjs/operators";
-import { PostService } from "src/app/_utils/services/data/post.service";
-import { CommentService } from "../../services/data/comment.service";
+import { CommentService } from "../../services/crud/comment.service";
+import { PostService } from "../../services/crud/post.service";
 import * as fromActions from "../actions";
 
 @Injectable()

@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -9,7 +10,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './_utils/components/components.module';
-import { PostService } from './_utils/services/data/post.service';
+import { PostService } from './_utils/services/crud/post.service';
 import { effects } from './_utils/store/effects';
 import { dataReducer, reducer } from './_utils/store/reducers';
 
@@ -18,6 +19,7 @@ const module = [
   BrowserModule,
   CommonModule,
   ComponentsModule,
+  HttpClientModule,
   EffectsModule.forFeature(effects),
   EffectsModule.forRoot([]),
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),

@@ -1,11 +1,11 @@
 <form [formGroup]="form" (submit)="onSubmit()">
   <div class="input">
     <div class="label">
-      Username <i class="fa fa-user" aria-hidden="true"></i>
+      email <i class="fa fa-user" aria-hidden="true"></i>
     </div>
     <dicf-input
-      [formControlName]="'username'"
-      [errors]="form.get('username').touched ? form.get('username').errors : null "
+      [formControlName]="'email'"
+      [errors]="form.get('email').touched ? form.get('email').errors : null "
     ></dicf-input>
   </div>
 
@@ -23,6 +23,12 @@
     <dicf-submit
       [value]="'Accedi'"
     ></dicf-submit>
+    {{ loading$ | async }}
+    <!-- <ng-container
+      *ngIf="loading$ | async as loading"
+    >
+    {{ loading }}
+    </ng-container> -->
   </div>
   <dicf-errors
     [errors]="form.touched ? form.errors : null"

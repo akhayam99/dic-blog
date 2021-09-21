@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendUrl: 'https://a-lumen-blog.herokuapp.com/'
 };

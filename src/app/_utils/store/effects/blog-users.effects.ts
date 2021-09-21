@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
-import { UserService } from "../../services/data/user.service";
+import { UserService } from "../../services/crud/user.service";
 import * as fromActions from "../actions";
 
 @Injectable()

@@ -5,8 +5,8 @@ import { RouterNavigationAction, ROUTER_NAVIGATION } from "@ngrx/router-store";
 import { Store } from "@ngrx/store";
 import { of } from "rxjs";
 import { catchError, filter, map, switchMap, withLatestFrom } from "rxjs/operators";
-import { PostService } from "src/app/_utils/services/data/post.service";
 import { getUser } from "..";
+import { PostService } from "../../services/crud/post.service";
 import * as fromActions from "../actions";
 
 @Injectable()
