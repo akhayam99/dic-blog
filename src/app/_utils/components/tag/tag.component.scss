@@ -1,7 +1,7 @@
-@import "../../../../assets/css/variables";
+@import "../../../../assets/css/mixins/commons.scss";
 
 :host {
-  background-color: $theme_color;
+  @include theme-bgcolor;
   border-radius: 10px;
   color: white;
   cursor: pointer;

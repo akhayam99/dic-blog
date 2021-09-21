@@ -25,7 +25,7 @@ export class MainComponent {
     this.store.dispatch(UnsetPostsFromUser());
   }
 
-  onSearch(value: string): void {
-    this.store.dispatch(LoadUsersWithFilter({filtro: value}))
+  onSearch(filter: string): void {
+    this.store.dispatch(LoadUsersWithFilter({ filter }))
   }
 }

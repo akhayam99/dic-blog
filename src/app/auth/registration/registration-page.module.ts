@@ -2,15 +2,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthFormModule } from 'src/app/_utils/components/auth-form/auth-form.module';
-import { LoginModule } from './login/form/login.module';
-import { LoginPageComponent } from './login/login-page.component';
-import { RegistrationModule } from './registration/form/registration.module';
-import { RegistrationPageComponent } from './registration/registration-page.component';
+import { LoginModule } from '../login/form/login.module';
+import { RegistrationModule } from './form/registration.module';
+import { RegistrationPageComponent } from './registration-page.component';
 
 @NgModule({
   declarations: [
     RegistrationPageComponent,
-    LoginPageComponent,
   ],
   imports: [
     AuthFormModule,
@@ -18,13 +16,10 @@ import { RegistrationPageComponent } from './registration/registration-page.comp
     LoginModule,
     RegistrationModule,
     RouterModule.forChild([
-      { path: 'login', component: LoginPageComponent },
-      { path: 'registration', component: RegistrationPageComponent },
+      { path: '', component: RegistrationPageComponent },
     ]),
     CommonModule,
   ]
 })
-
-export class LoginPageModule { }
 
 export class RegistrationPageModule { }

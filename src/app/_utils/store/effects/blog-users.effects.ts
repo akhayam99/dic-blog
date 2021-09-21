@@ -26,8 +26,8 @@ export class BlogUsersEffects {
 
   LoadUsersWithFilter$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoadUsersWithFilter),
-    switchMap(({ filtro }) => {
-      return this.userService.getList$({ filtro }).pipe(
+    switchMap(({ filter }) => {
+      return this.userService.getList$({ filter }).pipe(
         map(users => fromActions.LoadUsersSuccess({ users })),
         catchError(error => of(fromActions.LoadUsersFailed(error)))
       )

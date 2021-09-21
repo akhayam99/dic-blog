@@ -108,8 +108,8 @@ const DATA = [
 })
 export class UserService extends ApiService<IUser> {
   getList$(params?: ApiParams): Observable<IUser[]> {
-    if (params && params.filtro)
-      return of(DATA.filter(d => d.full_name.toLocaleLowerCase().includes(params.filtro.toLocaleLowerCase()))).pipe(delay(1000));
+    if (params && params.filter)
+      return of(DATA.filter(d => d.full_name.toLocaleLowerCase().includes(params.filter.toLocaleLowerCase()))).pipe(delay(1000));
     return of(DATA).pipe(delay(1000));
   }
   getItem$(id: number): Observable<IUser> {

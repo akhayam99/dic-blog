@@ -1,9 +1,9 @@
-@import '../../../../assets/css/variables';
+@import "../../../../assets/css/mixins/commons.scss";
 
 :host {
   transform-origin: center;
   &.fa-green {
-    color: $theme_color;
+    @include theme-color;
   }
   &.fa-white {
     color: white;

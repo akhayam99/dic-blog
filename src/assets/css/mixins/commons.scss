@@ -6,6 +6,10 @@
   height: $height;
 }
 
+@mixin centered-column($gap, $height) {
+  @include grid-columns($gap 1fr $gap, $height);
+}
+
 @mixin grid-rows($template, $height: 100%) {
   display: grid;
   grid-template-rows: $template;
@@ -71,4 +75,12 @@
   font-size: $size;
   font-weight: $weight;
   font-style: $style;
+}
+
+@mixin theme-bgcolor() {
+  background-color: $theme_color;
+}
+
+@mixin theme-color() {
+  color: $theme_color;
 }
