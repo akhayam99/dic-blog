@@ -6,12 +6,12 @@ import { default as users } from './blog-users.reducers';
 
 
 export const dataReducer = combineReducers({
-  auth,
   detail,
   list,
   users,
 });
 
 export const reducer = combineReducers({
-  data: dataReducer
+  data: dataReducer,
+  auth
 });

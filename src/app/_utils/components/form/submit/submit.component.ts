@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BaseComponent } from '../_base/base.component';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'dicf-submit[value]',
+  selector: 'dicf-submit[text]',
   templateUrl: './submit.component.html',
   styleUrls: ['./submit.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SubmitComponent extends BaseComponent { }
+export class SubmitComponent {
+  @Input() loading: boolean;
+  @Input() text: string;
+ }

@@ -1,0 +1,4 @@
+<button [attr.type]="type">
+  <dicf-loader *ngIf="loading; else textTemplate"></dicf-loader>
+  <ng-template #textTemplate> {{ text }} </ng-template>
+</button>

@@ -13,6 +13,7 @@ import { ComponentsModule } from './_utils/components/components.module';
 import { PostService } from './_utils/services/crud/post.service';
 import { effects } from './_utils/store/effects';
 import { dataReducer, reducer } from './_utils/store/reducers';
+import { default as authReducer } from './_utils/store/reducers/blog-auth.reducers';
 
 const module = [
   AppRoutingModule,
@@ -23,6 +24,7 @@ const module = [
   EffectsModule.forFeature(effects),
   EffectsModule.forRoot([]),
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),
+  StoreModule.forFeature('auth', authReducer),
   StoreModule.forFeature('data', dataReducer),
   StoreModule.forRoot(reducer, {
     runtimeChecks: {

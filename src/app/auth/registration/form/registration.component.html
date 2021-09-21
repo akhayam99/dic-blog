@@ -3,49 +3,37 @@
     <div class="label">
       Username <i class="fa fa-user" aria-hidden="true"></i>
     </div>
-    <dicf-input
-      [formControlName]="'username'"
-      [errors]="form.get('username').touched ? form.get('username').errors : null"
-    ></dicf-input>
+    <dicf-input [formControlName]="'username'"
+      [errors]="form.get('username').touched ? form.get('username').errors : null"></dicf-input>
   </div>
 
   <div class="input">
     <div class="label">
       Email <i class="fa fa-envelope" aria-hidden="true"></i>
     </div>
-    <dicf-input
-      [formControlName]="'email'"
-      [errors]="form.get('email').touched ? form.get('email').errors : null "
-    ></dicf-input>
+    <dicf-input [formControlName]="'email'" [errors]="form.get('email').touched ? form.get('email').errors : null ">
+    </dicf-input>
   </div>
 
   <div class="input">
     <div class="label">
       Password <i class="fa fa-lock" aria-hidden="true"></i>
     </div>
-    <dicf-password
-      [formControlName]="'password'"
-      [errors]="form.get('password').touched ? form.get('password').errors : null "
-    ></dicf-password>
+    <dicf-password [formControlName]="'password'"
+      [errors]="form.get('password').touched ? form.get('password').errors : null "></dicf-password>
   </div>
 
   <div class="input">
     <div class="label">
       Verifica Password <i class="fa fa-lock" aria-hidden="true"></i>
     </div>
-    <dicf-password
-      [formControlName]="'passwordCheck'"
-      [errors]="form.get('passwordCheck').touched ? form.get('passwordCheck').errors : null "
-    ></dicf-password>
+    <dicf-password [formControlName]="'passwordCheck'"
+      [errors]="form.get('passwordCheck').touched ? form.get('passwordCheck').errors : null "></dicf-password>
   </div>
 
   <div class="submit">
-    <dicf-submit
-      [value]="'Registrati'"
-    ></dicf-submit>
-    <dicf-errors
-      [errors]="form.touched ? form.errors : null"
-    ></dicf-errors>
+    <dicf-submit [text]="'Registrati'"></dicf-submit>
+    <dicf-errors [errors]="form.touched ? form.errors : null"></dicf-errors>
   </div>
 
 </form>
