@@ -1,11 +1,12 @@
 import { IComment } from "src/app/_utils/interfaces/IComment";
 import { IPost } from "src/app/_utils/interfaces/IPost";
 import { IUser } from "src/app/_utils/interfaces/IUser";
-import { LoginError } from "../../services/auth/login.service";
+import { LoginError, LoginResponse } from "../../services/auth/login.service";
 
 export interface IBlogStateAuth {
-  loginError: LoginError,
   logging: boolean,
+  loginError: LoginError,
+  loginInfo: LoginResponse,
 }
 
 export interface IBlogStateData {
