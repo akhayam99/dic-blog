@@ -1,7 +1,7 @@
 <form [formGroup]="form" (submit)="onSubmit()">
   <div class="input">
     <div class="label">
-      email <i class="fa fa-user" aria-hidden="true"></i>
+      Email <i class="fa fa-envelope" aria-hidden="true"></i>
     </div>
     <dicf-input [formControlName]="'email'" [errors]="form.get('email').touched ? form.get('email').errors : null ">
     </dicf-input>
