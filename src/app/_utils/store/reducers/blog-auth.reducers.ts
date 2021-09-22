@@ -3,8 +3,9 @@ import * as fromActions from "../actions";
 import { IBlogStateAuth } from '../state/blog.state';
 
 const initialState: IBlogStateAuth = {
-  loginError: null,
   logging: false,
+  loginError: null,
+  loginInfo: null,
 }
 
 export default createReducer(
@@ -14,9 +15,10 @@ export default createReducer(
     logging: true,
     loginError: null,
   })),
-  on(fromActions.LoginSuccess, (state) => ({
+  on(fromActions.LoginSuccess, (state, loginInfo) => ({
     ...state,
     logging: false,
+    loginInfo,
   })),
   on(fromActions.LoginFailed, (state, loginError) => ({
     ...state,
