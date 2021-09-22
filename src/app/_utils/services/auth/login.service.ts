@@ -12,9 +12,13 @@ export class LoginService {
     this.baseUrl = environment.backendUrl;
   }
 
-  login$(params: LoginParams): Observable<LoginResponse|LoginError> {
+  login$(params: LoginParams): Observable<LoginResponse | LoginError> {
     const { email, password } = params;
-    return this.apiService.post$(this.baseUrl + 'auth/login', { email, password });
+    return this.apiService.getCall$<LoginResponse | LoginError>({ method: 'post', url: this.baseUrl + 'auth/login', data: { email, password } });
+  }
+
+  me$() {
+    return this.apiService.getAuthenticatedCall$({ method: 'get', url: this.baseUrl + 'auth/me' });
   }
 }
 

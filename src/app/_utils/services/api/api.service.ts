@@ -1,28 +1,56 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import * as fromStore from '../../store';
+
+export type URLMethod = 'get' | 'post' | 'put' | 'delete';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private store: Store) { }
 
-  get$<T>(url: string, params?: HttpParams): Observable<T> {
-    return this.httpClient.get<T>(url, { params });
+  getCall$<T>(parameters: { method: URLMethod, url: string, options?: any, data?: any }): Observable<any> {
+    const { method, url, options, data } = parameters;
+    switch (method) {
+      case 'get':
+        return this.httpClient.get<T>(url, options);
+      case 'post':
+        return this.httpClient.post<T>(url, data, options);
+      case 'put':
+        return this.httpClient.put<T>(url, data, options);
+      case 'delete':
+        return this.httpClient.delete<T>(url, options);
+    }
   }
 
-  post$<T>(url: string, data: any, params?: HttpParams): Observable<T> {
-    return this.httpClient.post<T>(url, data, { params });
+  getAuthenticatedCall$<T>(parameters: { method: URLMethod, url: string, options?: any, data?: any }): Observable<T> {
+    return this.store.select(fromStore.getLoginInfo).pipe(
+      switchMap(loginInfo => {
+        const { access_token } = loginInfo;
+        return this.getCall$<T>({ ...parameters });
+
+        // const options = {
+        //   headers: this.getRequestHeaders(access_token),
+        //   params: new HttpParams(),
+        //   withCredentials: true,
+        //   ...parameters.options,
+        //   responseType: 'json',
+        // }
+        // return this.getCall$<T>({ ...parameters, options });
+      })
+    )
   }
 
-  put$<T>(url: string, data: any, params?: HttpParams): Observable<T> {
-    return this.httpClient.put<T>(url, data, { params });
-  }
 
-  delete$<T>(url: string, params?: HttpParams): Observable<T> {
-    return this.httpClient.delete<T>(url, { params });
+  getRequestHeaders = (token): HttpHeaders => {
+    return new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      // .set('Authorization', `Bearer ${token}` || '')
   }
 
 }

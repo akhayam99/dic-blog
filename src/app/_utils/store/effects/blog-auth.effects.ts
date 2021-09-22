@@ -28,13 +28,26 @@ export class BlogAuthEffects {
     ofType(fromActions.Login),
     switchMap(({ email, password }) => {
       return this.loginService.login$({ email, password }).pipe(
-        map((resp: LoginResponse) => fromActions.LoginSuccess(resp)),
-        catchError((error: {error: LoginError}) => of(fromActions.LoginFailed(error.error)))
+        map((resp: LoginResponse) => {
+          console.log(resp);
+          return fromActions.LoginSuccess(resp)
+        }),
+        catchError((error: { error: LoginError }) => of(fromActions.LoginFailed(error.error)))
       )
     }),
   ));
 
-  LoginSuccess$ = createEffect(() => this.actions$.pipe(
+  // Me$ = createEffect(() => this.actions$.pipe(
+  //   ofType(fromActions.LoginSuccess),
+  //   switchMap(() => {
+  //     return this.loginService.me$().pipe(
+  //       map((resp: any) => fromActions.UserDataLoadSuccess(resp)),
+  //       catchError((error: { error: LoginError }) => of(fromActions.UserDataLoadFailed(error.error)))
+  //     )
+  //   }),
+  // ));
+
+  GoToPosts$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoginSuccess),
     map(() => {
       this.router.navigate([`posts`]);
