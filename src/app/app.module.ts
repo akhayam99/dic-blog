@@ -14,6 +14,7 @@ import { PostService } from './_utils/services/crud/post.service';
 import { effects } from './_utils/store/effects';
 import { dataReducer, reducer } from './_utils/store/reducers';
 import { default as authReducer } from './_utils/store/reducers/blog-auth.reducers';
+import { default as infoReducer } from './_utils/store/reducers/blog-info.reducers';
 
 const module = [
   AppRoutingModule,
@@ -26,6 +27,7 @@ const module = [
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),
   StoreModule.forFeature('auth', authReducer),
   StoreModule.forFeature('data', dataReducer),
+  StoreModule.forFeature('info', infoReducer),
   StoreModule.forRoot(reducer, {
     runtimeChecks: {
       strictActionImmutability: false,

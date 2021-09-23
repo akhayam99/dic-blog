@@ -3,7 +3,7 @@ import * as MailValidator from "src/app/_utils/components/form/validator/mail.va
 
 export const getLoginForm: (fb: FormBuilder) => FormGroup = fb => fb.group({
   email: [
-    "", [
+    "testblog.aronnebrivio@dispostable.com", [
       // sync validators
       MailValidator.CheckMail,
     ], [
@@ -11,7 +11,7 @@ export const getLoginForm: (fb: FormBuilder) => FormGroup = fb => fb.group({
     ],
   ],
   password: [
-    ""
+    "password"
   ],
 }, {
   validators: []

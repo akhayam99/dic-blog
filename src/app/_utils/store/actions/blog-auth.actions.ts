@@ -10,6 +10,5 @@ export const LoginFailed = createAction(prefix + 'LoginFailed', props<LoginError
 export const GoToAuthLogin = createAction(prefix + 'GoToAuthLogin');
 export const GoToAuthRegistration = createAction(prefix + 'GoToAuthRegistration');
 
-
 export const UserDataLoadSuccess = createAction(prefix + 'UserDataLoadSuccess', props<any>());
 export const UserDataLoadFailed = createAction(prefix + 'UserDataLoadFailed', props<any>());

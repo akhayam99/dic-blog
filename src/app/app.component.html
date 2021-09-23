@@ -10,7 +10,7 @@
 <router-outlet></router-outlet>
 
 <div class="footer">
-  <div class="title">
-    sisi non so che cazzo metterci
+  <div class="title" *ngIf="version$ | async as version">
+    Versione: {{ version }}
   </div>
 </div>

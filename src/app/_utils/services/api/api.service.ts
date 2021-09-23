@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -32,25 +32,21 @@ export class ApiService {
     return this.store.select(fromStore.getLoginInfo).pipe(
       switchMap(loginInfo => {
         const { access_token } = loginInfo;
-        return this.getCall$<T>({ ...parameters });
-
-        // const options = {
-        //   headers: this.getRequestHeaders(access_token),
-        //   params: new HttpParams(),
-        //   withCredentials: true,
-        //   ...parameters.options,
-        //   responseType: 'json',
-        // }
-        // return this.getCall$<T>({ ...parameters, options });
+        const options = {
+          headers: this.getRequestHeaders(access_token),
+          params: new HttpParams(),
+          ...parameters.options,
+          responseType: 'json',
+        }
+        return this.getCall$<T>({ ...parameters, options });
       })
     )
   }
 
-
   getRequestHeaders = (token): HttpHeaders => {
     return new HttpHeaders()
       .set('Content-Type', 'application/json')
-      // .set('Authorization', `Bearer ${token}` || '')
+      .set('Authorization', `Bearer ${token}` || '')
   }
 
 }
