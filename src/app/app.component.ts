@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from './_utils/interfaces/IUser';
+import { VersionResponse } from './_utils/services/api/info.service';
 import * as fromStore from './_utils/store';
 
 @Component({
@@ -13,13 +14,14 @@ import * as fromStore from './_utils/store';
 export class AppComponent implements OnInit {
 
   user$: Observable<IUser>;
-  version$: Observable<string>;
+  version$: Observable<VersionResponse>;
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.user$ = this.store.select(fromStore.getUserData)
     this.version$ = this.store.select(fromStore.getVersion)
+    this.version$.subscribe(console.log)
   }
 
   Logout(): void {

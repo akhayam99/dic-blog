@@ -1,6 +1,7 @@
 import { IComment } from "src/app/_utils/interfaces/IComment";
 import { IPost } from "src/app/_utils/interfaces/IPost";
 import { IUser } from "src/app/_utils/interfaces/IUser";
+import { VersionError, VersionResponse } from "../../services/api/info.service";
 import { LoginError, LoginResponse } from "../../services/auth/login.service";
 
 
@@ -23,7 +24,8 @@ export interface IBlogStateData {
 }
 
 export interface IBlogStateInfo {
-  version: string,
+  versionInfo: VersionResponse,
+  versionError: VersionError,
 }
 
 export interface IBlogStateDataList {

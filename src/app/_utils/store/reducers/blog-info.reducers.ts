@@ -3,18 +3,21 @@ import * as fromActions from "../actions";
 import { IBlogStateInfo } from '../state/blog.state';
 
 const initialState: IBlogStateInfo = {
-  version: null,
+  versionInfo: null,
+  versionError: null,
 }
 
 export default createReducer(
   initialState,
-  on(fromActions.LoadVersionSuccess, (state, version) => ({
+  on(fromActions.LoadVersionSuccess, (state, versionInfo) => ({
     ...state,
-    version,
+    versionInfo,
+    versionError: null
   })),
-  on(fromActions.LoadVersionFailed, (state, error) => ({
+  on(fromActions.LoadVersionFailed, (state, versionError) => ({
     ...state,
-    version: error,
+    versionInfo: null,
+    versionError,
   })),
 )
 

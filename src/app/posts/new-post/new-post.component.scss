@@ -1,0 +1,28 @@
+@import "../../../assets/css/mixins/commons";
+
+:host {
+  @include centered-column(600px, calc(100% - 160px - 80px));
+
+  .body {
+    @include theme-bgcolor;
+    @include box-radius;
+    @include grid-rows(80px 1fr 40px, calc(100%));
+
+    .title {
+      @include box-header;
+    }
+
+    .back {
+      @include danger-button;
+    }
+
+    .back,
+    .title {
+      @include content-center;
+    }
+
+  }
+
+  .info {
+  }
+}

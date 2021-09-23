@@ -16,8 +16,18 @@ export class InfoService {
   version$(): Observable<string> {
     return this.apiService.getCall$<string>({
       method: 'get',
-      url: `${this.baseUrl}version`
+      url: `${this.baseUrl}version`,
+      options: {
+        responseType: 'text/plain',
+      }
     });
   }
 }
 
+export interface VersionResponse {
+  version: string,
+}
+
+export interface VersionError {
+  error: any,
+}

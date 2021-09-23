@@ -10,10 +10,14 @@
   @include grid-columns($gap 1fr $gap, $height);
 }
 
-@mixin grid-rows($template, $height: 100%) {
+@mixin grid-rows($template, $height) {
   display: grid;
   grid-template-rows: $template;
   height: $height;
+}
+
+@mixin centered-rows($gap, $height) {
+  @include grid-rows($gap 1fr $gap, $height);
 }
 
 @mixin box-on-header($height: 0) {
@@ -79,6 +83,7 @@
 
 @mixin theme-bgcolor() {
   background-color: $theme_color;
+  color: white;
 }
 
 @mixin theme-color() {
