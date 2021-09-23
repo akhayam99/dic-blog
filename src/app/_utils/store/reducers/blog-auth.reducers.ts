@@ -35,5 +35,18 @@ export default createReducer(
     ...state,
     userData: null,
   })),
+
+  on(fromActions.Logout, (state) => ({
+    ...state,
+    userData: null,
+  })),
+  on(fromActions.LogoutSuccess, (state) => ({
+    ...state,
+    userData: null,
+  })),
+  on(fromActions.LogoutFailed, (state) => ({
+    ...state,
+    userData: null,
+  })),
 )
 

@@ -12,3 +12,7 @@ export const GoToAuthRegistration = createAction(prefix + 'GoToAuthRegistration'
 
 export const UserDataLoadSuccess = createAction(prefix + 'UserDataLoadSuccess', props<any>());
 export const UserDataLoadFailed = createAction(prefix + 'UserDataLoadFailed', props<any>());
+
+export const Logout = createAction(prefix + 'Logout');
+export const LogoutSuccess = createAction(prefix + 'LogoutSuccess');
+export const LogoutFailed = createAction(prefix + 'LogoutFailed');

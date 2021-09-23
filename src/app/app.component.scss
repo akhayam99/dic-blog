@@ -18,6 +18,12 @@ $header_height: 160px;
       }
     }
 
+    .info {
+      button {
+        @include button-as-white-link;
+      }
+    }
+
     .body,
     .info {
       @include content-center;

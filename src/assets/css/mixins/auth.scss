@@ -1,17 +1,6 @@
 @import "../variables";
 @import "../mixins/commons.scss";
 
-@mixin auth-button-switch {
-  background-color: unset;
-  border: 0px;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 @mixin auth-form {
   background-color: $theme_color;
   border-radius: 20px;
@@ -21,7 +10,7 @@
   margin-top: -25px;
 
   button {
-    @include auth-button-switch;
+    @include button-as-white-link;
   }
 }
 

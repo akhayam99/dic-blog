@@ -34,6 +34,12 @@ export class BlogAuthEffects {
     }),
   ));
 
+  Logout$ = createEffect(() => this.actions$.pipe(
+    ofType(fromActions.Logout),
+    map(() => { this.router.navigate([`login`]); })
+  ), { dispatch: false });
+
+
   Me$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoginSuccess),
     switchMap(() => {

@@ -84,3 +84,14 @@
 @mixin theme-color() {
   color: $theme_color;
 }
+
+@mixin button-as-white-link {
+  background-color: unset;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  &:hover {
+    text-decoration: underline;
+  }
+}

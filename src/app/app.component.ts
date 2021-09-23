@@ -22,4 +22,8 @@ export class AppComponent implements OnInit {
     this.version$ = this.store.select(fromStore.getVersion)
   }
 
+  Logout(): void {
+    this.store.dispatch(fromStore.Logout());
+  }
+
 }

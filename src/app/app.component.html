@@ -13,6 +13,7 @@
   <div class="info">
     <ng-container *ngIf="user$ | async as user">
       <dicf-user [userName]="user.full_name"></dicf-user>
+      <button (click)="Logout()"> Logout </button>
     </ng-container>
   </div>
 </div>
