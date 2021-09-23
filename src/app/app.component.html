@@ -1,9 +1,19 @@
 <div class="header">
-  <div class="title">
-    DIC <i class="fa fa-mars" aria-hidden="true"> </i> BLOG
+  <div class="info">
+
   </div>
-  <div class="subtitle">
-    Solo per amanti della F1
+  <div class="body">
+    <div class="title">
+      DIC <i class="fa fa-mars" aria-hidden="true"> </i> BLOG
+    </div>
+    <div class="subtitle">
+      Solo per amanti della F1
+    </div>
+  </div>
+  <div class="info">
+    <ng-container *ngIf="user$ | async as user">
+      <dicf-user [userName]="user.full_name"></dicf-user>
+    </ng-container>
   </div>
 </div>
 

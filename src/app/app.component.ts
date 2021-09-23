@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { IUser } from './_utils/interfaces/IUser';
 import * as fromStore from './_utils/store';
 
 @Component({
@@ -11,11 +12,13 @@ import * as fromStore from './_utils/store';
 
 export class AppComponent implements OnInit {
 
+  user$: Observable<IUser>;
   version$: Observable<string>;
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.user$ = this.store.select(fromStore.getUserData)
     this.version$ = this.store.select(fromStore.getVersion)
   }
 

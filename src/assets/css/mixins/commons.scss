@@ -1,6 +1,6 @@
 @import "../variables";
 
-@mixin grid-columns($template, $height: 100%) {
+@mixin grid-columns($template, $height) {
   display: grid;
   grid-template-columns: $template;
   height: $height;

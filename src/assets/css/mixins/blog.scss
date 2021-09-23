@@ -6,7 +6,7 @@
   height: 100%;
 }
 
-@mixin blog-hf($heigth: 160px) {
+@mixin blog-hf($heigth) {
   @include theme-background;
   @include content-center;
   height: $heigth;
