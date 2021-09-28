@@ -6,18 +6,18 @@ import { RegistrationModule } from '../registration/form/registration.module';
 import { LoginModule } from './form/login.module';
 import { LoginPageComponent } from './login-page.component';
 
+const module = [
+  AuthFormModule,
+  LoginModule,
+  RegistrationModule,
+  RouterModule.forChild([{ path: '', component: LoginPageComponent }]),
+]
 @NgModule({
   declarations: [
     LoginPageComponent
   ],
   imports: [
-    AuthFormModule,
-    CommonModule,
-    LoginModule,
-    RegistrationModule,
-    RouterModule.forChild([
-      { path: '', component: LoginPageComponent },
-    ]),
+    ...module,
     CommonModule,
   ]
 })

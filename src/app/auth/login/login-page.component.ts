@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from 'src/app/_utils/store';
+import { NavToAuthRegistration } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-login-page',
@@ -13,6 +13,6 @@ export class LoginPageComponent {
   constructor(private store: Store) { }
 
   goToRegistration(): void {
-    this.store.dispatch(fromStore.GoToAuthRegistration());
+    this.store.dispatch(NavToAuthRegistration());
   }
 }

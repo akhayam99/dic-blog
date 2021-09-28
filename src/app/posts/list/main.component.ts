@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { GoToNewPost, LoadPostsFromUser, LoadUsersWithFilter, UnsetPostsFromUser } from 'src/app/_utils/store';
+import { LoadPostsFromUser, LoadUsersWithFilter, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-main',
@@ -30,6 +30,6 @@ export class MainComponent {
   }
 
   goToNewPost(): void {
-    this.store.dispatch(GoToNewPost())
+    this.store.dispatch(NavToNewPost())
   }
 }

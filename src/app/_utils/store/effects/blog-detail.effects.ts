@@ -1,8 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { RouterNavigationAction, ROUTER_NAVIGATION } from "@ngrx/router-store";
 import { of } from "rxjs";
-import { catchError, filter, map, switchMap } from "rxjs/operators";
+import { catchError, map, switchMap } from "rxjs/operators";
 import { CommentService } from "../../services/crud/comment.service";
 import { PostService } from "../../services/crud/post.service";
 import * as fromActions from "../actions";
@@ -15,17 +14,7 @@ export class BlogDetailEffects {
     private commentService: CommentService
   ) { }
 
-  navigationDetail1$ = createEffect(() => this.actions$.pipe(
-    ofType(ROUTER_NAVIGATION),
-    filter((routerInfo: RouterNavigationAction) => {
-      return routerInfo.payload.routerState.url.match(/\/posts\/[\d]+$/) ? true : false;
-    }),
-    map((routerInfo: RouterNavigationAction) => {
-      return fromActions.LoadPost({ post_id: +routerInfo.payload.routerState.url.match(/[\d]+$/)[0] })
-    })
-  ));
-
-  loadPost$ = createEffect(() => this.actions$.pipe(
+  LoadPost$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoadPost),
     switchMap(({ post_id }) => {
       return this.postService.getItem$(post_id).pipe(
@@ -35,7 +24,7 @@ export class BlogDetailEffects {
     })
   ));
 
-  loadComments$ = createEffect(() => this.actions$.pipe(
+  LoadComments$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoadPost),
     switchMap(({ post_id }) => {
       return this.commentService.getList$({ post_id }).pipe(
@@ -45,7 +34,7 @@ export class BlogDetailEffects {
     })
   ));
 
-  addPost$ = createEffect(() => this.actions$.pipe(
+  AddPost$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.AddPost),
     switchMap(({ title, text }) => {
       return this.postService.save$({title, text}).pipe(

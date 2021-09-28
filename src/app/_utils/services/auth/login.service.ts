@@ -13,12 +13,17 @@ export class LoginService {
   }
 
   login$(params: LoginParams): Observable<LoginResponse | LoginError> {
-    const { email, password } = params;
-    return this.apiService.getCall$<LoginResponse | LoginError>({ method: 'post', url: this.baseUrl + 'auth/login', data: { email, password } });
+    return this.apiService.getCall$<LoginResponse | LoginError>({
+      method: 'post',
+      url: this.baseUrl + 'auth/login', data: params
+    });
   }
 
   me$() {
-    return this.apiService.getAuthenticatedCall$({ method: 'get', url: this.baseUrl + 'auth/me' });
+    return this.apiService.getAuthenticatedCall$({
+      method: 'get',
+      url: this.baseUrl + 'auth/me'
+    });
   }
 }
 
@@ -34,6 +39,6 @@ export interface LoginResponse {
 }
 
 export interface LoginError {
-  error: string,
   email: string[],
+  error: string,
 }

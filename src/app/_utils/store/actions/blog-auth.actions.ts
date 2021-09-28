@@ -4,15 +4,12 @@ import { LoginError, LoginParams, LoginResponse } from '../../services/auth/logi
 const prefix = '[blog-auth] - ';
 
 export const Login = createAction(prefix + 'Login', props<LoginParams>());
-export const LoginSuccess = createAction(prefix + 'LoginSuccess', props<LoginResponse>());
 export const LoginFailed = createAction(prefix + 'LoginFailed', props<LoginError>());
+export const LoginSuccess = createAction(prefix + 'LoginSuccess', props<LoginResponse>());
 
-export const GoToAuthLogin = createAction(prefix + 'GoToAuthLogin');
-export const GoToAuthRegistration = createAction(prefix + 'GoToAuthRegistration');
-
-export const UserDataLoadSuccess = createAction(prefix + 'UserDataLoadSuccess', props<any>());
 export const UserDataLoadFailed = createAction(prefix + 'UserDataLoadFailed', props<any>());
+export const UserDataLoadSuccess = createAction(prefix + 'UserDataLoadSuccess', props<any>());
 
 export const Logout = createAction(prefix + 'Logout');
-export const LogoutSuccess = createAction(prefix + 'LogoutSuccess');
 export const LogoutFailed = createAction(prefix + 'LogoutFailed');
+export const LogoutSuccess = createAction(prefix + 'LogoutSuccess');

@@ -1,11 +1,11 @@
 import { IUser } from "./IUser";
 
 export interface IPost {
-  id: number,
-  title: string,
-  text: string,
-  created_at: string,
-  updated_at: string,
   comments_count: number,
+  created_at: string,
+  id: number,
+  text: string,
+  title: string,
+  updated_at: string,
   user: IUser,
 }

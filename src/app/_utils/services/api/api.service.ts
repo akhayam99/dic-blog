@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import * as fromStore from '../../store';
+import { getLoginInfo } from '../../store';
 
 export type URLMethod = 'get' | 'post' | 'put' | 'delete';
 
@@ -29,21 +29,22 @@ export class ApiService {
   }
 
   getAuthenticatedCall$<T>(parameters: { method: URLMethod, url: string, options?: any, data?: any }): Observable<T> {
-    return this.store.select(fromStore.getLoginInfo).pipe(
+    return this.store.select(getLoginInfo).pipe(
       switchMap(loginInfo => {
-        const { access_token } = loginInfo;
-        const options = {
-          headers: this.getRequestHeaders(access_token),
-          params: new HttpParams(),
-          ...parameters.options,
-          responseType: 'json',
-        }
-        return this.getCall$<T>({ ...parameters, options });
+        return this.getCall$<T>({
+          ...parameters,
+          options: {
+            headers: this.getRequestHeaders(loginInfo.access_token),
+            params: new HttpParams(),
+            ...parameters.options,
+            responseType: 'json',
+          }
+        });
       })
     )
   }
 
-  getRequestHeaders = (token): HttpHeaders => {
+  getRequestHeaders = (token: string): HttpHeaders => {
     return new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${token}` || '')
