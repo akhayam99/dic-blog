@@ -15,12 +15,13 @@
   </div>
 </div>
 
-
 <div class="insert">
-  <div class="input">
-    <dicf-textarea></dicf-textarea>
-  </div>
-  <div class="button">
-    <i class="fa fa-paper-plane fa-1x"></i>
-  </div>
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <div class="input">
+      <dicf-textarea [formControlName]="'text'" [placeholder]="'Scrivi qui il tuo commento'"></dicf-textarea>
+    </div>
+    <div class="button">
+      <i class="fa fa-paper-plane fa-1x"></i>
+    </div>
+  </form>
 </div>

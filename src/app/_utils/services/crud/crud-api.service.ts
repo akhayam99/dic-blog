@@ -33,7 +33,7 @@ export abstract class CrudApiService<T> {
     if (item.id)
       return this.apiService.getAuthenticatedCall$<T>({ method: 'put', url: this.baseUrl + this.endpoint + '/' + item.id, data: item })
 
-      console.log(item);
+    console.log(item);
     return this.apiService.getAuthenticatedCall$<T>({ method: 'post', url: this.baseUrl + this.baseUrl + this.endpoint, data: item })
   }
 

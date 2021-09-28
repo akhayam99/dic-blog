@@ -3,9 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class PostService { }
+export class CommentService { }
 
-export interface NewPost {
+export interface NewComment {
   text: string,
-  title: string,
 }

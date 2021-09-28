@@ -25,18 +25,27 @@
     grid-template-columns: 1fr 40px;
     border-top: 5px solid white;
 
-    .input {
-      width: calc(100% - 20px);
-      margin-left: 10px;
-      justify-self: center;
+    form {
+      display: contents;
+
+      .button {
+        cursor: pointer;
+      }
+
+      .input {
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        justify-self: center;
+      }
+
+      .input,
+      .button {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
-    .input,
-    .button {
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
   }
 }
