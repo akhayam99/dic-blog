@@ -45,4 +45,14 @@ export class BlogDetailEffects {
     })
   ));
 
+  addPost$ = createEffect(() => this.actions$.pipe(
+    ofType(fromActions.AddPost),
+    switchMap(({ title, text }) => {
+      return this.postService.save$({title, text}).pipe(
+        map(item => fromActions.AddPostSuccess()),
+        catchError(error => of(fromActions.AddPostFailed(error)))
+      );
+    }),
+  ));
+
 }

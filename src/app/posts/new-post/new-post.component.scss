@@ -1,28 +1,38 @@
 @import "../../../assets/css/mixins/commons";
 
 :host {
-  @include centered-column(600px, calc(100% - 160px - 80px));
+  @include centered-column(33%, calc(100% - 160px - 80px));
 
-  .body {
-    @include theme-bgcolor;
-    @include box-radius;
-    @include grid-rows(80px 1fr 40px, calc(100%));
+  .post {
+    @include grid-rows(1fr 40px, calc(100%));
 
-    .title {
-      @include box-header;
+    .body {
+      @include theme-bgcolor;
+      @include box-radius;
+      @include grid-rows(80px 1fr, calc(400px));
+      @include box-on-header;
+
+      .title {
+        @include box-header;
+      }
+
+      .create {
+        padding: 10px;
+      }
+
+      .title,
+      .create {
+        @include content-center;
+      }
     }
 
     .back {
+      height: 100%;
       @include danger-button;
-    }
-
-    .back,
-    .title {
+      @include box-on-footer;
       @include content-center;
     }
-
   }
 
-  .info {
-  }
+  .info { }
 }

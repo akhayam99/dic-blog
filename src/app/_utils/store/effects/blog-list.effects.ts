@@ -34,10 +34,17 @@ export class BlogListEffects {
     map(() => { return fromActions.LoadUsers() })
   ));
 
-  goToPost$ = createEffect(() => this.actions$.pipe(
+  GoToPostDetail$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.GoToPostDetail),
     map(({ id }) => {
       this.router.navigate([`/posts/${id}`])
+    }),
+  ), { dispatch: false });
+
+  goToNewPost$ = createEffect(() => this.actions$.pipe(
+    ofType(fromActions.GoToNewPost),
+    map(() => {
+      this.router.navigate([`/create`])
     }),
   ), { dispatch: false });
 

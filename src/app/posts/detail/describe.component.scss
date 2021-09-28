@@ -11,12 +11,12 @@
   .interactions {
     @include box-on-header(calc(100% + 40px));
     @include box-radius;
-    @include theme-background;
+    @include theme-bgcolor;
   }
 
   .post {
     @include box-on-footer;
-    @include grid-rows(1fr 40px);
+    @include grid-rows(1fr 40px, 100%);
 
     justify-content: center;
 

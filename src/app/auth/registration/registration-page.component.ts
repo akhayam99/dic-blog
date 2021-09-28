@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from 'src/app/_utils/store';
+import { GoToAuthLogin } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-registration-page',
@@ -13,7 +13,7 @@ export class RegistrationPageComponent {
   constructor(private store: Store) { }
 
   goToLogin(): void {
-    this.store.dispatch(fromStore.GoToAuthLogin());
+    this.store.dispatch(GoToAuthLogin());
   }
 
 }

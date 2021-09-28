@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IPost } from 'src/app/_utils/interfaces/IPost';
-import * as fromStore from 'src/app/_utils/store';
+import { getLoadingPosts, getPosts, getPostsNumber, getPostsUniqueUsers, GoToPostDetail } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-posts-list',
@@ -21,13 +21,13 @@ export class PostsListComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.loading$ = this.store.select(fromStore.getLoadingPosts);
-    this.posts$ = this.store.select(fromStore.getPosts);
-    this.postsCount$ = this.store.select(fromStore.getPostsNumber);
-    this.usersCount$ = this.store.select(fromStore.getPostsUniqueUsers);
+    this.loading$ = this.store.select(getLoadingPosts);
+    this.posts$ = this.store.select(getPosts);
+    this.postsCount$ = this.store.select(getPostsNumber);
+    this.usersCount$ = this.store.select(getPostsUniqueUsers);
   }
 
   goToPost(id: number): void {
-    this.store.dispatch(fromStore.GoToPostDetail({ id }));
+    this.store.dispatch(GoToPostDetail({ id }));
   }
 }

@@ -1,10 +1,11 @@
 
 import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { Actions, createEffect, ofType, rootEffectsInit } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
 import { InfoService, VersionError } from "../../services/api/info.service";
 import * as fromActions from "../actions";
+
 
 @Injectable()
 export class BlogInfoEffects {
@@ -14,15 +15,15 @@ export class BlogInfoEffects {
   ) { }
 
   LoadVersion$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LoginSuccess),
+    ofType(rootEffectsInit),
     switchMap(() => {
       return this.infoService.version$().pipe(
         map((resp: string) => {
-          return fromActions.LoadVersionSuccess({version: resp})
+          return fromActions.LoadVersionSuccess({ version: resp })
         }),
         catchError((err: VersionError) => of(fromActions.LoadVersionFailed(err)))
       )
     }),
-  ))
-}
+  ));
 
+}

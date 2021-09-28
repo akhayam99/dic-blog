@@ -1,13 +1,13 @@
 @import "../../../assets/css/mixins/commons";
 
 :host {
-  @include grid-columns(350px 1fr, calc(100% - 160px - 80px));
+  @include centered-column(350px, calc(100% - 160px - 80px));
 
   .users {
     @include box-on-header;
     @include box-radius;
-    @include grid-rows(80px 1fr 80px, calc(100% + 40px));
-    @include theme-background;
+    @include centered-rows(80px, calc(100% + 40px));
+    @include theme-bgcolor;
 
     .body {
       cursor: pointer;
@@ -28,6 +28,7 @@
     }
   }
 
+  .new-post,
   .users,
   .posts {
     overflow: auto;

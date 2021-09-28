@@ -1,4 +1,4 @@
-<textarea (keyup)="onChangeInput($event)" [rows]="rows"></textarea>
+<textarea (keyup)="onChangeInput($event)" [value]="value ? value : ''" [rows]="rows" [placeholder]="placeholder"></textarea>
 <div class="indicator">
   {{ 500 - value?.length }}
 </div>

@@ -32,6 +32,9 @@ $header_height: 160px;
 
   .footer {
     @include blog-hf(80px);
+    text-align: right;
+    padding-right: 20px;
+
     .title {
       @include title(20px, 400);
     }

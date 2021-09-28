@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.user$ = this.store.select(fromStore.getUserData)
     this.version$ = this.store.select(fromStore.getVersion)
-    this.version$.subscribe(console.log)
   }
 
   Logout(): void {

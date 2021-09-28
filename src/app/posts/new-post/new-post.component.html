@@ -2,13 +2,21 @@
 
 </div>
 
-<div class="body">
-  <div class="title">
-    NUOVO POST
+<div class="post">
+  <div class="body">
+    <div class="title">
+      NUOVO POST
+    </div>
+    <div class="create">
+      <form [formGroup]="form" (submit)="onSubmit()" *ngIf="form">
+        <dicf-input [formControlName]="'title'" [placeholder]="'Inserisci qui il titolo'"></dicf-input>
+        <br>
+        <dicf-textarea [formControlName]="'text'" [rows]="15" [placeholder]="'Inserisci qui il testo'"></dicf-textarea>
+        <dicf-submit [text]="'Aggiungi'"></dicf-submit>
+      </form>
+    </div>
   </div>
-  <div class="title">
-    body
-  </div>
+
   <div class="back" [routerLink]="['../']">
     <i class="fa fa-long-arrow-left fa-2x"></i>
   </div>
