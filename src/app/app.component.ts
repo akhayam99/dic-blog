@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IUser } from './_utils/interfaces/IUser';
 import { VersionResponse } from './_utils/services/api/info.service';
 import * as fromStore from './_utils/store';
+import { NavToAuthLogin } from './_utils/store';
 
 @Component({
   selector: 'app-root',
@@ -23,8 +24,12 @@ export class AppComponent implements OnInit {
     this.version$ = this.store.select(fromStore.getVersion)
   }
 
-  Logout(): void {
+  doLogout(): void {
     this.store.dispatch(fromStore.Logout());
+  }
+
+  goToLogin(): void {
+    this.store.dispatch(NavToAuthLogin());
   }
 
 }

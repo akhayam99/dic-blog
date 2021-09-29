@@ -1,4 +1,4 @@
-@import "../../assets/css/mixins/auth";
+@import "../../assets/css/mixins/commons";
 
 :host {
   @include grid-columns(1fr 350px 1fr, calc(100% - 160px - 80px));

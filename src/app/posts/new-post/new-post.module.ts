@@ -7,7 +7,6 @@ import { UtilsFormModule } from 'src/app/_utils/components/form/utils.form.modul
 import { NewPostComponent } from './new-post.component';
 
 
-
 @NgModule({
   declarations: [
     NewPostComponent

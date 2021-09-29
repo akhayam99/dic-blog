@@ -27,7 +27,7 @@ export class BlogDetailEffects {
   LoadComments$ = createEffect(() => this.actions$.pipe(
     ofType(fromActions.LoadPost),
     switchMap(({ post_id }) => {
-      return this.commentService.getList$({ post_id }).pipe(
+      return this.commentService.getComments$(post_id).pipe(
         map(comments => fromActions.LoadCommentsSuccess({ comments })),
         catchError(error => of(fromActions.LoadCommentsFailed(error)))
       )

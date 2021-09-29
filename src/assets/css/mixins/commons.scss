@@ -1,5 +1,16 @@
 @import "../variables";
 
+@mixin blog-display {
+  display: block;
+  height: 100%;
+}
+
+@mixin blog-hf($heigth) {
+  @include theme-background;
+  @include content-center;
+  height: $heigth;
+}
+
 @mixin grid-columns($template, $height) {
   display: grid;
   grid-template-columns: $template;
@@ -99,4 +110,43 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+@mixin auth-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0px 40px;
+  overflow: auto;
+  padding: 20px 0px;
+}
+
+
+@mixin auth-form {
+  background-color: $theme_color;
+  border-radius: 20px;
+  border: 5px solid white;
+  color: white;
+  height: calc(100% + 40px) !important;
+  margin-top: -25px;
+
+  button {
+    @include button-as-white-link;
+  }
+}
+
+@mixin form-input {
+  font-size: 14px;
+  font-weight: 800px;
+  margin: 5px;
+  text-align: center;
+
+  .label {
+    margin: 5px;
+  }
+}
+
+@mixin form-submit {
+  text-align: center;
+  padding: 10px;
 }

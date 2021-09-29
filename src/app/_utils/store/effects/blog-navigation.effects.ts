@@ -80,7 +80,7 @@ export class BlogNavigationEffects {
   NavToNewPost$ = createEffect(() => this.actions$.pipe(
     ofType(NavToNewPost),
     map(() => {
-      this.router.navigate([`/create`])
+      this.router.navigate([`/posts/create`])
     }),
   ), { dispatch: false });
 

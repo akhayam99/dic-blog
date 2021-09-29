@@ -1,4 +1,4 @@
-@import "../../../assets/css/mixins/commons.scss";
+@import "../../../assets/css/mixins/commons";
 
 :host {
   @include centered-column(350px, calc(100% - 160px - 80px));

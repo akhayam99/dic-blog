@@ -1,12 +1,12 @@
-@import "../../../../assets/css/mixins/auth";
+@import "../../../../assets/css/mixins/commons";
 
 :host {
 
   .input {
-    @include auth-form-input;
+    @include form-input;
   }
 
   .submit {
-    @include auth-form-submit;
+    @include form-submit;
   }
 }

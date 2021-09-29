@@ -4,33 +4,43 @@
   @include centered-column(350px, calc(100% - 160px - 80px));
 
   .users {
-    @include box-on-header;
-    @include box-radius;
     @include centered-rows(80px, calc(100% + 40px));
-    @include theme-bgcolor;
 
     .body {
       cursor: pointer;
       overflow: auto;
     }
 
-    .title {
-      @include box-header;
-    }
-
     .search {
       @include box-footer;
+      @include content-center;
     }
+  }
 
-    .search,
+  .new-post {
+    @include grid-rows(80px 1fr, calc(100% + 40px));
+
+    .body {
+      padding: 20px;
+      overflow: auto;
+    }
+  }
+
+  .new-post,
+  .users {
+    @include box-on-header;
+    @include box-radius;
+    @include theme-bgcolor;
+
     .title {
+      @include box-header;
       @include content-center;
     }
   }
 
   .new-post,
-  .users,
-  .posts {
+  .posts,
+  .users {
     overflow: auto;
   }
 }
