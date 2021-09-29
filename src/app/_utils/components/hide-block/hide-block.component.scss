@@ -1,0 +1,7 @@
+@import "../../../../assets/css/mixins/commons";
+
+:host {
+  display: block;
+  @include content-justify;
+  @include content-center;
+}

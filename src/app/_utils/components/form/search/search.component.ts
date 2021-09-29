@@ -5,7 +5,7 @@ import { BaseComponent } from '../_base/base.component';
   selector: 'dicf-search',
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchComponent extends BaseComponent {
 

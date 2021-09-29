@@ -11,9 +11,10 @@ export class BaseComponent implements ControlValueAccessor {
 
   @Input() disabled: boolean = false
   @Input() errors: { [key: string]: any };
-  @Input() placeholder: string;
+  @Input() placeholder: string = '';
   @Input() type: string;
   @Input() value: string;
+
   @Output() onChange = new EventEmitter()
 
   writeValue(value: string): void {

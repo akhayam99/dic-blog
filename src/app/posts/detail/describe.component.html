@@ -6,7 +6,7 @@
   </div>
 
   <div *ngIf="data.post && data.interactions" class="interactions">
-    <dicf-interactions [interactions]="data.interactions" [isLogged]="(activeUser$ | async) ? true : false"></dicf-interactions>
+    <dicf-interactions [interactions]="data.interactions" [isLogged]="(activeUser$ | async) ? true : false"> </dicf-interactions>
   </div>
 
   <div *ngIf="data.post" class="post">

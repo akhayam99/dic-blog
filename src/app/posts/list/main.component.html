@@ -6,21 +6,22 @@
   <div class="body">
     <dicf-users-list (onUserClick)="onUserClick($event)" (onUserRemove)="onUserRemove()"></dicf-users-list>
   </div>
-  <div class="search">
+  <div class="search" *ngIf="activeUser$ | async as user;">
     <dicf-search (onSearch)="onSearch($event)" [value]="''" [type]="'text'"></dicf-search>
   </div>
 </div>
 
 
 <div class="posts">
-  <dicf-posts-list></dicf-posts-list>
-</div>
-
-<div class="new-post">
-  <ng-container *ngIf="activeUser$ | async as user; else anonymous">
-    <button (click)="goToNewPost()"> ciaone </button>
-  </ng-container>
-  <ng-template #anonymous>
-    ciaone un cazzo
-  </ng-template>
+  <div class="create">
+    <ng-container *ngIf="activeUser$ | async as user; else anonymous">
+      <button (click)="goToNewPost()"> Crea un post :) </button>
+    </ng-container>
+    <ng-template #anonymous>
+      Effettua il Login per scrivere un post
+    </ng-template>
+  </div>
+  <div class="list">
+    <dicf-posts-list></dicf-posts-list>
+  </div>
 </div>
