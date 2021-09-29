@@ -25,6 +25,11 @@
     }
   }
 
+  .posts .create {
+    @include danger-button;
+    @include content-center;
+  }
+
   .posts,
   .users {
     overflow: auto;

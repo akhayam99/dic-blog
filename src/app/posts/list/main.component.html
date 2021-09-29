@@ -15,7 +15,7 @@
 <div class="posts">
   <div class="create">
     <ng-container *ngIf="activeUser$ | async as user; else anonymous">
-      <button (click)="goToNewPost()"> Crea un post :) </button>
+      Crea un post :)
     </ng-container>
     <ng-template #anonymous>
       Effettua il Login per scrivere un post
