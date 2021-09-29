@@ -11,5 +11,5 @@ export const UserDataLoadFailed = createAction(prefix + 'UserDataLoadFailed', pr
 export const UserDataLoadSuccess = createAction(prefix + 'UserDataLoadSuccess', props<any>());
 
 export const Logout = createAction(prefix + 'Logout');
-export const LogoutFailed = createAction(prefix + 'LogoutFailed');
-export const LogoutSuccess = createAction(prefix + 'LogoutSuccess');
+export const LogoutFailed = createAction(prefix + 'LogoutFailed', props<any>());
+export const LogoutSuccess = createAction(prefix + 'LogoutSuccess', props<any>());

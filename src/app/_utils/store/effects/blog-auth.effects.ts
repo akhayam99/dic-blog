@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
-import { Login, LoginFailed, LoginSuccess, Logout, UserDataLoadFailed, UserDataLoadSuccess } from "..";
+import { Login, LoginFailed, LoginSuccess, Logout, LogoutFailed, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from "..";
 import { LoginError, LoginResponse, LoginService } from "../../services/auth/login.service";
 
 @Injectable()
@@ -29,6 +29,16 @@ export class BlogAuthEffects {
     ofType(Logout),
     map(() => { this.router.navigate([`login`]); })
   ), { dispatch: false });
+
+  Logout2$ = createEffect(() => this.actions$.pipe(
+    ofType(Logout),
+    switchMap(() => {
+      return this.loginService.logout$().pipe(
+        map((resp: string) => LogoutSuccess(resp)),
+        catchError((error: any) => of(LogoutFailed(error)))
+      )
+    }),
+  ));
 
   Me$ = createEffect(() => this.actions$.pipe(
     ofType(LoginSuccess),

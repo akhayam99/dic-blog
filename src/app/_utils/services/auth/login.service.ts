@@ -19,6 +19,13 @@ export class LoginService {
     });
   }
 
+  logout$(): Observable<string> {
+    return this.apiService.getAuthenticatedCall$<string>({
+      method: 'post',
+      url: this.baseUrl + 'auth/logout'
+    });
+  }
+
   me$() {
     return this.apiService.getAuthenticatedCall$({
       method: 'get',
