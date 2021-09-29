@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { LoadPostsFromUser, LoadUsersWithFilter, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
+import { getUserData, LoadPostsFromUser, LoadUsersWithFilter, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-main',
@@ -10,12 +10,16 @@ import { LoadPostsFromUser, LoadUsersWithFilter, NavToNewPost, UnsetPostsFromUse
   styleUrls: ['./main.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
 
   searchInput = "";
   activeUser$: Observable<IUser>
 
   constructor(private store: Store) { }
+
+  ngOnInit(): void {
+    this.activeUser$ = this.store.select(getUserData)
+  }
 
   onUserClick(user: IUser): void {
     this.store.dispatch(LoadPostsFromUser({ user }));

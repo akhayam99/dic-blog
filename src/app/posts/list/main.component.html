@@ -17,5 +17,10 @@
 </div>
 
 <div class="new-post">
-  <button (click)="goToNewPost()"> ciaone </button>
+  <ng-container *ngIf="activeUser$ | async as user; else anonymous">
+    <button (click)="goToNewPost()"> ciaone </button>
+  </ng-container>
+  <ng-template #anonymous>
+    ciaone un cazzo
+  </ng-template>
 </div>

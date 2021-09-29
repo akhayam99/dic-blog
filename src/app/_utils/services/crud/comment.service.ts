@@ -13,4 +13,5 @@ export class CommentService extends CrudApiService<IComment> {
   getComments$(post_id: number, params?: ApiParams): Observable<IComment[]> {
     return this.apiService.getAuthenticatedCall$<IComment[]>({ method: 'get', url: `${this.baseUrl}posts/${post_id}/${this.endpoint}` })
   }
+
 }

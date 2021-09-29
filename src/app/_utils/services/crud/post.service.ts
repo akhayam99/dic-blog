@@ -15,4 +15,11 @@ export class PostService extends CrudApiService<IPost> {
       url: this.baseUrl + this.endpoint
     })
   }
+
+  getItem$(id: number): Observable<IPost> {
+    return this.apiService.getCall$<IPost>({
+      method: 'get',
+      url: this.baseUrl + this.endpoint + '/' + id
+    })
+  }
 }

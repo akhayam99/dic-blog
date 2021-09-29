@@ -12,7 +12,9 @@ import { getCommentsForm } from './comments.form.config';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CommentsComponent implements OnInit {
+
   @Input() comments: IComment[];
+  @Input() isLogged: boolean;
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private store: Store) { }

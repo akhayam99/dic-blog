@@ -5,6 +5,7 @@ import { IComment } from 'src/app/_utils/interfaces/IComment';
 import { IPost } from 'src/app/_utils/interfaces/IPost';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
 import * as fromStore from 'src/app/_utils/store';
+import { NavToPosts } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-describe',
@@ -14,16 +15,23 @@ import * as fromStore from 'src/app/_utils/store';
 })
 export class DescribeComponent implements OnInit {
 
+  activeUser$: Observable<IUser>;
   loading$: Observable<boolean>;
   post$: Observable<IPost>;
   comments$: Observable<IComment[]>;
   interactions$: Observable<IUser[]>;
+
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.activeUser$ = this.store.select(fromStore.getUserData);
+    this.comments$ = this.store.select(fromStore.getComments);
+    this.interactions$ = this.store.select(fromStore.getInteractions);
     this.loading$ = this.store.select(fromStore.getLoadingPost);
     this.post$ = this.store.select(fromStore.getPost);
-    this.comments$ = this.store.select(fromStore.getComments);
-    this.interactions$ = this.store.select(fromStore.getInteractions)
+  }
+
+  goToPosts(): void {
+    this.store.dispatch(NavToPosts());
   }
 }

@@ -2,10 +2,17 @@
   ITERAZIONI
 </div>
 
-<div class="list">
-  <dicf-user *ngFor="let user of interactions" [userAvatar]="user.avatar"></dicf-user>
-</div>
+<ng-container *ngIf="isLogged; else anonymous">
+  <div class="list">
+    <dicf-user *ngFor="let user of interactions" [userAvatar]="user.avatar"></dicf-user>
+  </div>
+  <div class="count">
+    TOTALE: {{ interactions.length }}
+  </div>
+</ng-container>
 
-<div class="count">
-  TOTALE: {{ interactions.length }}
-</div>
+<ng-template #anonymous>
+  per vedere le iterazioni registrati pezzo di stalker....
+</ng-template>
+
+x

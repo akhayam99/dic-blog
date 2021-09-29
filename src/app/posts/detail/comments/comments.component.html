@@ -2,26 +2,34 @@
   COMMENTI
 </div>
 
-<div class="list">
-  <div class="item" *ngFor="let comment of comments">
-    <dicf-comment>
-      <div commentUser>
-        <dicf-user [userName]="comment.user.full_name" [userMail]="comment.user.email"
-          [userAvatar]="comment.user.avatar"></dicf-user>
-      </div>
-      <div commentText> {{ comment.text }} </div>
-      <div commentDate> {{ comment.created_at | formatDate:'YYYY/MM/DD, HH:mm' }} </div>
-    </dicf-comment>
-  </div>
-</div>
+<ng-container *ngIf="isLogged; else anonymous">
 
-<div class="insert">
-  <form [formGroup]="form" (submit)="onSubmit()">
-    <div class="input">
-      <dicf-textarea [formControlName]="'text'" [placeholder]="'Scrivi qui il tuo commento'"></dicf-textarea>
+  <div class="list">
+    <div class="item" *ngFor="let comment of comments">
+      <dicf-comment>
+        <div commentUser>
+          <dicf-user [userName]="comment.user.full_name" [userMail]="comment.user.email"
+            [userAvatar]="comment.user.avatar"></dicf-user>
+        </div>
+        <div commentText> {{ comment.text }} </div>
+        <div commentDate> {{ comment.created_at | formatDate:'YYYY/MM/DD, HH:mm' }} </div>
+      </dicf-comment>
     </div>
-    <div class="button">
-      <i class="fa fa-paper-plane fa-1x"></i>
-    </div>
-  </form>
-</div>
+  </div>
+
+  <div class="insert">
+    <form [formGroup]="form" (submit)="onSubmit()">
+      <div class="input">
+        <dicf-textarea [formControlName]="'text'" [placeholder]="'Scrivi qui il tuo commento'"></dicf-textarea>
+      </div>
+      <div class="button">
+        <i class="fa fa-paper-plane fa-1x"></i>
+      </div>
+    </form>
+  </div>
+
+</ng-container>
+
+<ng-template #anonymous>
+  sto cazzo che commenti merda... loggati
+</ng-template>

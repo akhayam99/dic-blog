@@ -8,5 +8,9 @@ import { IUser } from 'src/app/_utils/interfaces/IUser';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InteractionsComponent {
+
   @Input() interactions: IUser[];
+  @Input() isLogged: boolean;
+
+
 }

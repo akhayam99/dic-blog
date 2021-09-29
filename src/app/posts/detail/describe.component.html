@@ -6,20 +6,20 @@
   </div>
 
   <div *ngIf="data.post && data.interactions" class="interactions">
-    <dicf-interactions [interactions]="data.interactions"></dicf-interactions>
+    <dicf-interactions [interactions]="data.interactions" [isLogged]="(activeUser$ | async) ? true : false"></dicf-interactions>
   </div>
 
   <div *ngIf="data.post" class="post">
     <div class="body">
       <dicf-post [post]="data.post" [summary]="false" [comments]="false"></dicf-post>
     </div>
-    <div class="back" [routerLink]="['../']">
+    <div class="back" (click)="goToPosts()">
       <i class="fa fa-long-arrow-left fa-2x"></i>
     </div>
   </div>
 
   <div *ngIf="data.post && data.comments" class="comments">
-    <dicf-comments [comments]="data.comments"></dicf-comments>
+    <dicf-comments [comments]="data.comments" [isLogged]="(activeUser$ | async) ? true : false"></dicf-comments>
   </div>
 
 
