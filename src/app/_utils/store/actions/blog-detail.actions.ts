@@ -14,6 +14,10 @@ export const AddComments = createAction(prefix + 'AddComments', props<NewComment
 export const AddCommentsFailed = createAction(prefix + 'AddCommentsFailed', props<{ error: any }>());
 export const AddCommentsSuccess = createAction(prefix + 'AddCommentsSuccess');
 
+export const DeletePost = createAction(prefix + 'DeletePost', props<{ post_id: number }>());
+export const DeletePostFailed = createAction(prefix + 'DeletePostFailed', props<any>());
+export const DeletePostSuccess = createAction(prefix + 'DeletePostSuccess', props<any>());
+
 export const LoadComments = createAction(prefix + 'LoadComments', props<{ id: number }>());
 export const LoadCommentsFailed = createAction(prefix + 'LoadCommentsFailed', props<{ error: any }>());
 export const LoadCommentsSuccess = createAction(prefix + 'LoadCommentsSuccess', props<{ comments: IComment[] }>());

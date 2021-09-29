@@ -17,14 +17,14 @@ import { dataReducer, reducer } from './_utils/store/reducers';
 import { default as authReducer } from './_utils/store/reducers/blog-auth.reducers';
 import { default as infoReducer } from './_utils/store/reducers/blog-info.reducers';
 
+
 const module = [
   AppRoutingModule,
   BrowserModule,
   CommonModule,
   ComponentsModule,
-  HttpClientModule,
   EffectsModule.forRoot(effects),
-  UserModule,
+  HttpClientModule,
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),
   StoreModule.forFeature('auth', authReducer),
   StoreModule.forFeature('data', dataReducer),
@@ -42,6 +42,7 @@ const module = [
   StoreRouterConnectingModule.forRoot({
     routerState: RouterState.Minimal,
   }),
+  UserModule,
 ]
 
 @NgModule({

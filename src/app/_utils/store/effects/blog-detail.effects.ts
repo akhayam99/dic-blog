@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
+import { AddPost, AddPostFailed, AddPostSuccess, DeletePost, DeletePostFailed, DeletePostSuccess, LoadCommentsFailed, LoadCommentsSuccess, LoadPost, LoadPostFailed, LoadPostSuccess } from "..";
 import { CommentService } from "../../services/crud/comment.service";
 import { PostService } from "../../services/crud/post.service";
-import * as fromActions from "../actions";
 
 @Injectable()
 export class BlogDetailEffects {
@@ -15,31 +15,41 @@ export class BlogDetailEffects {
   ) { }
 
   LoadPost$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LoadPost),
+    ofType(LoadPost),
     switchMap(({ post_id }) => {
       return this.postService.getItem$(post_id).pipe(
-        map(post => fromActions.LoadPostSuccess({ post })),
-        catchError(error => of(fromActions.LoadPostFailed(error)))
+        map(post => LoadPostSuccess({ post })),
+        catchError(error => of(LoadPostFailed(error)))
       )
     })
   ));
 
   LoadComments$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.LoadPost),
+    ofType(LoadPost),
     switchMap(({ post_id }) => {
       return this.commentService.getComments$(post_id).pipe(
-        map(comments => fromActions.LoadCommentsSuccess({ comments })),
-        catchError(error => of(fromActions.LoadCommentsFailed(error)))
+        map(comments => LoadCommentsSuccess({ comments })),
+        catchError(error => of(LoadCommentsFailed(error)))
       )
     })
   ));
 
   AddPost$ = createEffect(() => this.actions$.pipe(
-    ofType(fromActions.AddPost),
+    ofType(AddPost),
     switchMap(({ title, text }) => {
-      return this.postService.save$({title, text}).pipe(
-        map(item => fromActions.AddPostSuccess()),
-        catchError(error => of(fromActions.AddPostFailed(error)))
+      return this.postService.save$({ title, text }).pipe(
+        map(item => AddPostSuccess()),
+        catchError(error => of(AddPostFailed(error)))
+      );
+    }),
+  ));
+
+  DeletePost$ = createEffect(() => this.actions$.pipe(
+    ofType(DeletePost),
+    switchMap(({ post_id }) => {
+      return this.postService.deleteItem$(post_id).pipe(
+        map(item => DeletePostSuccess(item)),
+        catchError(error => of(DeletePostFailed(error)))
       );
     }),
   ));

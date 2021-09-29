@@ -34,7 +34,7 @@ export abstract class CrudApiService<T> {
   deleteItem$(id: any): Observable<void> {
     return this.apiService.getAuthenticatedCall$<void>({
       method: 'delete',
-      url: this.baseUrl + this.endpoint + '/' + id
+      url: `${this.baseUrl}/${this.endpoint}/${id}`,
     })
   }
 

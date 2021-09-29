@@ -1,5 +1,5 @@
 <ng-container
-  *ngIf="{post: post$ | async, comments: comments$ | async, interactions: interactions$ | async, loader: loading$ | async  } as data">
+  *ngIf="{post: post$ | async, comments: comments$ | async, interactions: interactions$ | async, loader: loading$ | async, user: activeUser$ | async  } as data">
 
   <div *ngIf="data.loader" class="loader">
     <dicf-loader [big]="true" [green]="true" *ngIf="loading$ | async"></dicf-loader>
@@ -11,7 +11,7 @@
 
   <div *ngIf="data.post" class="post">
     <div class="body">
-      <dicf-post [post]="data.post" [summary]="false" [comments]="false"></dicf-post>
+      <dicf-post [post]="data.post" [summary]="false" [comments]="false" [canEdit]="data.user?.email === data.post.user.email ? true : false"></dicf-post>
     </div>
     <div class="back" (click)="goToPosts()">
       <i class="fa fa-long-arrow-left fa-2x"></i>
