@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { RouterNavigationAction, ROUTER_NAVIGATION } from "@ngrx/router-store";
 import { filter, map } from "rxjs/operators";
-import { LoadPost, LoadPosts, LoadUsers, LoginSuccess, NavToAuthLogin, NavToAuthRegistration, NavToNewPost, NavToPostDetail } from "..";
+import { LoadPost, LoadPostsAfterNavigation, LoadUsers, LoginSuccess, NavToAuthLogin, NavToAuthRegistration, NavToNewPost, NavToPostDetail } from "..";
 
 
 @Injectable()
@@ -49,7 +49,7 @@ export class BlogNavigationEffects {
     filter((routerInfo: RouterNavigationAction) => {
       return routerInfo.payload.routerState.url === '/posts'
     }),
-    map(() => { return LoadPosts() })
+    map(() => { return LoadPostsAfterNavigation() })
   ));
 
   NavToPostsEffect2$ = createEffect(() => this.actions$.pipe(
@@ -63,14 +63,14 @@ export class BlogNavigationEffects {
   NavToPostDetail$ = createEffect(() => this.actions$.pipe(
     ofType(NavToPostDetail),
     map(({ id }) => {
-      this.router.navigate([`/posts/${id}`])
+      this.router.navigate([`/posts/view/${id}`])
     }),
   ), { dispatch: false });
 
   NavToPostDetailEffect1$ = createEffect(() => this.actions$.pipe(
     ofType(ROUTER_NAVIGATION),
     filter((routerInfo: RouterNavigationAction) => {
-      return routerInfo.payload.routerState.url.match(/\/posts\/[\d]+$/) ? true : false;
+      return routerInfo.payload.routerState.url.match(/\/posts\/view\/[\d]+$/) ? true : false;
     }),
     map((routerInfo: RouterNavigationAction) => {
       return LoadPost({ post_id: +routerInfo.payload.routerState.url.match(/[\d]+$/)[0] })

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./auth/login/login-page.module').then(c => c.LoginPageModule) },
   { path: 'registration', loadChildren: () => import('./auth/registration/registration-page.module').then(c => c.RegistrationPageModule) },
   { path: 'posts', loadChildren: () => import('./posts/list/main.module').then(c => c.MainModule) },
-  { path: 'posts/:id', loadChildren: () => import('./posts/detail/describe.module').then(c => c.DescribeModule) },
+  { path: 'posts/view/:id', loadChildren: () => import('./posts/detail/describe.module').then(c => c.DescribeModule) },
   { path: 'posts/create', loadChildren: () => import('./posts/new-post/new-post.module').then(c => c.NewPostModule) },
 ];
 

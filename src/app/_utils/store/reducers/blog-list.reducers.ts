@@ -40,6 +40,21 @@ export default createReducer(
     loading: false,
   })),
 
+  on(fromActions.LoadPostsAfterNavigation, state => ({
+    ...state,
+    loading: true
+  })),
+  on(fromActions.LoadPostsAfterNavigationSuccess, (state, { posts }) => ({
+    ...state,
+    posts,
+    loading: false
+  })),
+  on(fromActions.LoadPostsAfterNavigationFailed, (state) => ({
+    ...state,
+    posts: [],
+    loading: false
+  })),
+
   on(fromActions.UnsetPostsFromUser, (state) => ({
     ...state,
     user: null,

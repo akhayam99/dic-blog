@@ -6,18 +6,21 @@ import { SubmitModule } from 'src/app/_utils/components/form/submit/submit.modul
 import { UtilsFormModule } from 'src/app/_utils/components/form/utils.form.module';
 import { NewPostComponent } from './new-post.component';
 
+const module = [
+  FormsModule,
+  ReactiveFormsModule,
+  RouterModule.forChild([{ path: '', component: NewPostComponent }]),
+  SubmitModule,
+  UtilsFormModule,
+]
 
 @NgModule({
   declarations: [
     NewPostComponent
   ],
   imports: [
-    RouterModule.forChild([{ path: '', component: NewPostComponent }]),
-    SubmitModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    UtilsFormModule,
+    ...module,
+    CommonModule
   ],
   exports: [
     NewPostComponent

@@ -12,6 +12,10 @@ export const LoadPostsFromUser = createAction(prefix + 'LoadPostsFromUser', prop
 export const LoadPostsFromUserFailed = createAction(prefix + 'LoadPostsFromUserFailed', props<{ error: any }>());
 export const LoadPostsFromUserSuccess = createAction(prefix + 'LoadPostsFromUserSuccess', props<{ posts: IPost[] }>());
 
+export const LoadPostsAfterNavigation = createAction(prefix + 'LoadPostsAfterNavigation');
+export const LoadPostsAfterNavigationFailed = createAction(prefix + 'LoadPostsAfterNavigationFailed', props<{ error: any }>());
+export const LoadPostsAfterNavigationSuccess = createAction(prefix + 'LoadPostsAfterNavigationSuccess', props<{ posts: IPost[] }>());
+
 export const UnsetPostsFromUser = createAction(prefix + 'UnsetPostsFromUser');
 
 export const UpdateUserList = createAction(prefix + 'UpdateUserList', props<{ full_name: string }>());
