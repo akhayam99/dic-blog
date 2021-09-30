@@ -10,11 +10,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthDescriptionModule } from './auth/auth-description/auth-description.module';
-import { LoginModule } from './auth/auth-login/login.module';
-import { RegistrationModule } from './auth/auth-registration/registration.module';
 import { AuthModule } from './auth/auth.module';
-import { AuthFormModule } from './_utils/components/auth-form/auth-form.module';
-import { ComponentsModule } from './_utils/components/components.module';
 import { UserModule } from './_utils/components/user/user.module';
 import { PostService } from './_utils/services/crud/post.service';
 import { effects } from './_utils/store/effects';
@@ -22,18 +18,9 @@ import { dataReducer, reducer } from './_utils/store/reducers';
 import { default as authReducer } from './_utils/store/reducers/blog-auth.reducers';
 import { default as infoReducer } from './_utils/store/reducers/blog-info.reducers';
 
-const module = [
-  AuthDescriptionModule,
-  AuthFormModule,
-  AppRoutingModule,
-  BrowserModule,
-  CommonModule,
-  LoginModule,
-  RegistrationModule,
-  AuthModule,
-  ComponentsModule,
-  EffectsModule.forRoot(effects),
-  HttpClientModule,
+const ngrxModule = [
+  StoreRouterConnectingModule.forRoot(),
+  StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),
   StoreModule.forFeature('auth', authReducer),
   StoreModule.forFeature('data', dataReducer),
@@ -51,6 +38,16 @@ const module = [
   StoreRouterConnectingModule.forRoot({
     routerState: RouterState.Minimal,
   }),
+]
+
+const standardModule = [
+  AppRoutingModule,
+  AuthDescriptionModule,
+  AuthModule,
+  BrowserModule,
+  CommonModule,
+  EffectsModule.forRoot(effects),
+  HttpClientModule,
   UserModule,
 ]
 
@@ -59,9 +56,8 @@ const module = [
     AppComponent,
   ],
   imports: [
-    ...module,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreRouterConnectingModule.forRoot(),
+    ...ngrxModule,
+    ...standardModule,
   ],
   providers: [PostService],
   bootstrap: [AppComponent]

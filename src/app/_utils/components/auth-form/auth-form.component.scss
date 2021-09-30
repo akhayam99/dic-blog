@@ -3,21 +3,19 @@
 :host {
   @include grid-rows(120px 1fr 80px, 100%);
 
-  .switch {
-    @include box-border-top;
-    @include button-as-white-link;
-  }
-
   .title {
     @include box-border-bottom;
     @include textStyle(20px);
   }
 
+  .switch {
+    @include box-border-top;
+    @include button-as-white-link;
+  }
 
   .body,
   .switch,
   .title {
     @include content-center;
-
   }
 }

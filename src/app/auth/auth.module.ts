@@ -7,8 +7,8 @@ import { AuthComponent } from './auth.component';
 
 const module = [
   AuthFormModule,
-  RegistrationModule,
   LoginModule,
+  RegistrationModule,
 ]
 
 @NgModule({

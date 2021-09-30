@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from './_utils/interfaces/IUser';
 import { VersionResponse } from './_utils/services/api/info.service';
-import { getActiveURL, getShowLogin, getUserData, getVersion, Logout, NavToAuthLogin, NavToAuthRegistration } from './_utils/store';
+import { getActiveURL, getShowLogin, getUserData, getVersion } from './_utils/store';
 
 @Component({
   selector: 'app-root',
@@ -25,18 +25,6 @@ export class AppComponent implements OnInit {
     this.showLogin$ = this.store.select(getShowLogin);
     this.user$ = this.store.select(getUserData);
     this.version$ = this.store.select(getVersion);
-  }
-
-  doLogout(): void {
-    this.store.dispatch(Logout());
-  }
-
-  goToLogin(): void {
-    this.store.dispatch(NavToAuthLogin());
-  }
-
-  goToRegistration(): void {
-    this.store.dispatch(NavToAuthRegistration());
   }
 
 }

@@ -1,29 +1,16 @@
-
-<ng-container *ngIf="page === 'login'">
-  <dicf-auth-form>
-    <div authTitle>
-      LOGIN
-    </div>
-    <div authBody>
+<dicf-auth-form>
+  <div authTitle>
+    {{ page === 'login' ? 'ACCEDI' : 'REGISTRATI' }}
+  </div>
+  <div authBody>
+    <ng-container *ngIf="page === 'login'">
       <dicf-login></dicf-login>
-    </div>
-    <div authSwitch (click)="goToRegistration()">
-      Clicca qui per registrarti
-    </div>
-  </dicf-auth-form>
-</ng-container>
-
-
-<ng-container *ngIf="page === 'registration'">
-  <dicf-auth-form>
-    <div authTitle>
-      NEW USER
-    </div>
-    <div authBody>
+    </ng-container>
+    <ng-container *ngIf="page === 'registration'">
       <dicf-registration></dicf-registration>
-    </div>
-    <div authSwitch (click)="goToLogin()">
-      Clicca qui per loggarti
-    </div>
-  </dicf-auth-form>
-</ng-container>
+    </ng-container>
+  </div>
+  <div authSwitch (click)="changeAuthPage()">
+    {{ page === 'login' ? 'Clicca qui per registrarti' : 'Clicca qui per loggarti' }}
+  </div>
+</dicf-auth-form>

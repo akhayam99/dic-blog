@@ -5,7 +5,6 @@ import { NavToAuthLogin, NavToAuthRegistration } from '../_utils/store';
 @Component({
   selector: 'dicf-auth[page]',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent {
@@ -13,11 +12,9 @@ export class AuthComponent {
 
   constructor(private store: Store) { }
 
-  goToLogin(): void {
-    this.store.dispatch(NavToAuthLogin());
-  }
-
-  goToRegistration(): void {
-    this.store.dispatch(NavToAuthRegistration());
+  changeAuthPage(): void {
+    if (this.page === 'login')
+      return this.store.dispatch(NavToAuthRegistration());
+    return this.store.dispatch(NavToAuthLogin());
   }
 }
