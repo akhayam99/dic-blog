@@ -1,17 +1,16 @@
 @import "../variables";
 
 @mixin form-input {
-  font-size: 14px;
-  font-weight: 800px;
-  margin: 5px;
-  text-align: center;
+  @include content-center;
+  @include set-vertical-margin;
+  @include textStyle(14px, 400);
 
   .label {
-    margin: 5px;
+    @include set-vertical-margin(5px);
   }
 }
 
 @mixin form-submit {
+  @include set-vertical-margin;
   text-align: center;
-  padding: 10px;
 }

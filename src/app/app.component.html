@@ -1,26 +1,30 @@
 <div class="layout">
 
   <div class="info">
-    <div class="content" *ngIf="activeURL$ | async as activeURL">
+    <div *ngIf="activeURL$ | async as activeURL">
       <ng-container *ngIf="activeURL === '/login'">
-        <dicf-auth-form>
-          <div authTitle>
-            LOGIN
-          </div>
-          <div authBody>
-            <dicf-login></dicf-login>
-          </div>
-          <div authSwitch (click)="goToRegistration()">
-            Clicca qui per registrarti
-          </div>
-        </dicf-auth-form>
+        <dicf-auth [page]="'login'"></dicf-auth>
       </ng-container>
+
+      <ng-container *ngIf="activeURL === '/registration'">
+        <dicf-auth [page]="'registration'"></dicf-auth>
+      </ng-container>
+
+      <!-- <ng-container *ngIf="activeURL !== '/login' && activeURL !== '/registration'">
+        <ng-container *ngIf="user$ | async as user; else doLogin">
+          <dicf-user [userName]="user.full_name"></dicf-user>
+          <button (click)="doLogout()"> Logout </button>
+        </ng-container>
+        <ng-template #doLogin>
+          <button (click)="goToLogin()"> Login </button>
+        </ng-template>
+      </ng-container> -->
     </div>
 
     <div class="version">
-      <div class="title" style="color: white" *ngIf="version$ | async as version">
-        v{{ version.version }}
-      </div>
+      <ng-container *ngIf="version$ | async as version">
+        version {{ version.version }}
+      </ng-container>
     </div>
   </div>
 

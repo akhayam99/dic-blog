@@ -1,15 +1,15 @@
 @import "../variables";
 
-@mixin title($size: 40px, $weight: 600, $style: "normal") {
+@mixin textStyle($size: 40px, $weight: 600, $style: normal) {
   font-size: $size;
   font-weight: $weight;
   font-style: $style;
 }
 
 @mixin button-as-white-link {
+  @include textStyle(14px, 400);
   background-color: unset;
   cursor: pointer;
-  font-size: 14px;
 
   &:hover {
     text-decoration: underline;

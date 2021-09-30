@@ -31,7 +31,7 @@
 
 @mixin box-header {
   border-bottom: 5px solid white;
-  @include title(20px, 600);
+  @include textStyle(20px, 600);
 }
 
 @mixin box-footer {
@@ -39,7 +39,7 @@
 }
 
 @mixin theme-background {
-  background: $main-color;
+  background: $mainColor;
   color: white;
 }
 

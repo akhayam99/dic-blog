@@ -1,0 +1,29 @@
+
+<ng-container *ngIf="page === 'login'">
+  <dicf-auth-form>
+    <div authTitle>
+      LOGIN
+    </div>
+    <div authBody>
+      <dicf-login></dicf-login>
+    </div>
+    <div authSwitch (click)="goToRegistration()">
+      Clicca qui per registrarti
+    </div>
+  </dicf-auth-form>
+</ng-container>
+
+
+<ng-container *ngIf="page === 'registration'">
+  <dicf-auth-form>
+    <div authTitle>
+      NEW USER
+    </div>
+    <div authBody>
+      <dicf-registration></dicf-registration>
+    </div>
+    <div authSwitch (click)="goToLogin()">
+      Clicca qui per loggarti
+    </div>
+  </dicf-auth-form>
+</ng-container>

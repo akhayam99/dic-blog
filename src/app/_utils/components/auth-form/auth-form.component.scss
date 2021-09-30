@@ -1,8 +1,7 @@
 @import "../../../../assets/css/mixins/index";
 
 :host {
-  @include centered-rows(80px, 100%);
-
+  @include grid-rows(120px 1fr 80px, 100%);
 
   .switch {
     @include box-border-top;
@@ -11,7 +10,7 @@
 
   .title {
     @include box-border-bottom;
-    @include title(25px);
+    @include textStyle(20px);
   }
 
 

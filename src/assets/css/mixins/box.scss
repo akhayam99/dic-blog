@@ -1,13 +1,13 @@
 @import "../variables";
 
 @mixin box-border-top {
-  border-top: 2px solid $contrast-color;
-  margin: 0px 20px;
+  border-top: 2px solid $contrastColor;
+  @include set-horizontal-margin();
 }
 
 @mixin box-border-bottom {
-  border-bottom: 2px solid $contrast-color;
-  margin: 0px 20px;
+  border-bottom: 2px solid $contrastColor;
+  @include set-horizontal-margin();
 }
 
 @mixin centered-rows($gap, $height) {
@@ -30,9 +30,19 @@
   height: $height;
 }
 
-@mixin content-center($textAlign: center) {
+@mixin content-center($align: center) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: $textAlign;
+  text-align: $align;
+}
+
+@mixin set-vertical-margin($value: 20px) {
+  margin-bottom: $value;
+  margin-top: $value;
+}
+
+@mixin set-horizontal-margin($value: 20px) {
+  margin-left: $value;
+  margin-right: $value;
 }

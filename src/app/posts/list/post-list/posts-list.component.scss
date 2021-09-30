@@ -22,10 +22,10 @@
       margin: 0 auto;
     }
     dicf-post:nth-child(odd) {
-      border-left: 3px solid $main-color;
+      border-left: 3px solid $mainColor;
     }
     dicf-post:nth-child(even) {
-      border-right: 3px solid $main-color;
+      border-right: 3px solid $mainColor;
     }
   }
 

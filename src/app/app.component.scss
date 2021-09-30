@@ -9,33 +9,27 @@
 
     .info {
       @include grid-rows(1fr 40px, 100%);
-      background-color: $main-color;
-
-      .content {
-        color: white;
-        @include content-center;
-      }
+      @include bgcolor-theme;
 
       .version {
-        @include content-center;
         @include box-border-top;
-
-        color: white;
+        @include content-center;
+        @include textStyle(14px, 400, italic);
       }
     }
 
     .body {
-      @include grid-rows($header_height 1fr, 100%);
+      @include grid-rows($headerHeight 1fr, 100%);
 
       .header {
         @include content-center;
         @include box-border-bottom;
 
         .title {
-          @include title;
+          @include textStyle;
         }
         .subtitle {
-          @include title(25px, 300, italic);
+          @include textStyle(25px, 300, italic);
         }
       }
     }

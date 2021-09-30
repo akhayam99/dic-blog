@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { NavToAuthLogin } from 'src/app/_utils/store';
 import { getRegistrationForm } from './registration.form.config';
 
 @Component({
@@ -13,7 +14,7 @@ export class RegistrationComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private store: Store) { }
 
   ngOnInit(): void {
     this.form = getRegistrationForm(this.fb);
@@ -22,7 +23,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit(): void {
     this.form.markAllAsTouched();
     if (this.form.valid)
-      this.router.navigate(['posts']);
+      this.store.dispatch(NavToAuthLogin());
   }
 
 }

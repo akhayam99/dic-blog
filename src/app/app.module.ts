@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthDescriptionModule } from './auth/auth-description/auth-description.module';
 import { LoginModule } from './auth/auth-login/login.module';
+import { RegistrationModule } from './auth/auth-registration/registration.module';
+import { AuthModule } from './auth/auth.module';
 import { AuthFormModule } from './_utils/components/auth-form/auth-form.module';
 import { ComponentsModule } from './_utils/components/components.module';
 import { UserModule } from './_utils/components/user/user.module';
@@ -27,6 +29,8 @@ const module = [
   BrowserModule,
   CommonModule,
   LoginModule,
+  RegistrationModule,
+  AuthModule,
   ComponentsModule,
   EffectsModule.forRoot(effects),
   HttpClientModule,

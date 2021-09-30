@@ -1,4 +1,4 @@
-@import "../../../../assets/css/mixins/commons";
+@import "../../../../assets/css/mixins/_index";
 
 :host {
   @include grid-rows(80px 1fr 120px, 100%);
