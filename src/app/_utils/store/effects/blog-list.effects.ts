@@ -18,7 +18,6 @@ export class BlogListEffects {
     ofType(LoadPosts),
     withLatestFrom(this.store.select(getUserData)),
     switchMap(([action, user]) => {
-      console.log("user",user);
       return this.postService.getList$().pipe(
         map(posts => LoadPostsSuccess({ posts })),
         catchError(error => of(LoadPostFailed(error)))

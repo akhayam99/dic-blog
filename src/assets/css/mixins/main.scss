@@ -1,0 +1,12 @@
+@import "../variables";
+
+@mixin blog-display {
+  display: block;
+  height: 100%;
+}
+
+@mixin blog-pagination {
+  height: $header_height;
+  color: $main-color;
+  border-bottom: 5px solid $main-color;
+}

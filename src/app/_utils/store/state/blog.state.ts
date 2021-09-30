@@ -25,8 +25,9 @@ export interface IBlogStateData {
 }
 
 export interface IBlogStateInfo {
-  versionInfo: VersionResponse,
+  activeURL: string,
   versionError: VersionError,
+  versionInfo: VersionResponse,
 }
 
 export interface IBlogStateDataList {

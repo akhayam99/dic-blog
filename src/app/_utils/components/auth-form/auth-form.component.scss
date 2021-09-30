@@ -1,20 +1,22 @@
+@import "../../../../assets/css/mixins/commons";
+
 :host {
-  display: grid;
-  grid-template-rows: 80px 1fr 80px;
-  height: 100%;
+  @include centered-rows(80px, 100%);
 
   .body {
     flex-direction: column;
+    background-color: $contrast-color;
+    color: white;
+    margin: 20px 20px;
   }
 
   .switch {
-    border-top: 5px solid white;
+    @include box-border-top;
   }
 
   .title {
-    border-bottom: 5px solid white;
-    font-size: 25px;
-    font-weight: 600;
+    @include box-border-bottom;
+    @include title(25px);
   }
 
   .switch,

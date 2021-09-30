@@ -1,23 +1,29 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromActions from "../actions";
+import { LoadActiveURL, LoadVersionFailed, LoadVersionSuccess } from '..';
 import { IBlogStateInfo } from '../state/blog.state';
 
 const initialState: IBlogStateInfo = {
+  activeURL: null,
   versionInfo: null,
   versionError: null,
 }
 
 export default createReducer(
   initialState,
-  on(fromActions.LoadVersionSuccess, (state, versionInfo) => ({
+  on(LoadVersionSuccess, (state, versionInfo) => ({
     ...state,
     versionInfo,
     versionError: null
   })),
-  on(fromActions.LoadVersionFailed, (state, versionError) => ({
+  on(LoadVersionFailed, (state, versionError) => ({
     ...state,
     versionInfo: null,
     versionError,
+  })),
+
+  on(LoadActiveURL, (state, {activeURL}) => ({
+    ...state,
+    activeURL,
   })),
 )
 

@@ -20,8 +20,10 @@ export class BlogNavigationEffects {
     filter((routerInfo: RouterNavigationAction) => {
       return routerInfo.payload.routerState.url === '/'
     }),
-    map(() => { this.router.navigate([`login`]); })
-  ), { dispatch: false });
+    map(() => {
+      return NavToAuthLogin();
+    })
+  ));
 
   NavToAuthLogin$ = createEffect(() => this.actions$.pipe(
     ofType(NavToAuthLogin),
@@ -93,4 +95,8 @@ export class BlogNavigationEffects {
 
 }
 
+
+function tap(arg0: void): import("rxjs").OperatorFunction<import("@ngrx/store").Action, import("@ngrx/store").Action> {
+  throw new Error("Function not implemented.");
+}
 

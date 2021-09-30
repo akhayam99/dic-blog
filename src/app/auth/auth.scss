@@ -1,7 +1,7 @@
 @import "../../assets/css/mixins/commons";
 
 :host {
-  @include grid-columns(1fr 350px 1fr, calc(100% - 160px - 80px));
+  @include grid-columns(350px 1fr, calc(100% - 120px));
 
   .auth-form {
     @include auth-form;
