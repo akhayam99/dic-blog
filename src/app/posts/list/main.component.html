@@ -1,16 +1,3 @@
-<div class="users">
-  <div class="title">
-    UTENTI
-  </div>
-
-  <div class="body">
-    <dicf-users-list (onUserClick)="onUserClick($event)" (onUserRemove)="onUserRemove()"></dicf-users-list>
-  </div>
-  <div class="search" *ngIf="activeUser$ | async as user;">
-    <dicf-search (onSearch)="onSearch($event)" [value]="''" [type]="'text'"></dicf-search>
-  </div>
-</div>
-
 
 <div class="posts">
   <div class="create">
@@ -23,5 +10,17 @@
   </div>
   <div class="list">
     <dicf-posts-list></dicf-posts-list>
+  </div>
+</div>
+
+<div class="users">
+  <div class="title">
+    UTENTI
+  </div>
+  <div class="body">
+    <dicf-users-list (onUserClick)="onUserClick($event)" (onUserRemove)="onUserRemove()"></dicf-users-list>
+  </div>
+  <div class="search" *ngIf="activeUser$ | async as user;">
+    <dicf-search (onSearch)="onSearch($event)" [value]="''" [type]="'text'"></dicf-search>
   </div>
 </div>

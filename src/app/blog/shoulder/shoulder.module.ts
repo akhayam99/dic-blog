@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { LoginModule } from 'src/app/auth/auth-login/login.module';
-import { RegistrationModule } from 'src/app/auth/auth-registration/registration.module';
-import { AuthModule } from 'src/app/auth/auth.module';
-import { UserModule } from 'src/app/_utils/components/user/user.module';
-import { ShoulderComponent } from './shoulder.component';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { UserModule } from "src/app/_utils/components/user/user.module";
+import { LoginModule } from "./auth/auth-login/login.module";
+import { RegistrationModule } from "./auth/auth-registration/registration.module";
+import { AuthModule } from "./auth/auth.module";
+import { ShoulderComponent } from "./shoulder.component";
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { IUser } from '../_utils/interfaces/IUser';
-import { Logout, NavToAuthLogin, NavToAuthRegistration } from '../_utils/store';
+import { Logout, NavToAuthLogin, NavToAuthRegistration } from 'src/app/_utils/store';
+import { IUser } from '../../../_utils/interfaces/IUser';
 
 @Component({
   selector: 'dicf-auth[page]',

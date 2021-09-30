@@ -1,37 +1,47 @@
 @import "../../../assets/css/mixins/_index";
 
 :host {
-  @include grid-columns(350px 1fr, calc(100% - 160px - 80px));
+  @include grid-columns(1fr 350px, 100%);
 
   .users {
-    @include box-on-header;
-    @include box-radius;
-    @include centered-rows(80px, calc(100% + 40px));
-    @include bgcolor-theme;
+    @include centered-rows(50px, calc(100% - $headerHeight));
 
     .body {
       cursor: pointer;
       overflow: auto;
+      padding: 20px;
     }
 
     .search {
-      @include box-footer;
       @include content-center;
+      @include theme-background;
     }
 
     .title {
-      @include box-header;
+      @include box-border-bottom;
       @include content-center;
+      @include textStyle(20px, 600);
+    }
+
+    .body,
+    .title {
+      @include text-color-theme;
     }
   }
 
-  .posts .create {
-    @include danger-button;
-    @include content-center;
+  .posts {
+    @include centered-rows(50px, calc(100% - $headerHeight));
+
+    .create {
+      @include danger-button;
+      @include content-center;
+    }
   }
 
   .posts,
   .users {
+    @include set-horizontal-margin;
+    @include set-vertical-margin;
     overflow: auto;
   }
 }
