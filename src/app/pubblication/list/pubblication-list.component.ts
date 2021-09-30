@@ -5,12 +5,12 @@ import { IUser } from 'src/app/_utils/interfaces/IUser';
 import { getUserData, LoadPostsFromUser, LoadUsersWithFilter, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
-  selector: 'dicf-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss'],
+  selector: 'dicf-pubblication-list',
+  templateUrl: './pubblication-list.component.html',
+  styleUrls: ['./pubblication-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainComponent implements OnInit {
+export class PubblicationListComponent implements OnInit {
 
   searchInput = "";
   activeUser$: Observable<IUser>

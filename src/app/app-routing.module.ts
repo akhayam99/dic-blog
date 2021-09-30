@@ -7,9 +7,9 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent, },
   { path: 'login', loadChildren: () => import('./blog/description/description.module').then(c => c.DescriptionModule) },
   { path: 'registration', loadChildren: () => import('./blog/description/description.module').then(c => c.DescriptionModule) },
-  { path: 'posts', loadChildren: () => import('./posts/list/main.module').then(c => c.MainModule) },
-  { path: 'posts/view/:id', loadChildren: () => import('./posts/detail/describe.module').then(c => c.DescribeModule) },
-  { path: 'posts/create', loadChildren: () => import('./posts/new-post/new-post.module').then(c => c.NewPostModule), canActivate: [AuthGuardService] },
+  { path: 'posts', loadChildren: () => import('./pubblication/list/pubblication-list.module').then(c => c.MainModule) },
+  { path: 'posts/view/:id', loadChildren: () => import('./pubblication/detail/describe.module').then(c => c.DescribeModule) },
+  { path: 'posts/create', loadChildren: () => import('./pubblication/new-post/new-post.module').then(c => c.NewPostModule), canActivate: [AuthGuardService] },
 ];
 
 @NgModule({
