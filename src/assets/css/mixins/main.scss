@@ -1,5 +1,14 @@
 @import "../variables";
 
+@mixin bgcolor-theme() {
+  background-color: $main-color;
+  color: white;
+}
+
+@mixin text-color-theme() {
+  color: $main-color;
+}
+
 @mixin blog-display {
   display: block;
   height: 100%;
@@ -8,5 +17,4 @@
 @mixin blog-pagination {
   height: $header_height;
   color: $main-color;
-  border-bottom: 5px solid $main-color;
 }

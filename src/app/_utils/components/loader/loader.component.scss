@@ -3,7 +3,7 @@
 :host {
   transform-origin: center;
   &.fa-green {
-    @include theme-color;
+    @include text-color-theme;
   }
   &.fa-white {
     color: white;

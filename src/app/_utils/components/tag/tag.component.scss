@@ -1,7 +1,7 @@
 @import "../../../../assets/css/mixins/commons";
 
 :host {
-  @include theme-bgcolor;
+  @include bgcolor-theme;
   border-radius: 10px;
   color: white;
   cursor: pointer;

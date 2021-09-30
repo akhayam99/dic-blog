@@ -1,0 +1,7 @@
+@import "../../../assets/css/mixins/_index";
+
+:host {
+  @include content-center(justify);
+  height: 100%;
+  margin: 0px 20px;
+}

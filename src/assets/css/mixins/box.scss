@@ -1,0 +1,38 @@
+@import "../variables";
+
+@mixin box-border-top {
+  border-top: 2px solid $contrast-color;
+  margin: 0px 20px;
+}
+
+@mixin box-border-bottom {
+  border-bottom: 2px solid $contrast-color;
+  margin: 0px 20px;
+}
+
+@mixin centered-rows($gap, $height) {
+  @include grid-rows($gap 1fr $gap, $height);
+}
+
+@mixin centered-column($gap, $height) {
+  @include grid-columns($gap 1fr $gap, $height);
+}
+
+@mixin grid-rows($template, $height) {
+  display: grid;
+  grid-template-rows: $template;
+  height: $height;
+}
+
+@mixin grid-columns($template, $height) {
+  display: grid;
+  grid-template-columns: $template;
+  height: $height;
+}
+
+@mixin content-center($textAlign: center) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: $textAlign;
+}

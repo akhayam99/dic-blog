@@ -9,6 +9,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthDescriptionModule } from './auth/auth-description/auth-description.module';
+import { LoginModule } from './auth/auth-login/login.module';
+import { AuthFormModule } from './_utils/components/auth-form/auth-form.module';
 import { ComponentsModule } from './_utils/components/components.module';
 import { UserModule } from './_utils/components/user/user.module';
 import { PostService } from './_utils/services/crud/post.service';
@@ -17,11 +20,13 @@ import { dataReducer, reducer } from './_utils/store/reducers';
 import { default as authReducer } from './_utils/store/reducers/blog-auth.reducers';
 import { default as infoReducer } from './_utils/store/reducers/blog-info.reducers';
 
-
 const module = [
+  AuthDescriptionModule,
+  AuthFormModule,
   AppRoutingModule,
   BrowserModule,
   CommonModule,
+  LoginModule,
   ComponentsModule,
   EffectsModule.forRoot(effects),
   HttpClientModule,

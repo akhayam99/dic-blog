@@ -1,17 +1,12 @@
-@import "../../../../assets/css/mixins/commons";
+@import "../../../../assets/css/mixins/index";
 
 :host {
   @include centered-rows(80px, 100%);
 
-  .body {
-    flex-direction: column;
-    background-color: $contrast-color;
-    color: white;
-    margin: 20px 20px;
-  }
 
   .switch {
     @include box-border-top;
+    @include button-as-white-link;
   }
 
   .title {
@@ -19,15 +14,11 @@
     @include title(25px);
   }
 
-  .switch,
-  .title {
-    align-items: center;
-  }
 
   .body,
   .switch,
   .title {
-    display: flex;
-    justify-content: center;
+    @include content-center;
+
   }
 }

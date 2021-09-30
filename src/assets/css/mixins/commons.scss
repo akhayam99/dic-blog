@@ -1,37 +1,17 @@
 @import "../variables";
 
-@mixin blog-hf($heigth) {
-  @include theme-background;
-  @include content-center;
-  height: $heigth;
-}
-
-@mixin grid-columns($template, $height) {
-  display: grid;
-  grid-template-columns: $template;
-  height: $height;
-}
-
-@mixin centered-column($gap, $height) {
-  @include grid-columns($gap 1fr $gap, $height);
-}
-
-@mixin grid-rows($template, $height) {
-  display: grid;
-  grid-template-rows: $template;
-  height: $height;
-}
-
-@mixin centered-rows($gap, $height) {
-  @include grid-rows($gap 1fr $gap, $height);
-}
-
 @mixin box-on-header($height: 0) {
   margin-top: -25px;
 
   @if ($height != 0) {
     height: $height;
   }
+}
+
+@mixin content-justify {
+  display: flex;
+  justify-content: center;
+  text-align: justify;
 }
 
 @mixin box-on-footer($height: 0) {
@@ -58,19 +38,6 @@
   border-top: 5px solid white;
 }
 
-@mixin content-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-@mixin content-justify {
-  display: flex;
-  justify-content: center;
-  text-align: justify;
-}
-
 @mixin theme-background {
   background: $main-color;
   color: white;
@@ -79,78 +46,4 @@
 @mixin box-radius {
   border-radius: 20px;
   border: 5px solid white;
-}
-
-@mixin title($size: 40px, $weight: 600, $style: "normal") {
-  font-size: $size;
-  font-weight: $weight;
-  font-style: $style;
-}
-
-@mixin theme-bgcolor() {
-  background-color: $main-color;
-  color: white;
-}
-
-@mixin theme-color() {
-  color: $main-color;
-}
-
-@mixin button-as-white-link {
-  background-color: unset;
-  border: 0px;
-  color: $main-color;
-  cursor: pointer;
-  font-size: 14px;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-@mixin auth-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0px 40px;
-  overflow: auto;
-  padding: 20px 0px;
-}
-
-
-@mixin auth-form {
-  color: $main-color;
-  button {
-    @include button-as-white-link;
-  }
-}
-
-@mixin form-input {
-  font-size: 14px;
-  font-weight: 800px;
-  margin: 5px;
-  text-align: center;
-
-  .label {
-    margin: 5px;
-  }
-}
-
-@mixin form-submit {
-  text-align: center;
-  padding: 10px;
-}
-
-
-
-
-
-
-@mixin box-border-top {
-  border-top: 2px solid $contrast-color;
-  margin: 0px 20px;
-}
-
-@mixin box-border-bottom {
-  border-bottom: 2px solid $contrast-color;
-  margin: 0px 20px;
 }

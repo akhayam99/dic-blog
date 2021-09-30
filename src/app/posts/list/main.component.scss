@@ -1,4 +1,4 @@
-@import "../../../assets/css/mixins/commons";
+@import "../../../assets/css/mixins/_index";
 
 :host {
   @include grid-columns(350px 1fr, calc(100% - 160px - 80px));
@@ -7,7 +7,7 @@
     @include box-on-header;
     @include box-radius;
     @include centered-rows(80px, calc(100% + 40px));
-    @include theme-bgcolor;
+    @include bgcolor-theme;
 
     .body {
       cursor: pointer;

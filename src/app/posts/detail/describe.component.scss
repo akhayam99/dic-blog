@@ -1,4 +1,4 @@
-@import "../../../assets/css/mixins/commons";
+@import "../../../assets/css/mixins/_index";
 
 :host {
   @include centered-column(350px, calc(100% - 160px - 80px));
@@ -11,7 +11,7 @@
   .interactions {
     @include box-on-header(calc(100% + 40px));
     @include box-radius;
-    @include theme-bgcolor;
+    @include bgcolor-theme;
   }
 
   .post {

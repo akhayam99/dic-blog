@@ -2,7 +2,19 @@
 
   <div class="info">
     <div class="content" *ngIf="activeURL$ | async as activeURL">
-      {{activeURL}}
+      <ng-container *ngIf="activeURL === '/login'">
+        <dicf-auth-form>
+          <div authTitle>
+            LOGIN
+          </div>
+          <div authBody>
+            <dicf-login></dicf-login>
+          </div>
+          <div authSwitch (click)="goToRegistration()">
+            Clicca qui per registrarti
+          </div>
+        </dicf-auth-form>
+      </ng-container>
     </div>
 
     <div class="version">
@@ -30,30 +42,8 @@
 
 
 
-<!-- <div class="header">
-  <div class="info">
-    ciaone
-  </div>
-  <div class="body">
-    <div class="title">
-      DIC <i class="fa fa-mars" aria-hidden="true"> </i> BLOG
-    </div>
-    <div class="subtitle">
-      Solo per amanti della F1
-    </div>
-  </div>
-</div>
-
-<router-outlet></router-outlet>
-
-<div class="footer">
-  <div class="title" *ngIf="version$ | async as version">
-    Versione: {{ version.version }}
-  </div>
-</div> -->
-
-
-<!-- <div class="info" *ngIf="showLogin$ | async">
+<!--
+<div class="info" *ngIf="showLogin$ | async">
   <ng-container *ngIf="user$ | async as user; else doLogin">
     <dicf-user [userName]="user.full_name"></dicf-user>
     <button (click)="doLogout()"> Logout </button>

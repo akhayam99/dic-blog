@@ -1,0 +1,17 @@
+@import "../variables";
+
+@mixin form-input {
+  font-size: 14px;
+  font-weight: 800px;
+  margin: 5px;
+  text-align: center;
+
+  .label {
+    margin: 5px;
+  }
+}
+
+@mixin form-submit {
+  text-align: center;
+  padding: 10px;
+}

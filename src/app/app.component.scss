@@ -42,42 +42,4 @@
 
   }
 
-
-
-
-
-  // .header {
-  //   @include blog-pagination;
-  //   @include grid-columns(350px 1fr, 100%);
-
-  //   .body {
-  //     .title {
-  //       @include title;
-  //     }
-  //     .subtitle {
-  //       @include title(25px, 300, italic);
-  //     }
-  //   }
-
-  //   .info {
-  //     button {
-  //       @include button-as-white-link;
-  //     }
-  //   }
-
-  //   .body,
-  //   .info {
-  //     @include content-center;
-  //   }
-  // }
-
-  // .footer {
-  //   @include blog-hf(80px);
-  //   text-align: right;
-  //   padding-right: 20px;
-
-  //   .title {
-  //     @include title(20px, 400);
-  //   }
-  // }
 }
