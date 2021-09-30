@@ -1,0 +1,12 @@
+@import "../../../assets/css/mixins/index";
+
+:host {
+  @include grid-rows(1fr 40px, 100%);
+  @include bgcolor-theme;
+
+  .version {
+    @include box-border-top;
+    @include content-center;
+    @include textStyle(14px, 400, italic);
+  }
+}

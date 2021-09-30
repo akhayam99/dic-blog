@@ -14,10 +14,6 @@
   height: 100%;
 }
 
-@mixin blog-pagination {
-  @include set-height;
-  color: $mainColor;
-}
 @mixin set-height($value: $headerHeight) {
   height: $value;
 }

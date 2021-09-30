@@ -1,39 +1,17 @@
 @import "../assets/css/mixins/index";
 
 :host {
-  @include blog-display;
+  @include grid-columns(350px 1fr, 100%);
+  @include text-color-theme;
 
-  .layout {
-    @include blog-pagination;
-    @include grid-columns(350px 1fr, 100%);
+  .body {
+    @include grid-rows($headerHeight 1fr, 100%);
+    overflow: auto;
 
-    .info {
-      @include grid-rows(1fr 40px, 100%);
-      @include bgcolor-theme;
-
-      .version {
-        @include box-border-top;
-        @include content-center;
-        @include textStyle(14px, 400, italic);
-      }
+    .content {
+      @include set-height(100%);
+      overflow: auto;
     }
-
-    .body {
-      @include grid-rows($headerHeight 1fr, 100%);
-
-      .header {
-        @include content-center;
-        @include box-border-bottom;
-
-        .title {
-          @include textStyle;
-        }
-        .subtitle {
-          @include textStyle(25px, 300, italic);
-        }
-      }
-    }
-
   }
 
 }

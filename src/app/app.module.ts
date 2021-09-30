@@ -9,9 +9,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthDescriptionModule } from './auth/auth-description/auth-description.module';
-import { AuthModule } from './auth/auth.module';
-import { UserModule } from './_utils/components/user/user.module';
+import { HeaderModule } from './blog/header/header.module';
+import { ShoulderModule } from './blog/shoulder/shoulder.module';
 import { PostService } from './_utils/services/crud/post.service';
 import { effects } from './_utils/store/effects';
 import { dataReducer, reducer } from './_utils/store/reducers';
@@ -19,7 +18,7 @@ import { default as authReducer } from './_utils/store/reducers/blog-auth.reduce
 import { default as infoReducer } from './_utils/store/reducers/blog-info.reducers';
 
 const ngrxModule = [
-  StoreRouterConnectingModule.forRoot(),
+  EffectsModule.forRoot(effects),
   StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   StoreDevtoolsModule.instrument({ name: `DIC Blog` }),
   StoreModule.forFeature('auth', authReducer),
@@ -35,6 +34,7 @@ const ngrxModule = [
       strictStateSerializability: false,
     },
   }),
+  StoreRouterConnectingModule.forRoot(),
   StoreRouterConnectingModule.forRoot({
     routerState: RouterState.Minimal,
   }),
@@ -42,13 +42,11 @@ const ngrxModule = [
 
 const standardModule = [
   AppRoutingModule,
-  AuthDescriptionModule,
-  AuthModule,
   BrowserModule,
   CommonModule,
-  EffectsModule.forRoot(effects),
+  HeaderModule,
   HttpClientModule,
-  UserModule,
+  ShoulderModule,
 ]
 
 @NgModule({

@@ -1,0 +1,26 @@
+<div class="content" *ngIf="activeURL$ | async as activeURL">
+
+  <ng-container *ngIf="!(activeUser$ | async)">
+    <ng-container *ngIf="activeURL === '/login'">
+      <dicf-auth [page]="'login'"></dicf-auth>
+    </ng-container>
+
+    <ng-container *ngIf="activeURL === '/registration'">
+      <dicf-auth [page]="'registration'"></dicf-auth>
+    </ng-container>
+
+    <ng-container *ngIf="activeURL !== '/login' && activeURL !== '/registration'">
+      <dicf-auth [page]="'anonymous'"></dicf-auth>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="(activeUser$ | async) as user">
+    <dicf-auth [page]="'logged'" [user]="user"></dicf-auth>
+  </ng-container>
+</div>
+
+<div class="version">
+  <ng-container *ngIf="version$ | async as version">
+    version {{ version.version }}
+  </ng-container>
+</div>

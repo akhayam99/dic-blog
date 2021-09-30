@@ -1,0 +1,13 @@
+@import "../../../assets/css/mixins/index";
+
+:host {
+  @include box-border-bottom;
+  @include content-center;
+
+  .title {
+    @include textStyle;
+  }
+  .subtitle {
+    @include textStyle(25px, 300, italic);
+  }
+}

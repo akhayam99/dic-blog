@@ -1,45 +1,8 @@
-<div class="layout">
+<dicf-shoulder></dicf-shoulder>
 
-  <div class="info">
-    <div *ngIf="activeURL$ | async as activeURL">
-      <ng-container *ngIf="activeURL === '/login'">
-        <dicf-auth [page]="'login'"></dicf-auth>
-      </ng-container>
-
-      <ng-container *ngIf="activeURL === '/registration'">
-        <dicf-auth [page]="'registration'"></dicf-auth>
-      </ng-container>
-
-      <!-- <ng-container *ngIf="activeURL !== '/login' && activeURL !== '/registration'">
-        <ng-container *ngIf="user$ | async as user; else doLogin">
-          <dicf-user [userName]="user.full_name"></dicf-user>
-          <button (click)="doLogout()"> Logout </button>
-        </ng-container>
-        <ng-template #doLogin>
-          <button (click)="goToLogin()"> Login </button>
-        </ng-template>
-      </ng-container> -->
-    </div>
-
-    <div class="version">
-      <ng-container *ngIf="version$ | async as version">
-        version {{ version.version }}
-      </ng-container>
-    </div>
+<div class="body">
+  <dicf-header></dicf-header>
+  <div class="content">
+    <router-outlet></router-outlet>
   </div>
-
-  <div class="body">
-    <div class="header">
-      <div class="title">
-        DIC <i class="fa fa-mars" aria-hidden="true"></i> BLOG
-      </div>
-      <div class="subtitle">
-        Solo per amanti della F1
-      </div>
-    </div>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-
 </div>

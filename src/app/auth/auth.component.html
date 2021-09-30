@@ -1,7 +1,9 @@
 <dicf-auth-form>
+
   <div authTitle>
-    {{ page === 'login' ? 'ACCEDI' : 'REGISTRATI' }}
+    {{ title }}
   </div>
+
   <div authBody>
     <ng-container *ngIf="page === 'login'">
       <dicf-login></dicf-login>
@@ -9,8 +11,13 @@
     <ng-container *ngIf="page === 'registration'">
       <dicf-registration></dicf-registration>
     </ng-container>
+    <ng-container *ngIf="page === 'logged'">
+      <dicf-user [userName]="user.full_name"></dicf-user>
+    </ng-container>
   </div>
-  <div authSwitch (click)="changeAuthPage()">
-    {{ page === 'login' ? 'Clicca qui per registrarti' : 'Clicca qui per loggarti' }}
+
+  <div authSwitch (click)="changeRoutingPage()">
+    {{ footer }}
   </div>
+
 </dicf-auth-form>
