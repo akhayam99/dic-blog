@@ -7,14 +7,6 @@
     <div class="list">
       <dicf-post *ngFor="let post of posts; let i = index" [post]='post' [summary]='true' (click)="goToPost(post.id)"></dicf-post>
     </div>
-
-    <div class="info">
-      <ng-container *ngIf="{ posts: postsCount$ | async, users: usersCount$ | async } as postInfo">
-        <ng-container *ngIf="postInfo.posts > 0">
-          Sono presenti {{ postInfo.posts }} post di {{ postInfo.users }} utenti unici
-        </ng-container>
-      </ng-container>
-    </div>
   </ng-container>
 
 </div>

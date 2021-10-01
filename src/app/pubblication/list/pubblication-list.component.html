@@ -4,15 +4,23 @@
   </div>
 
   <div class="body">
-    <div class="create" *ngIf="(activeUser$ | async) as user" (click)="createPost()">
+    <div class="button" *ngIf="(activeUser$ | async) as user" (click)="createPost()">
       Scrivi cazzate
     </div>
-    <div class="create" *ngIf="!(activeUser$ | async) as user" (click)="login()">
+    <div class="button" *ngIf="!(activeUser$ | async) as user" (click)="login()">
       Effettua il Login per poter scrivere cazzate
     </div>
     <div class="list">
       <dicf-posts-list></dicf-posts-list>
     </div>
+  </div>
+
+  <div class="info">
+    <ng-container *ngIf="{ posts: postsCount$ | async, users: usersCount$ | async } as postInfo">
+      <ng-container *ngIf="postInfo.posts > 0">
+        Sono presenti {{ postInfo.posts }} post di {{ postInfo.users }} utenti unici
+      </ng-container>
+    </ng-container>
   </div>
 </div>
 
@@ -20,10 +28,23 @@
   <div class="title">
     UTENTI
   </div>
+
   <div class="body">
-    <dicf-users-list (onUserClick)="onUserClick($event)" (onUserRemove)="onUserRemove()"></dicf-users-list>
+    <div class="button" *ngIf="(activeUser$ | async) as user" (click)="onUserRemove()">
+      <i class="fa fa-user-times fa-1x"></i>
+    </div>
+    <div class="button" *ngIf="!(activeUser$ | async) as user" (click)="onUserRemove()">
+      nessun utente selezionato
+    </div>
+    <div class="list">
+      <dicf-users-list (onUserClick)="onUserClick($event)"></dicf-users-list>
+    </div>
   </div>
-  <div class="search" *ngIf="activeUser$ | async as user;">
+
+  <!-- <div class="search" *ngIf="(activeUser$ | async) as user;">
+    <dicf-search (onSearch)="onSearch($event)" [value]="''" [type]="'text'"></dicf-search>
+  </div> -->
+  <div class="search">
     <dicf-search (onSearch)="onSearch($event)" [value]="''" [type]="'text'"></dicf-search>
   </div>
 </div>

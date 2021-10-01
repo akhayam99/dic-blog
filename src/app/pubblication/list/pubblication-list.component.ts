@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { getUserData, LoadPostsFromUser, LoadUsersWithFilter, NavToAuthLogin, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
+import { getPostsNumber, getPostsUniqueUsers, getUserData, LoadPostsFromUser, LoadUsersWithFilter, NavToAuthLogin, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-pubblication-list',
@@ -14,11 +14,15 @@ export class PubblicationListComponent implements OnInit {
 
   searchInput = "";
   activeUser$: Observable<IUser>
+  postsCount$: Observable<number>;
+  usersCount$: Observable<number>;
 
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.activeUser$ = this.store.select(getUserData)
+    this.activeUser$ = this.store.select(getUserData);
+    this.postsCount$ = this.store.select(getPostsNumber);
+    this.usersCount$ = this.store.select(getPostsUniqueUsers);
   }
 
   onUserClick(user: IUser): void {
@@ -34,12 +38,10 @@ export class PubblicationListComponent implements OnInit {
   }
 
   createPost(): void {
-    console.log("createPost")
     this.store.dispatch(NavToNewPost())
   }
 
   login(): void {
-    console.log("login")
     this.store.dispatch(NavToAuthLogin());
   }
 }

@@ -3,59 +3,47 @@
 :host {
   @include grid-columns(1fr 350px, 100%);
 
-  .users {
-    @include centered-rows(50px, calc(100% - $headerHeight));
-
-    .body {
-      cursor: pointer;
-      overflow: auto;
-      padding: 20px;
-    }
-
-    .search {
+  .posts {
+    .info {
+      @include textStyle(12px, 400);
       @include content-center;
-      @include theme-background;
-    }
-
-    .title {
-      @include box-border-bottom;
-      @include content-center;
-      @include textStyle(20px, 600);
-    }
-
-    .body,
-    .title {
-      @include text-color-theme;
     }
   }
 
-  .posts {
-    @include centered-rows(50px, calc(100% - $headerHeight));
-
-    .body {
-      cursor: pointer;
-      overflow: auto;
-
-      .create {
-        width: 200px;
-        @include danger-button;
-        @include content-center;
-      }
-    }
-
-    .title {
-      @include box-border-bottom;
+  .users {
+    .search {
       @include content-center;
-      @include textStyle(20px, 600);
+      @include bgcolor-contrast;
+      @include set-vertical-margin(5px);
     }
-
-
   }
 
   .posts,
   .users {
+    @include centered-rows(40px, 100%);
     @include set-horizontal-margin;
-    @include set-vertical-margin;
     overflow: auto;
+
+    .title {
+      @include content-center;
+      @include textStyle(16px, 600);
+    }
+
+    .body {
+      @include grid-rows(30px 1fr, calc(100%));
+      @include set-horizontal-padding;
+      overflow: auto;
+
+      .button {
+        @include content-center;
+        @include bgcolor-contrast;
+        cursor: pointer;
+      }
+
+      .list {
+        @include set-vertical-margin(10px);
+        overflow: auto;
+      }
+    }
   }
 }

@@ -5,6 +5,11 @@
   color: white;
 }
 
+@mixin bgcolor-contrast {
+  background-color: $contrastColor;
+  color: white;
+}
+
 @mixin text-color-theme() {
   color: $mainColor;
 }

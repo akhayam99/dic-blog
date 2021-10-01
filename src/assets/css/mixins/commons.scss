@@ -22,13 +22,6 @@
   }
 }
 
-@mixin danger-button {
-  background-color: $delete_button;
-  border: 5px solid white;
-  color: white;
-  cursor: pointer;
-}
-
 @mixin box-header {
   border-bottom: 5px solid white;
   @include textStyle(20px, 600);

@@ -46,3 +46,23 @@
   margin-left: $value;
   margin-right: $value;
 }
+
+@mixin set-margin($value: 20px) {
+  @include set-horizontal-margin($value);
+  @include set-vertical-margin($value);
+}
+
+@mixin set-vertical-padding($value: 20px) {
+  padding-bottom: $value;
+  padding-top: $value;
+}
+
+@mixin set-horizontal-padding($value: 20px) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin set-padding($value: 20px) {
+  @include set-horizontal-padding($value);
+  @include set-vertical-padding($value);
+}

@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
 import { VersionResponse } from 'src/app/_utils/services/api/info.service';
-import { getActiveURL, getShowLogin, getUserData, getVersion, Logout, NavToAuthLogin } from 'src/app/_utils/store';
+import { getActiveURL, getUserData, getVersion, Logout, NavToAuthLogin } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-shoulder',
@@ -15,7 +15,6 @@ export class ShoulderComponent implements OnInit {
 
   activeUser$: Observable<IUser>;
   activeURL$: Observable<string>;
-  showLogin$: Observable<boolean>;
   version$: Observable<VersionResponse>;
 
   constructor(private store: Store) { }
@@ -23,7 +22,6 @@ export class ShoulderComponent implements OnInit {
   ngOnInit(): void {
     this.activeUser$ = this.store.select(getUserData);
     this.activeURL$ = this.store.select(getActiveURL);
-    this.showLogin$ = this.store.select(getShowLogin);
     this.version$ = this.store.select(getVersion);
   }
 

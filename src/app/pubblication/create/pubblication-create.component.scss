@@ -28,7 +28,7 @@
 
     .back {
       height: 100%;
-      @include danger-button;
+      @include box-danger;
       @include box-on-footer;
       @include content-center;
     }

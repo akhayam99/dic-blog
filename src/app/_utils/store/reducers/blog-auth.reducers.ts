@@ -7,7 +7,6 @@ const initialState: IBlogStateAuth = {
   loginError: null,
   loginInfo: null,
   userData: null,
-  showLogin: false,
 }
 
 export default createReducer(
@@ -22,13 +21,11 @@ export default createReducer(
     ...state,
     logging: false,
     loginInfo,
-    showLogin: true,
   })),
   on(fromActions.LoginFailed, (state, loginError) => ({
     ...state,
     logging: false,
     loginError,
-    showLogin: false,
   })),
 
   on(fromActions.UserDataLoadSuccess, (state, userData) => ({
@@ -47,11 +44,9 @@ export default createReducer(
   on(fromActions.LogoutSuccess, (state) => ({
     ...state,
     userData: null,
-    showLogin: false,
   })),
   on(fromActions.LogoutFailed, (state) => ({
     ...state,
-    showLogin: true,
   })),
 )
 

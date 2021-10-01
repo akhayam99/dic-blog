@@ -16,7 +16,6 @@ export interface IBlogStateAuth {
   loginError: LoginError,
   loginInfo: LoginResponse,
   userData: any,
-  showLogin: boolean,
 }
 export interface IBlogStateData {
   list: IBlogStateDataList,

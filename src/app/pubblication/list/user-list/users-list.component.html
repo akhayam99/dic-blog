@@ -1,9 +1,6 @@
 <ng-container *ngIf="{ users: users$ | async, active: active_user$ | async, loader: loading$ | async } as data">
 
-  <div [ngClass]="{'grid-btn': data.active, 'grid-no-btn': !data.active}">
-    <div class="clear" *ngIf="data.active" (click)="userClicked(null, data.active)">
-      <i class="fa fa-user-times fa-1x"></i>
-    </div>
+
 
     <div class="loader" *ngIf="data.loader">
       <dicf-loader [big]="true" [white]="true"></dicf-loader>
@@ -12,8 +9,8 @@
     <div class="list">
       <dicf-user *ngFor="let user of data.users" [ngClass]="{'active': user.id === data.active?.id}"
         [userName]="user.full_name" [userMail]="user.email" [userAvatar]="user.avatar"
-        (click)="userClicked(user, data.active)"></dicf-user>
+        (click)="userClicked(user)"></dicf-user>
     </div>
-  </div>
+
 
 </ng-container>

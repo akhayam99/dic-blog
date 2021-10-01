@@ -17,7 +17,6 @@ export class UsersListComponent implements OnInit {
   loading$: Observable<boolean>;
   users$: Observable<IUser[]>;
   @Output() onUserClick = new EventEmitter<IUser>();
-  @Output() onUserRemove = new EventEmitter();
 
   constructor(private store: Store) { }
 
@@ -27,11 +26,8 @@ export class UsersListComponent implements OnInit {
     this.active_user$ = this.store.select(fromStore.getUser);
   }
 
-  userClicked(user: IUser, activeUser: IUser): void {
-    if (activeUser && activeUser.id === user?.id)
-      this.onUserRemove.emit();
-    else
-      this.onUserClick.emit(user);
+  userClicked(user: IUser): void {
+    this.onUserClick.emit(user);
   }
 
 }
