@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/_utils/interfaces/IUser';
-import { getUserData, LoadPostsFromUser, LoadUsersWithFilter, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
+import { getUserData, LoadPostsFromUser, LoadUsersWithFilter, NavToAuthLogin, NavToNewPost, UnsetPostsFromUser } from 'src/app/_utils/store';
 
 @Component({
   selector: 'dicf-pubblication-list',
@@ -33,7 +33,13 @@ export class PubblicationListComponent implements OnInit {
     this.store.dispatch(LoadUsersWithFilter({ filter }))
   }
 
-  goToNewPost(): void {
+  createPost(): void {
+    console.log("createPost")
     this.store.dispatch(NavToNewPost())
+  }
+
+  login(): void {
+    console.log("login")
+    this.store.dispatch(NavToAuthLogin());
   }
 }

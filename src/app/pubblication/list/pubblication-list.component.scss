@@ -32,10 +32,24 @@
   .posts {
     @include centered-rows(50px, calc(100% - $headerHeight));
 
-    .create {
-      @include danger-button;
-      @include content-center;
+    .body {
+      cursor: pointer;
+      overflow: auto;
+
+      .create {
+        width: 200px;
+        @include danger-button;
+        @include content-center;
+      }
     }
+
+    .title {
+      @include box-border-bottom;
+      @include content-center;
+      @include textStyle(20px, 600);
+    }
+
+
   }
 
   .posts,

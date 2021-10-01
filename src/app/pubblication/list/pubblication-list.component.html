@@ -1,15 +1,18 @@
-
 <div class="posts">
-  <div class="create">
-    <ng-container *ngIf="activeUser$ | async as user; else anonymous">
-      Crea un post :)
-    </ng-container>
-    <ng-template #anonymous>
-      Effettua il Login per scrivere un post
-    </ng-template>
+  <div class="title">
+    PUBBLICAZIONI
   </div>
-  <div class="list">
-    <dicf-posts-list></dicf-posts-list>
+
+  <div class="body">
+    <div class="create" *ngIf="(activeUser$ | async) as user" (click)="createPost()">
+      Scrivi cazzate
+    </div>
+    <div class="create" *ngIf="!(activeUser$ | async) as user" (click)="login()">
+      Effettua il Login per poter scrivere cazzate
+    </div>
+    <div class="list">
+      <dicf-posts-list></dicf-posts-list>
+    </div>
   </div>
 </div>
 

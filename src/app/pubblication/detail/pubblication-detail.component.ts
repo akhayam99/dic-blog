@@ -8,12 +8,12 @@ import * as fromStore from 'src/app/_utils/store';
 import { NavToPosts } from 'src/app/_utils/store';
 
 @Component({
-  selector: 'dicf-describe',
-  templateUrl: './describe.component.html',
-  styleUrls: ['./describe.component.scss'],
+  selector: 'dicf-pubblication-detail',
+  templateUrl: './pubblication-detail.component.html',
+  styleUrls: ['./pubblication-detail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DescribeComponent implements OnInit {
+export class PubblicationDetailComponent implements OnInit {
 
   activeUser$: Observable<IUser>;
   loading$: Observable<boolean>;

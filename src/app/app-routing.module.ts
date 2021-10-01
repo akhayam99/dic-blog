@@ -8,8 +8,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./blog/description/description.module').then(c => c.DescriptionModule) },
   { path: 'registration', loadChildren: () => import('./blog/description/description.module').then(c => c.DescriptionModule) },
   { path: 'posts', loadChildren: () => import('./pubblication/list/pubblication-list.module').then(c => c.MainModule) },
-  { path: 'posts/view/:id', loadChildren: () => import('./pubblication/detail/describe.module').then(c => c.DescribeModule) },
-  { path: 'posts/create', loadChildren: () => import('./pubblication/new-post/new-post.module').then(c => c.NewPostModule), canActivate: [AuthGuardService] },
+  { path: 'posts/view/:id', loadChildren: () => import('./pubblication/detail/pubblication-detail.module').then(c => c.PubblicationDetail) },
+  { path: 'posts/create', loadChildren: () => import('./pubblication/create/pubblication-create.module').then(c => c.PubblicationCreateModule), canActivate: [AuthGuardService] },
 ];
 
 @NgModule({
