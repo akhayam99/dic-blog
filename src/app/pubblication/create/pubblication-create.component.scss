@@ -28,7 +28,7 @@
 
     .back {
       height: 100%;
-      @include box-danger;
+      background-color: red;
       @include box-on-footer;
       @include content-center;
     }
