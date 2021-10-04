@@ -2,8 +2,9 @@
 
 :host {
   transform-origin: center;
-  &.fa-green {
-    @include text-color-theme;
+
+  &.fa-theme {
+    @include color-theme;
   }
   &.fa-white {
     color: white;

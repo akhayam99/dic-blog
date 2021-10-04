@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { Register } from 'src/app/_utils/store';
+import { Observable } from 'rxjs';
+import { getRegisterLoader, Register } from 'src/app/_utils/store';
 import { getRegistrationForm } from './registration.form.config';
 
 @Component({
@@ -12,12 +13,14 @@ import { getRegistrationForm } from './registration.form.config';
 })
 export class RegistrationComponent implements OnInit {
 
+  loading$: Observable<boolean>;
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private store: Store) { }
 
   ngOnInit(): void {
     this.form = getRegistrationForm(this.fb);
+    this.loading$ = this.store.select(getRegisterLoader)
   }
 
   onSubmit(): void {

@@ -1,6 +1,6 @@
 <div *ngIf="posts$ | async as posts">
   <div class="loader">
-    <dicf-loader [big]="true" [green]="true" *ngIf="loading$ | async"></dicf-loader>
+    <dicf-loader [big]="true" [theme]="true" *ngIf="loading$ | async"></dicf-loader>
   </div>
 
   <ng-container *ngIf="!(loading$ | async)">

@@ -1,13 +1,10 @@
-@import "../../../../../assets/css/variables";
+@import "../../../../../assets/css/mixins/index";
 
 :host {
   button {
-    background-color: white;
-    border: 0px;
+    @include textStyle(12px, 600);
     border-radius: 5px;
-    color: black;
-    font-size: 12px;
-    font-weight: 600;
+    border: 0px;
     height: 20px;
     min-width: 30%;
 

@@ -40,7 +40,9 @@
   </div>
 
   <div class="submit">
-    <dicf-submit [text]="'Registrati'"></dicf-submit>
+    <div class="submit">
+      <dicf-submit [text]="'Registrati'" [loading]="loading$ | async"></dicf-submit>
+    </div>
     <dicf-errors [errors]="form.touched ? form.errors : null"></dicf-errors>
   </div>
 

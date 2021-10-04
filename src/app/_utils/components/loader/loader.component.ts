@@ -9,6 +9,6 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
 export class LoaderComponent {
   @HostBinding('class') classes = 'fa fa-spinner fa-spin';
   @HostBinding('class.fa-5x') @Input() big: boolean;
-  @HostBinding('class.fa-green') @Input() green: boolean;
+  @HostBinding('class.fa-theme') @Input() theme: boolean;
   @HostBinding('class.fa-white') @Input() white: boolean;
 }

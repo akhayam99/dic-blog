@@ -2,7 +2,7 @@
 
 :host {
   @include grid-columns(350px 1fr, 100%);
-  @include text-color-theme;
+  @include color-theme;
 
   .body {
     @include grid-rows($headerHeight 1fr, 100%);

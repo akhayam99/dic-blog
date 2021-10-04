@@ -10,7 +10,12 @@
   color: white;
 }
 
-@mixin text-color-theme() {
+@mixin bgcolor-white {
+  background-color: white;
+  color: $mainColor;
+}
+
+@mixin color-theme() {
   color: $mainColor;
 }
 
