@@ -12,9 +12,10 @@ export interface IBlogState {
 }
 
 export interface IBlogStateAuth {
-  logging: boolean,
   loginError: LoginError,
   loginInfo: LoginResponse,
+  loginLoader: boolean,
+  logoutLoader: boolean,
   userData: any,
 }
 export interface IBlogStateData {

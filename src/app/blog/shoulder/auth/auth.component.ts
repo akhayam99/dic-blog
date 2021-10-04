@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Logout, NavToAuthLogin, NavToAuthRegistration } from 'src/app/_utils/store';
+import { Observable } from 'rxjs';
+import { getLogoutLoader, Logout, NavToAuthLogin, NavToAuthRegistration } from 'src/app/_utils/store';
 import { IUser } from '../../../_utils/interfaces/IUser';
 
 @Component({
@@ -12,6 +13,7 @@ export class AuthComponent implements OnInit {
   @Input() page: 'login' | 'registration' | 'anonymous' | 'logged';
   @Input() user: IUser;
 
+  logoutLoader$: Observable<boolean>;
   footer: string = '';
   title: string = '';
 
@@ -20,6 +22,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
     this.title = this.getTitle();
     this.footer = this.getFooter();
+    this.logoutLoader$ = this.store.select(getLogoutLoader);
   }
 
   getTitle(): string {

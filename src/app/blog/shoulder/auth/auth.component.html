@@ -17,7 +17,12 @@
   </div>
 
   <div authSwitch (click)="changeRoutingPage()">
-    {{ footer }}
+    <ng-container *ngIf="logoutLoader$ | async; else showText">
+      <dicf-loader [white]="true"></dicf-loader>
+    </ng-container>
+    <ng-template #showText>
+      {{ footer }}
+    </ng-template>
   </div>
 
 </dicf-auth-form>

@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { Login, LoginFailed, LoginSuccess, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from '..';
+import { Login, LoginFailed, LoginSuccess, Logout, LogoutFailed, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from '..';
 import { IBlogStateAuth } from '../state/blog.state';
 
 const initialState: IBlogStateAuth = {
-  logging: false,
   loginError: null,
   loginInfo: null,
+  loginLoader: false,
+  logoutLoader: false,
   userData: null,
 }
 
@@ -14,18 +15,33 @@ export default createReducer(
 
   on(Login, (state) => ({
     ...state,
-    logging: true,
+    loginLoader: true,
     loginError: null,
   })),
   on(LoginSuccess, (state, loginInfo) => ({
     ...state,
-    logging: false,
+    loginLoader: false,
     loginInfo,
   })),
   on(LoginFailed, (state, loginError) => ({
     ...state,
-    logging: false,
+    loginLoader: false,
     loginError,
+  })),
+
+  on(Logout, (state) => ({
+    ...state,
+    logoutLoader: true,
+  })),
+  on(LogoutSuccess, (state) => ({
+    ...state,
+    loginInfo: null,
+    logoutLoader: false,
+    userData: null,
+  })),
+  on(LogoutFailed, (state) => ({
+    ...state,
+    logoutLoader: false,
   })),
 
   on(UserDataLoadSuccess, (state, userData) => ({
@@ -34,12 +50,6 @@ export default createReducer(
   })),
   on(UserDataLoadFailed, (state) => ({
     ...state,
-    userData: null,
-  })),
-
-  on(LogoutSuccess, (state) => ({
-    ...state,
-    loginInfo: null,
     userData: null,
   })),
 )

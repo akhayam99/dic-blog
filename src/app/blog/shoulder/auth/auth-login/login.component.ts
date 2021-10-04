@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = getLoginForm(this.fb);
-    this.loading$ = this.store.select(fromStore.getLogging);
+    this.loading$ = this.store.select(fromStore.getLoginLoader);
     this.errors$ = this.store.select(fromStore.getLoginError);
   }
 
