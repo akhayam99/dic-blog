@@ -1,10 +1,18 @@
 <form [formGroup]="form" (submit)="onSubmit()">
   <div class="input">
     <div class="label">
-      Username <i class="fa fa-user" aria-hidden="true"></i>
+      Nome <i class="fa fa-user" aria-hidden="true"></i>
     </div>
-    <dicf-input [formControlName]="'username'"
-      [errors]="form.get('username').touched ? form.get('username').errors : null"></dicf-input>
+    <dicf-input [formControlName]="'first_name'"
+      [errors]="form.get('first_name').touched ? form.get('first_name').errors : null"></dicf-input>
+  </div>
+
+  <div class="input">
+    <div class="label">
+      Cognome <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+    <dicf-input [formControlName]="'last_name'"
+      [errors]="form.get('last_name').touched ? form.get('last_name').errors : null"></dicf-input>
   </div>
 
   <div class="input">
