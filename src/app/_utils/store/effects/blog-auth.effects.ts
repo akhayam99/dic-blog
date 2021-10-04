@@ -4,8 +4,9 @@ import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, map, switchMap } from "rxjs/operators";
-import { Login, LoginFailed, LoginSuccess, Logout, LogoutFailed, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from "..";
+import { Login, LoginFailed, LoginSuccess, Logout, LogoutFailed, LogoutSuccess, Register, RegisterFailed, RegisterSuccess, UserDataLoadFailed, UserDataLoadSuccess } from "..";
 import { LoginError, LoginResponse, LoginService } from "../../services/auth/login.service";
+import { RegisterError, RegisterResponse, RegisterService } from "../../services/auth/register.service";
 
 @Injectable()
 export class BlogAuthEffects {
@@ -13,6 +14,7 @@ export class BlogAuthEffects {
     private actions$: Actions,
     private router: Router,
     private loginService: LoginService,
+    private registerService: RegisterService,
   ) { }
 
   Login$ = createEffect(() => this.actions$.pipe(
@@ -25,12 +27,17 @@ export class BlogAuthEffects {
     }),
   ));
 
-  Logout$ = createEffect(() => this.actions$.pipe(
-    ofType(Logout),
-    map(() => { this.router.navigate([`login`]); })
-  ), { dispatch: false });
+  Register$ = createEffect(() => this.actions$.pipe(
+    ofType(Register),
+    switchMap(({ email, first_name, last_name, password }) => {
+      return this.registerService.register$({ email, first_name, last_name, password }).pipe(
+        map((resp: RegisterResponse) => RegisterSuccess(resp)),
+        catchError((error: { error: RegisterError }) => of(RegisterFailed(error.error)))
+      )
+    }),
+  ));
 
-  Logout2$ = createEffect(() => this.actions$.pipe(
+  Logout$ = createEffect(() => this.actions$.pipe(
     ofType(Logout),
     switchMap(() => {
       return this.loginService.logout$().pipe(

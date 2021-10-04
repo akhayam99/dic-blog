@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { NavToAuthLogin } from 'src/app/_utils/store';
+import { Register } from 'src/app/_utils/store';
 import { getRegistrationForm } from './registration.form.config';
 
 @Component({
@@ -22,8 +22,10 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(): void {
     this.form.markAllAsTouched();
-    if (this.form.valid)
-      this.store.dispatch(NavToAuthLogin());
+    if (this.form.valid) {
+      const { email, first_name, last_name, password } = this.form.value;
+      this.store.dispatch(Register({ email, first_name, last_name, password }));
+    }
   }
 
 }

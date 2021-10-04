@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromActions from "../actions";
+import { Login, LoginFailed, LoginSuccess, LogoutFailed, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from '..';
 import { IBlogStateAuth } from '../state/blog.state';
 
 const initialState: IBlogStateAuth = {
@@ -12,40 +12,37 @@ const initialState: IBlogStateAuth = {
 export default createReducer(
   initialState,
 
-  on(fromActions.Login, (state) => ({
+  on(Login, (state) => ({
     ...state,
     logging: true,
     loginError: null,
   })),
-  on(fromActions.LoginSuccess, (state, loginInfo) => ({
+  on(LoginSuccess, (state, loginInfo) => ({
     ...state,
     logging: false,
     loginInfo,
   })),
-  on(fromActions.LoginFailed, (state, loginError) => ({
+  on(LoginFailed, (state, loginError) => ({
     ...state,
     logging: false,
     loginError,
   })),
 
-  on(fromActions.UserDataLoadSuccess, (state, userData) => ({
+  on(UserDataLoadSuccess, (state, userData) => ({
     ...state,
     userData,
   })),
-  on(fromActions.UserDataLoadFailed, (state) => ({
+  on(UserDataLoadFailed, (state) => ({
     ...state,
     userData: null,
   })),
 
-  on(fromActions.Logout, (state) => ({
+  on(LogoutSuccess, (state) => ({
     ...state,
+    loginInfo: null,
     userData: null,
   })),
-  on(fromActions.LogoutSuccess, (state) => ({
-    ...state,
-    userData: null,
-  })),
-  on(fromActions.LogoutFailed, (state) => ({
+  on(LogoutFailed, (state) => ({
     ...state,
   })),
 )

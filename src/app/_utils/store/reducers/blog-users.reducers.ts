@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromActions from "../actions";
+import { LoadUsers, LoadUsersFailed, LoadUsersSuccess, LogoutSuccess } from '..';
 import { IBlogStateDataUsers } from '../state/blog.state';
 
 const initialState: IBlogStateDataUsers = {
@@ -9,19 +9,24 @@ const initialState: IBlogStateDataUsers = {
 
 export default createReducer(
   initialState,
-  on(fromActions.LoadUsers, state => ({
+  on(LoadUsers, state => ({
     ...state,
     users: [],
     loading: true,
   })),
-  on(fromActions.LoadUsersSuccess, (state, {users}) => ({
+  on(LoadUsersSuccess, (state, {users}) => ({
     ...state,
     users,
     loading: false,
   })),
-  on(fromActions.LoadUsersFailed, state => ({
+  on(LoadUsersFailed, state => ({
     ...state,
     users: [],
     loading: false,
+  })),
+
+  on(LogoutSuccess, (state) => ({
+    ...state,
+    users: null,
   })),
 )

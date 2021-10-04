@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromActions from "../actions";
+import { LoadPosts, LoadPostsAfterNavigation, LoadPostsAfterNavigationFailed, LoadPostsAfterNavigationSuccess, LoadPostsFailed, LoadPostsFromUser, LoadPostsFromUserFailed, LoadPostsFromUserSuccess, LoadPostsSuccess, LogoutSuccess, UnsetPostsFromUser } from '..';
 import { IBlogStateDataList } from '../state/blog.state';
 
 const initialState: IBlogStateDataList = {
@@ -10,53 +10,59 @@ const initialState: IBlogStateDataList = {
 
 export default createReducer(
   initialState,
-  on(fromActions.LoadPosts, state => ({
+  on(LoadPosts, state => ({
     ...state,
     loading: true
   })),
-  on(fromActions.LoadPostsSuccess, (state, { posts }) => ({
+  on(LoadPostsSuccess, (state, { posts }) => ({
     ...state,
     posts,
     loading: false
   })),
-  on(fromActions.LoadPostsFailed, (state) => ({
+  on(LoadPostsFailed, (state) => ({
     ...state,
     posts: [],
     loading: false
   })),
 
-  on(fromActions.LoadPostsFromUser, (state, { user }) => ({
+  on(LoadPostsFromUser, (state, { user }) => ({
     ...state,
     user,
   })),
-  on(fromActions.LoadPostsFromUserSuccess, (state, { posts }) => ({
+  on(LoadPostsFromUserSuccess, (state, { posts }) => ({
     ...state,
     posts,
     loading: false,
   })),
-  on(fromActions.LoadPostsFromUserFailed, (state) => ({
+  on(LoadPostsFromUserFailed, (state) => ({
     ...state,
     posts: [],
     loading: false,
   })),
 
-  on(fromActions.LoadPostsAfterNavigation, state => ({
+  on(LoadPostsAfterNavigation, state => ({
     ...state,
     loading: true
   })),
-  on(fromActions.LoadPostsAfterNavigationSuccess, (state, { posts }) => ({
+  on(LoadPostsAfterNavigationSuccess, (state, { posts }) => ({
     ...state,
     posts,
     loading: false
   })),
-  on(fromActions.LoadPostsAfterNavigationFailed, (state) => ({
+  on(LoadPostsAfterNavigationFailed, (state) => ({
     ...state,
     posts: [],
     loading: false
   })),
 
-  on(fromActions.UnsetPostsFromUser, (state) => ({
+  on(UnsetPostsFromUser, (state) => ({
     ...state,
+    user: null,
+  })),
+
+  on(LogoutSuccess, (state) => ({
+    ...state,
+    posts: [],
     user: null,
   })),
 )

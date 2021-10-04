@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { RouterNavigationAction, ROUTER_NAVIGATION } from "@ngrx/router-store";
 import { filter, map } from "rxjs/operators";
-import { LoadPost, LoadPostsAfterNavigation, LoadUsers, LoginSuccess, NavToAuthLogin, NavToAuthRegistration, NavToNewPost, NavToPostDetail, NavToPosts } from "..";
+import { LoadPost, LoadPostsAfterNavigation, LoadUsers, LoginSuccess, LogoutSuccess, NavToAuthLogin, NavToAuthRegistration, NavToNewPost, NavToPostDetail, NavToPosts, RegisterSuccess } from "..";
 
 
 @Injectable()
@@ -27,6 +27,18 @@ export class BlogNavigationEffects {
 
   NavToAuthLogin$ = createEffect(() => this.actions$.pipe(
     ofType(NavToAuthLogin),
+    map(() => {
+      this.router.navigate([`login`]);
+    }),
+  ), { dispatch: false });
+
+  NavToAuthLoginAfterLogout$ = createEffect(() => this.actions$.pipe(
+    ofType(LogoutSuccess),
+    map(() => { this.router.navigate([`login`]); })
+  ), { dispatch: false });
+
+  NavToAuthLoginAfterRegistrer$ = createEffect(() => this.actions$.pipe(
+    ofType(RegisterSuccess),
     map(() => {
       this.router.navigate([`login`]);
     }),

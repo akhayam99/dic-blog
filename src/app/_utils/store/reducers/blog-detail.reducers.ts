@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import * as fromActions from "../actions";
+import { LoadComments, LoadCommentsFailed, LoadCommentsSuccess, LoadPost, LoadPostFailed, LoadPostSuccess, LogoutSuccess } from '../actions';
 import { IBlogStateDataDetail } from '../state/blog.state';
 
 const initialState: IBlogStateDataDetail = {
@@ -11,35 +11,43 @@ const initialState: IBlogStateDataDetail = {
 
 export default createReducer(
   initialState,
-  on(fromActions.LoadPost, (state, {post_id}) => ({
+  on(LoadPost, (state, {post_id}) => ({
     ...state,
     comments: [],
     loading: true,
     post_id,
     post: null,
   })),
-  on(fromActions.LoadPostSuccess, (state, {post}) => ({
+  on(LoadPostSuccess, (state, {post}) => ({
     ...state,
     loading: false,
     post,
   })),
-  on(fromActions.LoadPostFailed, (state) => ({
+  on(LoadPostFailed, (state) => ({
     ...state,
     loading: false,
     posts: [],
   })),
 
-  on(fromActions.LoadComments, state => ({
+  on(LoadComments, state => ({
     ...state,
     comments: [],
   })),
-  on(fromActions.LoadCommentsSuccess, (state, {comments}) => ({
+  on(LoadCommentsSuccess, (state, {comments}) => ({
     ...state,
     comments,
   })),
-  on(fromActions.LoadCommentsFailed, (state) => ({
+  on(LoadCommentsFailed, (state) => ({
     ...state,
     comments: [],
+  })),
+
+  on(LogoutSuccess, (state) => ({
+    ...state,
+    comments: [],
+    loading: false,
+    post_id: null,
+    post: null,
   })),
 )
 
