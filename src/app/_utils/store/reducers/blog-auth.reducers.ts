@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Login, LoginFailed, LoginSuccess, LogoutFailed, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from '..';
+import { Login, LoginFailed, LoginSuccess, LogoutSuccess, UserDataLoadFailed, UserDataLoadSuccess } from '..';
 import { IBlogStateAuth } from '../state/blog.state';
 
 const initialState: IBlogStateAuth = {
@@ -41,9 +41,6 @@ export default createReducer(
     ...state,
     loginInfo: null,
     userData: null,
-  })),
-  on(LogoutFailed, (state) => ({
-    ...state,
   })),
 )
 
